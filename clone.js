@@ -90,7 +90,7 @@ const fetch_datalist = async (url, args) => {
             const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
             const book_data = await fetch_resource(LessonBook, book_args, data.classid, 'POST')
             const book_source_json = await fetch_resource(BookSource, { bookid: book_data.data }, book_data.data, 'POST')
-            const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), Array.isArray(_.get(book_source_json, 'data.source')) ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value)
+            const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), _.get(book_source_json, 'data.source.map') ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value)
             for (const book_source of book_source_list) {
                 const url = new URL(book_source, cloud_base)
                 const resp = await fetch(url)
@@ -122,7 +122,7 @@ const fetch_datalist = async (url, args) => {
                     if (part.partid) {
                         const exam_part_json = await fetch_resource(ExamPart, { part_id: part.partid }, part.partid, 'POST')
                         for (const question of exam_part_json.data.questions) {
-                            const fetch_list = [question.audio, question.pic ? question.pic.split(';') : null, question.pic_show].flat().filter(value => value)
+                            const fetch_list = [question.audio, _.get(question, 'pic.split') ? question.pic.split(';') : null, question.pic_show].flat().filter(value => value)
                             for (const source of fetch_list) {
                                 const resp = await fetch(new URL(source, source_base))
                                 const data = await resp.arrayBuffer()
