@@ -1,6 +1,7 @@
 import mysql from 'mysql2/promise'
 import fs from 'fs'
 import path from 'path'
+import _ from 'lodash'
 
 const db = mysql.createPool({
     host: '127.0.0.1',
@@ -62,26 +63,6 @@ const fetch_datalist = async (url, args) => {
     if (json.datalist) {
         json.datalist = Array.prototype.slice.call(json.datalist)
         for (const data of json.datalist) {
-            const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
-            const book_data = await fetch_resource(LessonBook, book_args, data.classid, 'POST')
-            const book_source_json = await fetch_resource(BookSource, { bookid: book_data.data }, book_data.data, 'POST')
-            const book_source_list = [book_source_json.data.user_img, book_source_json.data.book_info.rcover, book_source_json.data.source.map(value => [value.pageimg, value.pageaudio])].flat(2).filter(value => value)
-            for (const book_source of book_source_list) {
-                const url = new URL(book_source, cloud_base)
-                const resp = await fetch(url)
-                const data = await resp.arrayBuffer()
-                console.log(`write cover ${url.pathname}`)
-                pre_mkdir(path.join('static', url.pathname))
-                fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
-                    if (err) {
-                        console.log(err)
-                    }
-                    else {
-                        console.log(`cover ${url.pathname} written`)
-                    }
-                })
-            }
-
             for (const key of Object.keys(data)) {
                 const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
                 if (!exists[0].length) {
@@ -105,6 +86,27 @@ const fetch_datalist = async (url, args) => {
                 console.log(`lessonid ${data.lessonid} done`)
                 continue
             }
+
+            const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
+            const book_data = await fetch_resource(LessonBook, book_args, data.classid, 'POST')
+            const book_source_json = await fetch_resource(BookSource, { bookid: book_data.data }, book_data.data, 'POST')
+            const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), Array.isArray(_.get(book_source_json, 'data.source')) ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value)
+            for (const book_source of book_source_list) {
+                const url = new URL(book_source, cloud_base)
+                const resp = await fetch(url)
+                const data = await resp.arrayBuffer()
+                console.log(`write cover ${url.pathname}`)
+                pre_mkdir(path.join('static', url.pathname))
+                fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                    else {
+                        console.log(`cover ${url.pathname} written`)
+                    }
+                })
+            }
+
             await db.query(`insert into ${table} set ?`, data).catch((err) => {
                 console.log(err.sqlMessage)
                 // console.log(err)
