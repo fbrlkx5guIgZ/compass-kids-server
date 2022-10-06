@@ -65,9 +65,15 @@ app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
     res.send(jsonfy(single_array))
 })
 
-// app.post('/app/Lesson/getLessonBook', (req, res) => {
-//     res.sendFile(path.resolve('app/Lesson/getLessonBook', req.body.lessonno))
-// })
+app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
+    const single_array = (await db.query(`select * from ${req.table} where id=${req.body.classid}`))[0]
+    res.send(jsonfy(single_array))
+})
+
+app.post('Vapp/Book/getBookSource', async (req, res) => {
+    const single_array = (await db.query(`select * from ${req.table} where id=${req.body.bookid}`))[0]
+    res.send(jsonfy(single_array))
+})
 
 app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
     const single_array = (await db.query(`select * from ${req.table} where id=${req.body.part_id}`))[0]
