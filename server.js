@@ -91,7 +91,7 @@ app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
 })
 
 app.post('/book/Book/addReadingAction', (req, res) => {
-    res.send({ code: 400 })
+    res.send({ code: 200 })
 })
 
 app.post('/Vapp/Book/isCollection', (req, res) => {
