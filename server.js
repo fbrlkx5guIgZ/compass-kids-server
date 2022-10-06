@@ -70,7 +70,7 @@ app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
     res.send(jsonfy(single_array))
 })
 
-app.post('Vapp/Book/getBookSource', async (req, res) => {
+app.post('/Vapp/Book/getBookSource', async (req, res) => {
     const single_array = (await db.query(`select * from ${req.table} where id=${req.body.bookid}`))[0]
     res.send(jsonfy(single_array))
 })
