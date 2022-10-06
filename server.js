@@ -91,14 +91,14 @@ app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
 })
 
 app.post('/Vbook/Book/addReadingAction', (req, res) => {
+    res.send({ code: 400 })
+})
+
+app.post('/Vapp/Book/isCollection', (req, res) => {
     res.send({ code: 200 })
 })
 
 app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
-    res.send({ code: 200 })
-})
-
-app.get('/Vbook/Book/addReadingAction', (req, res) => {
     res.send({ code: 200 })
 })
 
