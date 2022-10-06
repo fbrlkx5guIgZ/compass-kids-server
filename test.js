@@ -1,24 +1,14 @@
-import mysql from 'mysql2'
-const db = mysql.createPool({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'REDACTED_DB_PASSWORD',
-    database: 'compass_kids'
+const resp = await fetch("https://www.ebanxue.com/Vapp/Book/getBookSource", {
+  "headers": {
+    "accept": "*/*",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded",
+    "pragma": "no-cache"
+  },
+  "referrer": "https://servicewechat.com/wx0a18859ca67ace5a/devtools/page-frame.html",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "bookid=1682",
+  "method": "POST",
+  "mode": "cors"
 })
-
-const db_callback = (affectedRows) => {
-    return new Function('err', 'result', `
-        if (err) {
-            console.log('err: ' + err.message)
-        }
-        else{
-            console.log(result.affectedRows == ${affectedRows})
-        }
-    `)
-}
-db.query('select 1 where not exists(SELECT * FROM information_schema.tables where table_name="my_table")', (err, result) => {
-    if (err) {
-        console.log(err)
-    }
-    console.log(result)
-})
+console.log(resp.status)
