@@ -85,6 +85,10 @@ app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
     res.send(jsonfy(single_array))
 })
 
+app.post('/Vbook/Book/addReadingAction', (req, res) => {
+    res.send({ code: 200 })
+})
+
 app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
     res.send({ code: 200 })
 })
