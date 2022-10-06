@@ -76,7 +76,7 @@ app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
 // })
 
 app.post('/Vapp/Book/getBookSource', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id<${req.body.bookid} order by id limit 1`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id<${req.body.bookid} order by id desc limit 1`))[0]
     res.send(jsonfy(single_array))
 })
 
