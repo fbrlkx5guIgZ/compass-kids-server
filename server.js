@@ -98,6 +98,10 @@ app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
     res.send({ code: 200 })
 })
 
+app.get('/Vbook/Book/addReadingAction', (req, res) => {
+    res.send({ code: 200 })
+})
+
 app.get('/Vapp/index/getIndexData', (req, res) => {
     res.sendFile(path.resolve('Vapp/index/getIndexData' + '.json'))
 })
