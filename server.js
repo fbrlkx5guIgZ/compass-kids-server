@@ -43,21 +43,21 @@ app.get('/', (req, res) => {
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const pre_datalist = (await db.query(`select * from ${req.table}`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: 200 })
+    res.send({ datalist, status: '200' })
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const page = req.query.page ? req.query.page : 1
     const pre_datalist = (await db.query(`select * from ${req.table} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: 200 })
+    res.send({ datalist, status: '200' })
 })
 
 app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
     const page = req.query.page ? req.query.page : 1
     const pre_datalist = (await db.query(`select * from ${req.table} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: 200, intenum: '4' })
+    res.send({ datalist, status: '200', intenum: '4' })
 })
 
 app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
@@ -91,15 +91,15 @@ app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
 })
 
 app.post('/book/Book/addReadingAction', (req, res) => {
-    res.send({ code: 200 })
+    res.send({ code: '200' })
 })
 
 app.post('/Vapp/Book/isCollection', (req, res) => {
-    res.send({ code: 200 })
+    res.send({ code: '200' })
 })
 
 app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
-    res.send({ code: 200 })
+    res.send({ code: '200' })
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
