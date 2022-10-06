@@ -31,6 +31,8 @@ const jsonfy = (json_array) => {
     }
 }
 
+const where = 'where classgroupid'
+
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
     req.table = req.path.split('/').filter(value => value).join('_')
@@ -42,14 +44,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
-    const pre_datalist = (await db.query(`select * from ${req.table}`))[0]
+    const pre_datalist = (await db.query(`select * from ${req.table} ${where}`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: '200' })
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const page = req.query.page ? req.query.page : 1
-    const pre_datalist = (await db.query(`select * from ${req.table} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
+    const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: '200' })
 })
