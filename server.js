@@ -62,32 +62,32 @@ app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
 })
 
 app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${_.get(req, 'body.lessonid') ? req.body.lessonid : 0}${_.get(req, 'body.lessontype') ? req.body.lessontype : 0}`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.lessonid')) ? req.body.lessonid : 0}${/^\d+$/.test(_.get(req, 'body.lessontype')) ? req.body.lessontype : 0}`))[0]
     res.send(jsonfy(single_array))
 })
 
 app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${_.get(req, 'body.classid') ? req.body.classid : 0}`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.classid')) ? req.body.classid : 0}`))[0]
     res.send(jsonfy(single_array))
 })
 
 // app.post('/Vapp/Book/getBookSource', async (req, res) => {
-//     const single_array = (await db.query(`select * from ${req.table} where id=${_.get(req, 'body.bookid') ? req.body.bookid : 0}`))[0]
+//     const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.bookid') ? req.body.bookid : 0}`))[0]
 //     res.send(jsonfy(single_array))
 // })
 
 app.post('/Vapp/Book/getBookSource', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id<${_.get(req, 'body.bookid') ? req.body.bookid : 0} order by id desc limit 1`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id<${/^\d+$/.test(_.get(req, 'body.bookid')) ? req.body.bookid : 0} order by id desc limit 1`))[0]
     res.send(jsonfy(single_array))
 })
 
 app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${_.get(req, 'body.part_id') ? req.body.part_id : 0}`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.part_id')) ? req.body.part_id : 0}`))[0]
     res.send(jsonfy(single_array))
 })
 
 app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${_.get(req, 'query.lessonid') ? req.query.lessonid : 0}`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'query.lessonid')) ? req.query.lessonid : 0}`))[0]
     res.send(jsonfy(single_array))
 })
 
