@@ -57,7 +57,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
 })
 
 app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
-    const page = req.query.page ? req.query.page : 1
+    const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     const pre_datalist = (await db.query(`select * from ${req.table} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: '200', intenum: '4' })
