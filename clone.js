@@ -76,8 +76,12 @@ const fetch_datalist = async (url, args) => {
                         await db.query(`alter table ${table} add \`${key}\` text`)
                     }
                 }
-                if (typeof data[key] != 'number' && typeof data[key] != 'string') {
-                    data[key] = JSON.stringify(json[key])
+
+                if (typeof data[key] != 'number' && typeof data[key] != 'string' && data[key] != null) {
+                    data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, 'http://www.compass-kids.com/')
+                }
+                else if (typeof data[key] == 'string') {
+                    data[key] = data[key].replace(/https?:\/\/.+?\//g, 'http:\/\/www.compass-kids.com/')
                 }
             }
 
@@ -89,23 +93,6 @@ const fetch_datalist = async (url, args) => {
 
             const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
             const book_data = await fetch_resource(LessonBook, book_args, data.classid, 'POST')
-            const book_source_json = await fetch_resource(BookSource, { bookid: book_data.data }, book_data.data, 'POST')
-            const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), _.get(book_source_json, 'data.source.map') ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value)
-            for (const book_source of book_source_list) {
-                const url = new URL(book_source, cloud_base)
-                const resp = await fetch(url)
-                const data = await resp.arrayBuffer()
-                console.log(`write cover ${url.pathname}`)
-                pre_mkdir(path.join('static', url.pathname))
-                fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
-                    if (err) {
-                        console.log(err)
-                    }
-                    else {
-                        console.log(`cover ${url.pathname} written`)
-                    }
-                })
-            }
 
             await db.query(`insert into ${table} set ?`, data).catch((err) => {
                 console.log(err.sqlMessage)
@@ -118,6 +105,7 @@ const fetch_datalist = async (url, args) => {
                 const args = { classtype: data.classtype, classlevel: data.classlevel, lessontype, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, lessonid: data.lessonid, userid }
                 const json = await fetch_resource(PrereviewResource, args, `${data.lessonid}${lessontype}`, 'POST')
                 console.log(data.lessonid)
+
                 for (const part of json.data.partList) {
                     if (part.partid) {
                         const exam_part_json = await fetch_resource(ExamPart, { part_id: part.partid }, part.partid, 'POST')
@@ -137,6 +125,25 @@ const fetch_datalist = async (url, args) => {
                                     }
                                 })
                             }
+                        }
+                    }
+                    if (part.bookid) {
+                        const book_source_json = await fetch_resource(BookSource, { bookid: part.bookid }, part.bookid, 'POST')
+                        const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), _.get(book_source_json, 'data.source.map') ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value)
+                        for (const book_source of book_source_list) {
+                            const url = new URL(book_source, cloud_base)
+                            const resp = await fetch(url)
+                            const data = await resp.arrayBuffer()
+                            console.log(`write cover ${url.pathname}`)
+                            pre_mkdir(path.join('static', url.pathname))
+                            fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
+                                if (err) {
+                                    console.log(err)
+                                }
+                                else {
+                                    console.log(`cover ${url.pathname} written`)
+                                }
+                            })
                         }
                     }
                 }
@@ -186,8 +193,12 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
                 await db.query(`alter table ${table} add \`${key}\` text`)
             }
         }
-        if (typeof json[key] != 'number' && typeof json[key] != 'string') {
-            json[key] = JSON.stringify(json[key])
+
+        if (typeof json[key] != 'number' && typeof json[key] != 'string' && json[key] != null) {
+            json[key] = JSON.stringify(json[key]).replace(/https?:\/\/.+?\//g, 'http://www.compass-kids.com/')
+        }
+        else if (typeof json[key] == 'string') {
+            json[key] = json[key].replace(/https?:\/\/.+?\//g, 'http://www.compass-kids.com/')
         }
     }
     json.id = id
@@ -207,14 +218,14 @@ for (const userid of user_list) {
         const url = new URL(cover, cloud_base)
         const resp = await fetch(url)
         const data = await resp.arrayBuffer()
-        console.log(`write cover ${url.pathname}`)
+        // console.log(`write cover ${url.pathname}`)
         pre_mkdir(path.join('static', url.pathname))
         fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
             if (err) {
                 console.log(err)
             }
             else {
-                console.log(`cover ${url.pathname} written`)
+                // console.log(`cover ${url.pathname} written`)
             }
         })
     }
