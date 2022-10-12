@@ -92,7 +92,7 @@ const fetch_datalist = async (url, args) => {
             }
 
             const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
-            const book_data = await fetch_resource(LessonBook, book_args, data.classid, 'POST')
+            await fetch_resource(LessonBook, book_args, data.classid, 'POST')
 
             await db.query(`insert into ${table} set ?`, data).catch((err) => {
                 console.log(err.sqlMessage)
