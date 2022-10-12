@@ -114,14 +114,14 @@ const fetch_datalist = async (url, args) => {
                             for (const source of fetch_list) {
                                 const resp = await fetch(new URL(source, source_base))
                                 const data = await resp.arrayBuffer()
-                                console.log(`write source ${source}`)
+                                // console.log(`write source ${source}`)
                                 pre_mkdir(path.resolve('static', source))
                                 fs.writeFile(path.resolve('static', source), Buffer.from(data), (err) => {
                                     if (err) {
                                         console.log(err)
                                     }
                                     else {
-                                        console.log(`source ${source} written`)
+                                        // console.log(`source ${source} written`)
                                     }
                                 })
                             }
@@ -141,7 +141,7 @@ const fetch_datalist = async (url, args) => {
                                     console.log(err)
                                 }
                                 else {
-                                    console.log(`cover ${url.pathname} written`)
+                                    // console.log(`cover ${url.pathname} written`)
                                 }
                             })
                         }
