@@ -134,7 +134,7 @@ const fetch_datalist = async (url, args) => {
                             const url = new URL(book_source, cloud_base)
                             const resp = await fetch(url)
                             const data = await resp.arrayBuffer()
-                            console.log(`write cover ${url.pathname}`)
+                            // console.log(`write cover ${url.pathname}`)
                             pre_mkdir(path.join('static', url.pathname))
                             fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
                                 if (err) {
