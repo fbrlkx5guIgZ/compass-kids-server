@@ -81,7 +81,7 @@ const fetch_datalist = async (url, args) => {
                     data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, '')
                 }
                 else if (typeof data[key] == 'string') {
-                    data[key] = data[key].replace(/https?:\/\/.+?\//g, 'http:\/\/www.compass-kids.com/')
+                    data[key] = data[key].replace(/https?:\/\/.+?\//g, '')
                 }
             }
 
