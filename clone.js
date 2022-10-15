@@ -24,7 +24,7 @@ const LessonBook = 'Vapp/Lesson/getLessonBook'
 const BookSource = 'Vapp/Book/getBookSource'
 
 const sessionid = 75399
-const user_list = [56150, 23305, 55311]
+const user_list = [56150, 23305, 55311, 29329]
 
 const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
 const pre_mkdir = (pth) => {
@@ -78,7 +78,7 @@ const fetch_datalist = async (url, args) => {
                 }
 
                 if (typeof data[key] != 'number' && typeof data[key] != 'string' && data[key] != null) {
-                    data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, 'http://www.compass-kids.com/')
+                    data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, '')
                 }
                 else if (typeof data[key] == 'string') {
                     data[key] = data[key].replace(/https?:\/\/.+?\//g, 'http:\/\/www.compass-kids.com/')
@@ -112,11 +112,12 @@ const fetch_datalist = async (url, args) => {
                         for (const question of exam_part_json.data.questions) {
                             const fetch_list = [question.audio, _.get(question, 'pic.split') ? question.pic.split(';') : null, question.pic_show].flat().filter(value => value)
                             for (const source of fetch_list) {
-                                const resp = await fetch(new URL(source, source_base))
+                                const url = new URL(source, source_base)
+                                const resp = await fetch(url)
                                 const data = await resp.arrayBuffer()
                                 // console.log(`write source ${source}`)
-                                pre_mkdir(path.resolve('static', source))
-                                fs.writeFile(path.resolve('static', source), Buffer.from(data), (err) => {
+                                pre_mkdir(path.join('static', decodeURI(url.pathname)))
+                                fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
                                     if (err) {
                                         console.log(err)
                                     }
@@ -129,19 +130,19 @@ const fetch_datalist = async (url, args) => {
                     }
                     if (part.bookid) {
                         const book_source_json = await fetch_resource(BookSource, { bookid: part.bookid }, part.bookid, 'POST')
-                        const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), _.get(book_source_json, 'data.source.map') ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value)
+                        const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), _.get(book_source_json, 'data.source.map') ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value).map(value => decodeURI(value))
                         for (const book_source of book_source_list) {
                             const url = new URL(book_source, cloud_base)
                             const resp = await fetch(url)
                             const data = await resp.arrayBuffer()
-                            // console.log(`write cover ${url.pathname}`)
-                            pre_mkdir(path.join('static', url.pathname))
-                            fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
+                            // console.log(`write cover ${decodeURI(url.pathname)}`)
+                            pre_mkdir(path.join('static', decodeURI(url.pathname)))
+                            fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
                                 if (err) {
                                     console.log(err)
                                 }
                                 else {
-                                    // console.log(`cover ${url.pathname} written`)
+                                    // console.log(`cover ${decodeURI(url.pathname)} written`)
                                 }
                             })
                         }
@@ -195,10 +196,10 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
         }
 
         if (typeof json[key] != 'number' && typeof json[key] != 'string' && json[key] != null) {
-            json[key] = JSON.stringify(json[key]).replace(/https?:\/\/.+?\//g, 'http://www.compass-kids.com/')
+            json[key] = JSON.stringify(json[key]).replace(/https?:\/\/.+?\//g, '')
         }
         else if (typeof json[key] == 'string') {
-            json[key] = json[key].replace(/https?:\/\/.+?\//g, 'http://www.compass-kids.com/')
+            json[key] = json[key].replace(/https?:\/\/.+?\//g, '')
         }
     }
     json.id = id
@@ -213,19 +214,19 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
 for (const userid of user_list) {
     const start_list_json = await fetch_datalist(StartLessonList, { sessionid, userid });
     const end_list_json = await fetch_datalist(EndLessonList, { sessionid, userid });
-    const cover_list = [].concat(start_list_json, end_list_json).map(value => value.lessoncover).filter(value => value)
+    const cover_list = [].concat(start_list_json, end_list_json).map(value => value.lessoncover).filter(value => value).map(value => decodeURI(value))
     for (const cover of cover_list) {
         const url = new URL(cover, cloud_base)
         const resp = await fetch(url)
         const data = await resp.arrayBuffer()
-        // console.log(`write cover ${url.pathname}`)
-        pre_mkdir(path.join('static', url.pathname))
-        fs.writeFile(path.join('static', url.pathname), Buffer.from(data), (err) => {
+        // console.log(`write cover ${decodeURI(url.pathname)}`)
+        pre_mkdir(path.join('static', decodeURI(url.pathname)))
+        fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
             if (err) {
                 console.log(err)
             }
             else {
-                // console.log(`cover ${url.pathname} written`)
+                // console.log(`cover ${decodeURI(url.pathname)} written`)
             }
         })
     }
