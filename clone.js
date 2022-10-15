@@ -26,7 +26,7 @@ const BookSource = 'Vapp/Book/getBookSource'
 const sessionid = 75399
 const user_list = [56150, 23305, 55311, 29329]
 
-const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : '\/'
+const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
 const pre_mkdir = (pth) => {
     const dirname = path.dirname(pth)
     if (!fs.existsSync(dirname)) {
