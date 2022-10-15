@@ -26,7 +26,7 @@ const BookSource = 'Vapp/Book/getBookSource'
 const sessionid = 75399
 const user_list = [56150, 23305, 55311, 29329]
 
-const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
+const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : '\/'
 const pre_mkdir = (pth) => {
     const dirname = path.dirname(pth)
     if (!fs.existsSync(dirname)) {
@@ -78,10 +78,10 @@ const fetch_datalist = async (url, args) => {
                 }
 
                 if (typeof data[key] != 'number' && typeof data[key] != 'string' && data[key] != null) {
-                    data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, '')
+                    data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, '\/')
                 }
                 else if (typeof data[key] == 'string') {
-                    data[key] = data[key].replace(/https?:\/\/.+?\//g, '')
+                    data[key] = data[key].replace(/https?:\/\/.+?\//g, '\/')
                 }
             }
 
@@ -196,10 +196,10 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
         }
 
         if (typeof json[key] != 'number' && typeof json[key] != 'string' && json[key] != null) {
-            json[key] = JSON.stringify(json[key]).replace(/https?:\/\/.+?\//g, '')
+            json[key] = JSON.stringify(json[key]).replace(/https?:\/\/.+?\//g, '\/')
         }
         else if (typeof json[key] == 'string') {
-            json[key] = json[key].replace(/https?:\/\/.+?\//g, '')
+            json[key] = json[key].replace(/https?:\/\/.+?\//g, '\/')
         }
     }
     json.id = id
