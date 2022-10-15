@@ -73,15 +73,15 @@ app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
     res.send(jsonfy(single_array))
 })
 
-// app.post('/Vapp/Book/getBookSource', async (req, res) => {
-//     const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.bookid') ? req.body.bookid : 0}`))[0]
-//     res.send(jsonfy(single_array))
-// })
-
 app.post('/Vapp/Book/getBookSource', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id<${/^\d+$/.test(_.get(req, 'body.bookid')) ? req.body.bookid : 0} order by id desc limit 1`))[0]
+    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.bookid')) ? req.body.bookid : 0}`))[0]
     res.send(jsonfy(single_array))
 })
+
+// app.post('/Vapp/Book/getBookSource', async (req, res) => {
+//     const single_array = (await db.query(`select * from ${req.table} where id<${/^\d+$/.test(_.get(req, 'body.bookid')) ? req.body.bookid : 0} order by id desc limit 1`))[0]
+//     res.send(jsonfy(single_array))
+// })
 
 app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
     const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.part_id')) ? req.body.part_id : 0}`))[0]
