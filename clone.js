@@ -6,7 +6,8 @@ import fetch from 'node-fetch'
 import https from 'https'
 
 https.globalAgent = new https.Agent({
-    timeout: 5000
+    timeout: 5000,
+    maxTotalSockets: 10
 })
 
 const db = mysql.createPool({
