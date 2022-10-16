@@ -2,7 +2,12 @@ import mysql from 'mysql2/promise'
 import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
-import axios from 'axios'
+import fetch from 'node-fetch'
+import https from 'https'
+
+https.globalAgent = new https.Agent({
+    timeout: 5000
+})
 
 const db = mysql.createPool({
     host: '127.0.0.1',
@@ -27,14 +32,6 @@ const BookSource = 'Vapp/Book/getBookSource'
 const sessionid = 75399
 const user_list = [56150, 23305, 55311, 29329]
 
-axios.interceptors.response.use(function (response) {
-    // 2xx 范围内的状态码都会触发该函数。
-    // 对响应数据做点什么
-    return response;
-}, function (error) {
-    return error.response
-});
-
 const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
 const to_url = (url, base) => {
     try {
@@ -48,9 +45,9 @@ const to_url = (url, base) => {
 const save_static = async (fetch_list, base) => {
     for (const source of fetch_list) {
         const url = to_url(source, base)
-        const resp = await axios(url.toString(), { responseType: 'arraybuffer' })
+        const resp = await fetch(url)
         if (resp.status == 200) {
-            const data = resp.data
+            const data = await resp.arrayBuffer()
             // console.log(`write source ${url}`)
             pre_mkdir(path.join('static', decodeURI(url.pathname)))
             fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
@@ -79,8 +76,8 @@ const pre_mkdir = (pth) => {
 const pre_fetch = async (url, args) => {
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
-    const resp = await axios(full_url.toString())
-    const json = resp.data
+    const resp = await fetch(full_url)
+    const json = await resp.json()
     if (json.intenum) {
         return json.intenum
     }
@@ -99,8 +96,8 @@ const fetch_datalist = async (url, args) => {
 
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
-    const resp = await axios(full_url.toString())
-    const json = resp.data
+    const resp = await fetch(full_url)
+    const json = await resp.json()
     if (json.datalist) {
         json.datalist = Array.prototype.slice.call(json.datalist)
         for (const data of json.datalist) {
@@ -186,13 +183,13 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
             Xweb_xhr: "1"
         }
         full_url = to_url(url, base)
-        resp = await axios(full_url.toString(), { method, data: para, headers })
+        resp = await fetch(full_url, { method, body: para, headers })
     }
     else {
         full_url = to_url(url + '?' + para, base)
-        resp = await axios(full_url.toString())
+        resp = await fetch(full_url)
     }
-    const json = resp.data
+    const json = await resp.json()
     const raw_json = Object.assign({}, json)
     for (const key of Object.keys(json)) {
         const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
