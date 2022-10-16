@@ -2,6 +2,7 @@ import mysql from 'mysql2/promise'
 import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
+import axios from 'axios'
 
 const db = mysql.createPool({
     host: '127.0.0.1',
@@ -26,7 +27,47 @@ const BookSource = 'Vapp/Book/getBookSource'
 const sessionid = 75399
 const user_list = [56150, 23305, 55311, 29329]
 
+axios.interceptors.response.use(function (response) {
+    // 2xx 范围内的状态码都会触发该函数。
+    // 对响应数据做点什么
+    return response;
+}, function (error) {
+    return error.response
+});
+
 const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
+const to_url = (url, base) => {
+    try {
+        return new URL(url)
+    }
+    catch (error) {
+        return new URL(url, base)
+    }
+}
+
+const save_static = async (fetch_list, base) => {
+    for (const source of fetch_list) {
+        const url = to_url(source, base)
+        const resp = await axios(url.toString(), { responseType: 'arraybuffer' })
+        if (resp.status == 200) {
+            const data = resp.data
+            // console.log(`write source ${url}`)
+            pre_mkdir(path.join('static', decodeURI(url.pathname)))
+            fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    // console.log(`source ${url} written`)
+                }
+            })
+        }
+        else {
+            console.log(`source ${url} failed with status ${resp.status}`)
+        }
+    }
+}
+
 const pre_mkdir = (pth) => {
     const dirname = path.dirname(pth)
     if (!fs.existsSync(dirname)) {
@@ -37,9 +78,9 @@ const pre_mkdir = (pth) => {
 
 const pre_fetch = async (url, args) => {
     const para = url_encode(args)
-    const full_url = new URL(url + '?' + para, base)
-    const resp = await fetch(full_url)
-    const json = await resp.json()
+    const full_url = to_url(url + '?' + para, base)
+    const resp = await axios(full_url.toString())
+    const json = resp.data
     if (json.intenum) {
         return json.intenum
     }
@@ -57,9 +98,9 @@ const fetch_datalist = async (url, args) => {
 
 
     const para = url_encode(args)
-    const full_url = new URL(url + '?' + para, base)
-    const resp = await fetch(full_url)
-    const json = await resp.json()
+    const full_url = to_url(url + '?' + para, base)
+    const resp = await axios(full_url.toString())
+    const json = resp.data
     if (json.datalist) {
         json.datalist = Array.prototype.slice.call(json.datalist)
         for (const data of json.datalist) {
@@ -111,41 +152,13 @@ const fetch_datalist = async (url, args) => {
                         const exam_part_json = await fetch_resource(ExamPart, { part_id: part.partid }, part.partid, 'POST')
                         for (const question of exam_part_json.data.questions) {
                             const fetch_list = [question.audio, _.get(question, 'pic.split') ? question.pic.split(';') : null, question.pic_show].flat().filter(value => value)
-                            for (const source of fetch_list) {
-                                const url = new URL(source, source_base)
-                                const resp = await fetch(url)
-                                const data = await resp.arrayBuffer()
-                                // console.log(`write source ${source}`)
-                                pre_mkdir(path.join('static', decodeURI(url.pathname)))
-                                fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
-                                    if (err) {
-                                        console.log(err)
-                                    }
-                                    else {
-                                        // console.log(`source ${source} written`)
-                                    }
-                                })
-                            }
+                            save_static(fetch_list, source_base)
                         }
                     }
                     if (part.bookid) {
                         const book_source_json = await fetch_resource(BookSource, { bookid: part.bookid }, part.bookid, 'POST')
                         const book_source_list = [_.get(book_source_json, 'data.user_img'), _.get(book_source_json, 'data.book_info.rcover'), _.get(book_source_json, 'data.source.map') ? book_source_json.data.source.map(value => [value.pageimg, value.pageaudio]) : null].flat(2).filter(value => value).map(value => decodeURI(value))
-                        for (const book_source of book_source_list) {
-                            const url = new URL(book_source, cloud_base)
-                            const resp = await fetch(url)
-                            const data = await resp.arrayBuffer()
-                            // console.log(`write cover ${decodeURI(url.pathname)}`)
-                            pre_mkdir(path.join('static', decodeURI(url.pathname)))
-                            fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
-                                if (err) {
-                                    console.log(err)
-                                }
-                                else {
-                                    // console.log(`cover ${decodeURI(url.pathname)} written`)
-                                }
-                            })
-                        }
+                        save_static(book_source_list, cloud_base)
                     }
                 }
             }
@@ -172,14 +185,14 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
             "Sec-Fetch-Site": "cross-site",
             Xweb_xhr: "1"
         }
-        full_url = new URL(url, base)
-        resp = await fetch(full_url, { method, body: para, headers })
+        full_url = to_url(url, base)
+        resp = await axios(full_url.toString(), { method, data: para, headers })
     }
     else {
-        full_url = new URL(url + '?' + para, base)
-        resp = await fetch(full_url)
+        full_url = to_url(url + '?' + para, base)
+        resp = await axios(full_url.toString())
     }
-    const json = await resp.json()
+    const json = resp.data
     const raw_json = Object.assign({}, json)
     for (const key of Object.keys(json)) {
         const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
@@ -215,21 +228,7 @@ for (const userid of user_list) {
     const start_list_json = await fetch_datalist(StartLessonList, { sessionid, userid });
     const end_list_json = await fetch_datalist(EndLessonList, { sessionid, userid });
     const cover_list = [].concat(start_list_json, end_list_json).map(value => value.lessoncover).filter(value => value).map(value => decodeURI(value))
-    for (const cover of cover_list) {
-        const url = new URL(cover, cloud_base)
-        const resp = await fetch(url)
-        const data = await resp.arrayBuffer()
-        // console.log(`write cover ${decodeURI(url.pathname)}`)
-        pre_mkdir(path.join('static', decodeURI(url.pathname)))
-        fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
-            if (err) {
-                console.log(err)
-            }
-            else {
-                // console.log(`cover ${decodeURI(url.pathname)} written`)
-            }
-        })
-    }
+    save_static(cover_list, cloud_base)
     const page = await pre_fetch(EndLessonCmpflg, { sessionid, userid });
     await fetch_datalist(EndLessonCmpflg, { sessionid, userid, page });
 }
