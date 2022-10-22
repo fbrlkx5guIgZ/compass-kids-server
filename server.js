@@ -40,7 +40,8 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('我爱杨宝~~')
+    // res.send('我爱杨宝~~')
+    res.send('首页')
 })
 
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
