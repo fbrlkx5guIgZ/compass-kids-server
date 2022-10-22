@@ -12,12 +12,12 @@ const db = mysql.createPool({
     database: 'compass_kids'
 })
 const options = {
-    key: fs.readFileSync(path.resolve('keys/compass-kids.com.key')),
-    cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'))
+    key: fs.readFileSync(path.resolve('keys/compass-kids.com.key'), 'utf-8'),
+    cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
 
 const app = express()
-const httpsServer = https.createServer(app, options)
+const httpsServer = https.createServer(options, app)
 const jsonfy = (json_array) => {
     if (Array.isArray(json_array)) {
         json_array.forEach(json_like => {
