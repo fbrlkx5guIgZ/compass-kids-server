@@ -1,5 +1,6 @@
 import express from 'express'
 import mysql from 'mysql2/promise'
+import https from 'https'
 import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
@@ -10,8 +11,13 @@ const db = mysql.createPool({
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'
 })
+const options = {
+    key: fs.readFileSync(path.resolve('keys/compass-kids.com.key')),
+    cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'))
+}
 
 const app = express()
+const httpsServer = https.createServer(app, options)
 const jsonfy = (json_array) => {
     if (Array.isArray(json_array)) {
         json_array.forEach(json_like => {
@@ -47,21 +53,21 @@ app.get('/', (req, res) => {
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const pre_datalist = (await db.query(`select * from ${req.table} ${where}`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: '200' })
+    res.send({ datalist, status: 200 })
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: '200' })
+    res.send({ datalist, status: 200 })
 })
 
 app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     const pre_datalist = (await db.query(`select * from ${req.table} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: '200', intenum: '4' })
+    res.send({ datalist, status: 200, intenum: '4' })
 })
 
 app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
@@ -95,15 +101,15 @@ app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
 })
 
 app.post('/book/Book/addReadingAction', (req, res) => {
-    res.send({ code: '200' })
+    res.send({ code: 200 })
 })
 
 app.post('/Vapp/Book/isCollection', (req, res) => {
-    res.send({ code: '200' })
+    res.send({ code: 200 })
 })
 
 app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
-    res.send({ code: '200' })
+    res.send({ code: 200 })
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
@@ -121,4 +127,4 @@ app.get('/Vapp/User/refreshUserAction', (req, res) => {
 app.use(express.static(path.resolve('static')))
 app.use(express.static(path.resolve()))
 
-app.listen(80)
+httpsServer.listen(443)
