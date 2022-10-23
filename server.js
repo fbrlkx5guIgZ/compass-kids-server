@@ -17,7 +17,6 @@ const options = {
 }
 
 const app = express()
-const httpsServer = https.createServer(options, app)
 const jsonfy = (json_array) => {
     if (Array.isArray(json_array)) {
         json_array.forEach(json_like => {
@@ -127,4 +126,5 @@ app.get('/Vapp/User/refreshUserAction', (req, res) => {
 app.use(express.static(path.resolve('static')))
 app.use(express.static(path.resolve()))
 
+const httpsServer = https.createServer(options, app)
 httpsServer.listen(443)
