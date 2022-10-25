@@ -117,10 +117,10 @@ const fetch_datalist = async (url, args) => {
                 }
 
                 if (typeof data[key] != 'number' && typeof data[key] != 'string' && data[key] != null) {
-                    data[key] = JSON.stringify(data[key]).replace(/https?:\/\/.+?\//g, '\/')
+                    data[key] = JSON.stringify(data[key])
                 }
                 else if (typeof data[key] == 'string') {
-                    data[key] = data[key].replace(/https?:\/\/.+?\//g, '\/')
+                    data[key] = data[key]
                 }
             }
 
@@ -207,10 +207,10 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
         }
 
         if (typeof json[key] != 'number' && typeof json[key] != 'string' && json[key] != null) {
-            json[key] = JSON.stringify(json[key]).replace(/https?:\/\/.+?\//g, '\/')
+            json[key] = JSON.stringify(json[key])
         }
         else if (typeof json[key] == 'string') {
-            json[key] = json[key].replace(/https?:\/\/.+?\//g, '\/')
+            json[key] = json[key]
         }
     }
     json.id = id
