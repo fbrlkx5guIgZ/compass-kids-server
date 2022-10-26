@@ -46,7 +46,7 @@ const to_url = (url, base) => {
 const save_static = async (fetch_list, base) => {
     for (const source of fetch_list) {
         const url = to_url(source, base)
-        const resp = await fetch(url)
+        const resp = await fetch(url).catch((err) => { console.log(err) })
         if (resp.status == 200) {
             const data = await resp.arrayBuffer()
             // console.log(`write source ${url}`)
@@ -77,7 +77,7 @@ const pre_mkdir = (pth) => {
 const pre_fetch = async (url, args) => {
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
-    const resp = await fetch(full_url)
+    const resp = await fetch(full_url).catch((err) => { console.log(err) })
     const json = await resp.json()
     if (json.intenum) {
         return json.intenum
@@ -97,7 +97,7 @@ const fetch_datalist = async (url, args) => {
 
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
-    const resp = await fetch(full_url)
+    const resp = await fetch(full_url).catch((err) => { console.log(err) })
     const json = await resp.json()
     if (json.datalist) {
         json.datalist = Array.prototype.slice.call(json.datalist)
@@ -126,7 +126,7 @@ const fetch_datalist = async (url, args) => {
 
             const done = await db.query(`select * from ${table} where lessonid='${data.lessonid}'`)
             if (done[0].length) {
-                console.log(`lessonid ${data.lessonid} done`)
+                // console.log(`lessonid ${data.lessonid} done`)
                 continue
             }
 
@@ -143,7 +143,7 @@ const fetch_datalist = async (url, args) => {
             for (let lessontype = 1; lessontype <= 2; lessontype++) {
                 const args = { classtype: data.classtype, classlevel: data.classlevel, lessontype, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, lessonid: data.lessonid, userid }
                 const json = await fetch_resource(PrereviewResource, args, `${data.lessonid}${lessontype}`, 'POST')
-                console.log(data.lessonid)
+                // console.log(data.lessonid)
 
                 for (const part of json.data.partList) {
                     if (part.partid) {
@@ -184,11 +184,11 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
             Xweb_xhr: "1"
         }
         full_url = to_url(url, base)
-        resp = await fetch(full_url, { method, body: para, headers })
+        resp = await fetch(full_url, { method, body: para, headers }).catch((err) => { console.log(err) })
     }
     else {
         full_url = to_url(url + '?' + para, base)
-        resp = await fetch(full_url)
+        resp = await fetch(full_url).catch((err) => { console.log(err) })
     }
     const json = await resp.json()
     const raw_json = Object.assign({}, json)
@@ -230,3 +230,4 @@ for (const userid of user_list) {
     const page = await pre_fetch(EndLessonCmpflg, { sessionid, userid });
     await fetch_datalist(EndLessonCmpflg, { sessionid, userid, page });
 }
+console.log('finished!!!')
