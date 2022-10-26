@@ -236,4 +236,4 @@ for (const userid of user_list) {
     const page = await pre_fetch(EndLessonCmpflg, { sessionid, userid })
     await fetch_datalist(EndLessonCmpflg, { sessionid, userid, page })
 }
-console.log('finished!!!')
+console.log('finished!')
