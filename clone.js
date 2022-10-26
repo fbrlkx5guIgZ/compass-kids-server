@@ -52,12 +52,12 @@ const save_static = async (fetch_list, base) => {
             fetch_list.push(source)
         })
         if (resp && resp.status == 200) {
-            let data = await resp.arrayBuffer().catch((err) => {
-                data = err
+            const data = await resp.arrayBuffer().catch((err) => {
+                errno = err.errno
             })
             // console.log(`write source ${url}`)
             pre_mkdir(path.join('static', decodeURI(url.pathname)))
-            fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
+            fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data || errno), (err) => {
                 if (err) {
                     console.log(err)
                 }
