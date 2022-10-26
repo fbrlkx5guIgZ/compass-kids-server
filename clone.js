@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 import https from 'https'
 
 https.globalAgent = new https.Agent({
-    timeout: 5000,
+    timeout: 60 * 1000,
     maxTotalSockets: 10
 })
 
@@ -46,9 +46,15 @@ const to_url = (url, base) => {
 const save_static = async (fetch_list, base) => {
     for (const source of fetch_list) {
         const url = to_url(source, base)
-        const resp = await fetch(url).catch((err) => { console.log(err) })
-        if (resp.status == 200) {
-            const data = await resp.arrayBuffer()
+        let errno
+        const resp = await fetch(url).catch((err) => {
+            errno = err.errno
+            fetch_list.push(source)
+        })
+        if (resp && resp.status == 200) {
+            let data = await resp.arrayBuffer().catch((err) => {
+                data = err
+            })
             // console.log(`write source ${url}`)
             pre_mkdir(path.join('static', decodeURI(url.pathname)))
             fs.writeFile(path.join('static', decodeURI(url.pathname)), Buffer.from(data), (err) => {
@@ -61,7 +67,7 @@ const save_static = async (fetch_list, base) => {
             })
         }
         else {
-            console.log(`source ${url} failed with status ${resp.status}`)
+            console.log(`source ${url} failed with status ${resp ? resp.status : errno}`)
         }
     }
 }
@@ -77,7 +83,7 @@ const pre_mkdir = (pth) => {
 const pre_fetch = async (url, args) => {
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
-    const resp = await fetch(full_url).catch((err) => { console.log(err) })
+    const resp = await fetch(full_url)
     const json = await resp.json()
     if (json.intenum) {
         return json.intenum
@@ -97,7 +103,7 @@ const fetch_datalist = async (url, args) => {
 
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
-    const resp = await fetch(full_url).catch((err) => { console.log(err) })
+    const resp = await fetch(full_url)
     const json = await resp.json()
     if (json.datalist) {
         json.datalist = Array.prototype.slice.call(json.datalist)
@@ -126,7 +132,7 @@ const fetch_datalist = async (url, args) => {
 
             const done = await db.query(`select * from ${table} where lessonid='${data.lessonid}'`)
             if (done[0].length) {
-                // console.log(`lessonid ${data.lessonid} done`)
+                console.log(`lessonid ${data.lessonid} done`)
                 continue
             }
 
@@ -143,7 +149,7 @@ const fetch_datalist = async (url, args) => {
             for (let lessontype = 1; lessontype <= 2; lessontype++) {
                 const args = { classtype: data.classtype, classlevel: data.classlevel, lessontype, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, lessonid: data.lessonid, userid }
                 const json = await fetch_resource(PrereviewResource, args, `${data.lessonid}${lessontype}`, 'POST')
-                // console.log(data.lessonid)
+                console.log(data.lessonid)
 
                 for (const part of json.data.partList) {
                     if (part.partid) {
@@ -184,11 +190,11 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
             Xweb_xhr: "1"
         }
         full_url = to_url(url, base)
-        resp = await fetch(full_url, { method, body: para, headers }).catch((err) => { console.log(err) })
+        resp = await fetch(full_url, { method, body: para, headers })
     }
     else {
         full_url = to_url(url + '?' + para, base)
-        resp = await fetch(full_url).catch((err) => { console.log(err) })
+        resp = await fetch(full_url)
     }
     const json = await resp.json()
     const raw_json = Object.assign({}, json)
@@ -223,11 +229,11 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
 }
 
 for (const userid of user_list) {
-    const start_list_json = await fetch_datalist(StartLessonList, { sessionid, userid });
-    const end_list_json = await fetch_datalist(EndLessonList, { sessionid, userid });
+    const start_list_json = await fetch_datalist(StartLessonList, { sessionid, userid })
+    const end_list_json = await fetch_datalist(EndLessonList, { sessionid, userid })
     const cover_list = [].concat(start_list_json, end_list_json).map(value => value.lessoncover).filter(value => value).map(value => decodeURI(value))
     save_static(cover_list, cloud_base)
-    const page = await pre_fetch(EndLessonCmpflg, { sessionid, userid });
-    await fetch_datalist(EndLessonCmpflg, { sessionid, userid, page });
+    const page = await pre_fetch(EndLessonCmpflg, { sessionid, userid })
+    await fetch_datalist(EndLessonCmpflg, { sessionid, userid, page })
 }
 console.log('finished!!!')
