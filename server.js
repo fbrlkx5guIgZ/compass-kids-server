@@ -44,7 +44,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use((req, res, next) => {
+const token_check = (req, res, next) => {
     if (req.query.token) {
         next()
     }
@@ -52,25 +52,25 @@ app.use((req, res, next) => {
         res.statusCode = 403
         res.send()
     }
-})
+}
 
-app.get('/', (req, res) => {
-    // res.send('我爱杨宝~~')
-    res.send('首页')
-})
+// app.get('/', (req, res) => {
+//     // res.send('我爱杨宝~~')
+//     res.send('首页')
+// })
 
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const pre_datalist = (await db.query(`select * from ${req.table} ${where}`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: 200 })
-})
+}).use(token_check)
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: 200 })
-})
+}).use(token_check)
 
 app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
