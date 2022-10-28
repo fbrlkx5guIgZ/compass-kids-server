@@ -36,7 +36,7 @@ const jsonfy = (json_array) => {
     }
 }
 
-const where = 'where classgroupid'
+const where = 'where classgroupid and lessonname like \'G%\''
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
