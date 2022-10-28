@@ -44,6 +44,12 @@ app.use((req, res, next) => {
     next()
 })
 
+app.use(req, res, next => {
+    if (req.query.token) {
+        next()
+    }
+})
+
 app.get('/', (req, res) => {
     // res.send('我爱杨宝~~')
     res.send('首页')
