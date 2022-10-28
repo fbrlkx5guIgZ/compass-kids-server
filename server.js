@@ -49,7 +49,8 @@ app.use((req, res, next) => {
         next()
     }
     else {
-        res.send({ status: 403 })
+        res.statusCode = 403
+        res.send()
     }
 })
 
