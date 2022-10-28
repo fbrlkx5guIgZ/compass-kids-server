@@ -48,6 +48,9 @@ app.use((req, res, next) => {
     if (req.query.token) {
         next()
     }
+    else {
+        res.send({ status: 403 })
+    }
 })
 
 app.get('/', (req, res) => {
