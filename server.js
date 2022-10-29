@@ -49,9 +49,8 @@ const token_check = (req, res, next) => {
         next()
     }
     else {
-        res.statusCode = 403
         res.statusMessage = '看不了！没有登录！'
-        res.send()
+        res.sendStatus(403)
     }
 }
 
