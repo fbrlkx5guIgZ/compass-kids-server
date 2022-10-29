@@ -58,6 +58,11 @@ const token_check = (req, res, next) => {
 //     // res.send('我爱杨宝~~')
 //     res.send('首页')
 // })
+
+app.get('/Vapp/User/regUserAction',(req,res)=>{
+    res.send('testtoken')
+})
+
 app.get('/Vapp/Lesson/getStartLessonList', token_check)
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const pre_datalist = (await db.query(`select * from ${req.table} ${where}`))[0]
