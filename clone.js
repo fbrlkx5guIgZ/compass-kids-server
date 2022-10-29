@@ -133,7 +133,7 @@ const fetch_datalist = async (url, args) => {
             const done = await db.query(`select * from ${table} where lessonid='${data.lessonid}'`)
             if (done[0].length) {
                 console.log(`lessonid ${data.lessonid} done`)
-                continue
+                // continue
             }
 
             const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
