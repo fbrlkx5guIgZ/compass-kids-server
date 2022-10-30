@@ -40,8 +40,8 @@ const where = {
     admin: 'where classgroupid and lessonname like "G%"',
     '1Hb(8NL/x6': 'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
     '50wNp>&%EE': 'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
-    '8nT-U/l62l': 'where classgroupid and lessonname="G1B-My Thursday Routine" or lessonname="G1B-A Training Schedule"',
-    'h)B50*3&Hg': 'where classgroupid and lessonname="G1B-My Thursday Routine" or lessonname="G1B-A Training Schedule"',
+    '8nT-U/l62l': 'where lessonid=816556 or lessonid=816557',
+    'h)B50*3&Hg': 'where lessonid=816556 or lessonid=816557',
     'sharePage': 'where lessonname="null"'
 }
 
