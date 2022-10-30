@@ -37,11 +37,11 @@ const jsonfy = (json_array) => {
 }
 
 const where = {
-    admin:'where classgroupid and lessonname like "G%"',
-    '1Hb(8NL/x6':'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
-    '50wNp>&%EE':'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
-    '8nT-U/l62l':'where classgroupid and lessonname="G1B-My Thursday Routine" or lessonname="G1B-A Training Schedule"',
-    'h)B50*3&Hg':'where classgroupid and lessonname="G1B-My Thursday Routine" or lessonname="G1B-A Training Schedule"',
+    admin: 'where classgroupid and lessonname like "G%"',
+    '1Hb(8NL/x6': 'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
+    '50wNp>&%EE': 'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
+    '8nT-U/l62l': 'where classgroupid and lessonname="G1B-My Thursday Routine" or lessonname="G1B-A Training Schedule"',
+    'h)B50*3&Hg': 'where classgroupid and lessonname="G1B-My Thursday Routine" or lessonname="G1B-A Training Schedule"',
     'sharePage': 'where lessonname="null"'
 }
 
@@ -72,7 +72,10 @@ app.get('/Vapp/User/regUserAction', (req, res) => {
 
 app.get('/Vapp/Lesson/getStartLessonList', token_check)
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
-    const pre_datalist = (await db.query(`select * from ${req.table} ${where}`))[0]
+    const thistoken = _.get(req, 'query.token', 'sharePage')
+    console.log(where[thistoken])
+
+    const pre_datalist = (await db.query(`select * from ${req.table} ${where[thistoken]}`))[0]
     const datalist = jsonfy(pre_datalist)
     // res.send({ datalist, status: 200 })
 })
@@ -80,9 +83,10 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 app.get('/Vapp/Lesson/getEndLessonList', token_check)
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const thistoken = _.get(req, 'query.token', 'sharePage')
+    console.log(where[thistoken])
+
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     // const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
-    console.log(where[thistoken])
     const pre_datalist = (await db.query(`select * from ${req.table} ${where[thistoken]} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: 200 })
