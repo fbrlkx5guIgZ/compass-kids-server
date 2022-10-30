@@ -78,6 +78,7 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const pre_datalist = (await db.query(`select * from ${req.table} ${where[thistoken]}`))[0]
     const datalist = jsonfy(pre_datalist)
     // res.send({ datalist, status: 200 })
+    res.send({ datalist: [], status: 200 })
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', token_check)
