@@ -66,7 +66,7 @@ const token_check = (req, res, next) => {
 // })
 
 app.get('/Vapp/User/regUserAction', (req, res) => {
-    res.send(req.query.token)
+    res.send(req.query.code)
 })
 
 app.get('/Vapp/Lesson/getStartLessonList', token_check)
