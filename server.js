@@ -82,6 +82,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const thistoken = _.get(req, 'query.token', 'sharePage')
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     // const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
+    console.log(where[thistoken])
     const pre_datalist = (await db.query(`select * from ${req.table} ${where[thistoken]} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: 200 })
