@@ -36,7 +36,7 @@ const jsonfy = (json_array) => {
     }
 }
 
-const where = 'where classgroupid and lessonname like "G%" and lessonid > "923765"'
+const where = 'where classgroupid and lessonname like "G%"'
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
@@ -68,7 +68,7 @@ app.get('/Vapp/Lesson/getStartLessonList', token_check)
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const pre_datalist = (await db.query(`select * from ${req.table} ${where}`))[0]
     const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: 200 })
+    // res.send({ datalist, status: 200 })
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', token_check)
