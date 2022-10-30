@@ -36,7 +36,7 @@ const jsonfy = (json_array) => {
     }
 }
 
-const where = 'where classgroupid and lessonname like \'G%\''
+const where = 'where classgroupid and lessonname like "G%" and lessonid > "923765"'
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
@@ -50,7 +50,7 @@ const token_check = (req, res, next) => {
     }
     else {
         res.statusCode = 403
-        res.send('看不了！没有登录！')
+        res.send('登录查看您课程计划中的课程')
     }
 }
 
@@ -60,6 +60,7 @@ const token_check = (req, res, next) => {
 // })
 
 app.get('/Vapp/User/regUserAction',(req,res)=>{
+    
     res.send('testtoken')
 })
 
