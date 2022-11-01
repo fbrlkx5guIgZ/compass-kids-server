@@ -43,7 +43,10 @@ const where = {
     '50wNp>&%EE': "where lessonid='923767' or lessonid='923768'",
     '8nT-U/l62l': 'where lessonid=816556 or lessonid=816557',
     'h)B50*3&Hg': 'where lessonid=816556 or lessonid=816557',
-    'sharePage': 'where lessonname="null"'
+    'Oj@P!eD70kNk':'where lessonid >= 1010225 and lessonid <= 1010228',
+    '1)G*1hbKUR07':'where lessonid >= 1010225 and lessonid <= 1010228',
+
+    'sharePage': 'where lessonname="null"',
 }
 
 app.use(express.urlencoded({ extended: false }))
