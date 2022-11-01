@@ -75,7 +75,7 @@ app.get('/Vapp/User/regUserAction', async (req, res) => {
     }
     else {
         res.statusCode = 403
-        res.send('登录查看您课程计划中的课程')
+        res.send('没有这个注册码！')
     }
 })
 
