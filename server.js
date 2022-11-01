@@ -11,6 +11,7 @@ const db = mysql.createPool({
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'
 })
+
 const options = {
     key: fs.readFileSync(path.resolve('keys/compass-kids.com.key'), 'utf-8'),
     cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'), 'utf-8')
