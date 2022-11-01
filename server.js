@@ -69,8 +69,14 @@ const token_check = (req, res, next) => {
 // })
 
 app.get('/Vapp/User/regUserAction', async (req, res) => {
-
-    res.send(req.query.code)
+    const code = req.query.code
+    if (where[code]) {
+        res.send(req.query.code)
+    }
+    else {
+        res.statusCode = 403
+        res.send('登录查看您课程计划中的课程')
+    }
 })
 
 app.get('/Vapp/Lesson/getStartLessonList', token_check)
