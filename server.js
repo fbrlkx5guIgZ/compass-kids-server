@@ -43,8 +43,8 @@ const where = {
     '50wNp>&%EE': "where lessonid='923767' or lessonid='923768'",
     '8nT-U/l62l': 'where lessonid=816556 or lessonid=816557',
     'h)B50*3&Hg': 'where lessonid=816556 or lessonid=816557',
-    'Oj@P!eD70kNk':'where lessonid >= 1010225 and lessonid <= 1010228',
-    '1)G*1hbKUR07':'where lessonid >= 1010225 and lessonid <= 1010228',
+    'Oj@P!eD70kNk': 'where lessonid >= 1010225 and lessonid <= 1010228',
+    '1)G*1hbKUR07': 'where lessonid >= 1010225 and lessonid <= 1010228',
 
     'sharePage': 'where lessonname="null"',
 }
@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 
 const token_check = (req, res, next) => {
     const token = req.query.token
+    console.log(token + '\n')
     if (where[token]) {
         next()
     }
@@ -84,10 +85,10 @@ app.get('/Vapp/User/regUserAction', async (req, res) => {
 
 app.get('/Vapp/Lesson/getStartLessonList', token_check)
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
-    const thistoken = _.get(req, 'query.token', 'sharePage')
-    console.log(where[thistoken])
+    const token = _.get(req, 'query.token', 'sharePage')
+    // console.log(where[token])
 
-    const pre_datalist = (await db.query(`select * from ${req.table} ${where[thistoken]}`))[0]
+    const pre_datalist = (await db.query(`select * from ${req.table} ${where[token]}`))[0]
     const datalist = jsonfy(pre_datalist)
     // res.send({ datalist, status: 200 })
     res.send({ datalist: [], status: 200 })
@@ -95,12 +96,12 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 
 app.get('/Vapp/Lesson/getEndLessonList', token_check)
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
-    const thistoken = _.get(req, 'query.token', 'sharePage')
-    console.log(where[thistoken])
+    const token = _.get(req, 'query.token', 'sharePage')
+    // console.log(where[token])
 
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     // const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
-    const pre_datalist = (await db.query(`select * from ${req.table} ${where[thistoken]} order by classlevel+0 desc, lessonid desc limit ${(page - 1) * 10},10`))[0]
+    const pre_datalist = (await db.query(`select * from ${req.table} ${where[token]} order by classlevel+0 desc, lessonid desc limit ${(page - 1) * 10},10`))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: 200 })
 })
