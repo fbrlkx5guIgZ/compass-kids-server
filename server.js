@@ -6,7 +6,7 @@ import path from 'path'
 import _ from 'lodash'
 
 const db = mysql.createPool({
-    host: '127.0.0.1',
+    host: 'www.compass-kids.com',
     user: 'root',
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'
@@ -39,8 +39,8 @@ const jsonfy = (json_array) => {
 
 const where = {
     admin: 'where classgroupid and lessonname like "G%"',
-    '1Hb(8NL/x6': 'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
-    '50wNp>&%EE': 'where classgroupid and lessonname like "G2A%" and lessonname like "%Dinosaur%"',
+    '1Hb(8NL/x6': "where lessonid='923767' or lessonid='923768'",
+    '50wNp>&%EE': "where lessonid='923767' or lessonid='923768'",
     '8nT-U/l62l': 'where lessonid=816556 or lessonid=816557',
     'h)B50*3&Hg': 'where lessonid=816556 or lessonid=816557',
     'sharePage': 'where lessonname="null"'
@@ -67,7 +67,8 @@ const token_check = (req, res, next) => {
 //     res.send('首页')
 // })
 
-app.get('/Vapp/User/regUserAction', (req, res) => {
+app.get('/Vapp/User/regUserAction', async (req, res) => {
+
     res.send(req.query.code)
 })
 
