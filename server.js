@@ -53,7 +53,8 @@ app.use((req, res, next) => {
 })
 
 const token_check = (req, res, next) => {
-    if (req.query.token) {
+    const token = req.query.token
+    if (where[token]) {
         next()
     }
     else {
