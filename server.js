@@ -1,9 +1,11 @@
-import express from 'express'
+import express, { json } from 'express'
 import mysql from 'mysql2/promise'
 import https from 'https'
 import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
+import { expressjwt } from 'express-jwt'
+import jwt from 'jsonwebtoken'
 
 const db = mysql.createPool({
     host: 'www.compass-kids.com',
@@ -16,6 +18,7 @@ const options = {
     key: fs.readFileSync(path.resolve('keys/compass-kids.com.key'), 'utf-8'),
     cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
+const secretKey = ''
 
 const app = express()
 const jsonfy = (json_array) => {
@@ -46,7 +49,7 @@ const where = {
     'Oj@P!eD70kNk': 'where lessonid >= 1010225 and lessonid <= 1010228',
     '1)G*1hbKUR07': 'where lessonid >= 1010225 and lessonid <= 1010228',
 
-    'sharePage': 'where lessonname="null"',
+    'sharePage': 'where false',
 }
 
 app.use(express.urlencoded({ extended: false }))
@@ -54,6 +57,9 @@ app.use((req, res, next) => {
     req.table = req.path.split('/').filter(value => value).join('_')
     next()
 })
+app.use(expressjwt().unless({
+    path: []
+}))
 
 const token_check = (req, res, next) => {
     const token = req.query.token
@@ -67,10 +73,20 @@ const token_check = (req, res, next) => {
     }
 }
 
-// app.get('/', (req, res) => {
-//     // res.send('我爱杨宝~~')
-//     res.send('首页')
-// })
+app.get('login', async (req, res) => {
+    const passwd = req.query.passwd
+    delete req.query.passwd
+
+    const id = (await db.query(`select * from users where ${Object.keys(req.query)[0]}=${req.query[Object.keys(req.query)[0]]} and passwd=${passwd}`))[0]
+    if (id) {
+        const token = jwt.sign(id, secretKey)
+        res.send(token)
+    }
+    else{
+        req.statusCode = 404
+        res.send('没有这样的用户哦！')
+    }
+})
 
 app.get('/Vapp/User/regUserAction', async (req, res) => {
     const code = req.query.code
