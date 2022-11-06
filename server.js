@@ -1,4 +1,4 @@
-import express, { json } from 'express'
+import express from 'express'
 import mysql from 'mysql2/promise'
 import https from 'https'
 import fs from 'fs'
@@ -61,10 +61,10 @@ app.use(expressjwt({
     secret: secretKey,
     algorithms: ['HS256']
 }).unless({
-    path: ['login', '/Vapp/User/regUserAction','update']
+    path: ['/login', '/Vapp/User/regUserAction', '/update']
 }))
 
-app.get('login', async (req, res) => {//可以靠两种验证登录，返回一个token
+app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一个token
     let data = {}
 
     //高级权限
@@ -95,23 +95,25 @@ app.get('login', async (req, res) => {//可以靠两种验证登录，返回一�
 })
 
 app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
+    let data = ''
     await db.query('insert into users set ?', req.query).catch((err) => {
         res.statusCode = 400
-        res.send(err)
+        data = err
     })
-    res.send('')
+    res.send(data)
 })
 
-app.get('update', async (req, res) => {//更新用户信息，要求是通过高级验证
+app.get('/update', async (req, res) => {//更新用户信息，要求是通过高级验证
     const code = req.query.code
     const data = (await db.query('select id from users where ?', { code }))[0]
     const id = _.get(data, '0.id')
     if (id) {
-        await db.query('update users set ? where ?', [req.query.code, { id }]).catch((err) => {
+        let data = ''
+        await db.query('update users set ? where ?', [{ code }, { id }]).catch((err) => {
             res.statusCode = 400
-            res.send(err)
+            data = err
         })
-        res.send('')
+        res.send(data)
     }
     else {
         res.statusCode = 401
