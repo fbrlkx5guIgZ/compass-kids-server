@@ -11,7 +11,7 @@ https.globalAgent = new https.Agent({
 })
 
 const db = mysql.createPool({
-    host: '127.0.0.1',
+    host: 'compass-kids.com',
     user: 'root',
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'
@@ -32,7 +32,7 @@ const BookSource = 'Vapp/Book/getBookSource'
 
 const sessionid = 75399
 // const user_list = [56150, 23305, 55311, 29329]
-const user_list = [56150]
+const user_list = [23305, 55311, 29329]
 
 const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
 const to_url = (url, base) => {
@@ -94,7 +94,8 @@ const pre_fetch = async (url, args) => {
 const fetch_datalist = async (url, args) => {
     const userid = args.userid
 
-    const table = url.split('/').join('_')
+    // const table = url.split('/').join('_')
+    const table = url.split('/').join('_').replace('StartLessonList', 'EndLessonList')
 
     const exists = await db.query(`SELECT * FROM information_schema.tables where table_name='${table}'`)
     if (!exists[0].length) {
@@ -134,7 +135,7 @@ const fetch_datalist = async (url, args) => {
             const done = await db.query(`select * from ${table} where lessonid='${data.lessonid}'`)
             if (done[0].length) {
                 console.log(`lessonid ${data.lessonid} done`)
-                // continue
+                continue
             }
 
             const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }

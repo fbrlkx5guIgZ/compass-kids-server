@@ -3,7 +3,7 @@ import mysql from 'mysql2/promise'
 const table = 'vapp_prereview_getprereviewresource'
 
 const db = mysql.createPool({
-    host: 'www.compass-kids.com',
+    host: 'compass-kids.com',
     user: 'root',
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'

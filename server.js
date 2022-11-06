@@ -8,7 +8,7 @@ import { expressjwt } from 'express-jwt'
 import jwt from 'jsonwebtoken'
 
 const db = mysql.createPool({
-    host: 'www.compass-kids.com',
+    host: 'compass-kids.com',
     user: 'root',
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'
@@ -18,7 +18,7 @@ const options = {
     key: fs.readFileSync(path.resolve('keys/compass-kids.com.key'), 'utf-8'),
     cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
-const secretKey = ''
+const secretKey = 'REDACTED_JWT_SECRET'
 
 const app = express()
 const jsonfy = (json_array) => {
@@ -57,49 +57,67 @@ app.use((req, res, next) => {
     req.table = req.path.split('/').filter(value => value).join('_')
     next()
 })
-app.use(expressjwt().unless({
-    path: []
+app.use(expressjwt({
+    secret: secretKey
+}).unless({
+    path: ['login', '/Vapp/User/regUserAction']
 }))
 
-const token_check = (req, res, next) => {
-    const token = req.query.token
-    console.log(token + '\n')
-    if (where[token]) {
-        next()
+app.get('login', async (req, res) => {//可以靠两种验证登录，返回一个token
+    let data = {}
+
+    //高级权限
+    const code = req.query.code
+    if (req.query.code) {
+        data = (await db.query('select * from users where ?', { code }))[0]
     }
+
+    //低级权限，账号密码
     else {
-        res.statusCode = 403
-        res.send('登录查看您课程计划中的课程')
+        const passwd = req.query.passwd
+        delete req.query.passwd
+        const login = {}
+        const login_key = Object.keys(req.query)[0]
+        login[login_key] = req.query[login_key]
+        data = (await db.query('select * from users where ? and ?', [{ passwd }, { login }]))[0]
     }
-}
 
-app.get('login', async (req, res) => {
-    const passwd = req.query.passwd
-    delete req.query.passwd
 
-    const id = (await db.query(`select * from users where ${Object.keys(req.query)[0]}=${req.query[Object.keys(req.query)[0]]} and passwd=${passwd}`))[0]
-    if (id) {
-        const token = jwt.sign(id, secretKey)
+    if (data) {
+        const token = jwt.sign(data.id, secretKey)
         res.send(token)
     }
-    else{
+    else {
         req.statusCode = 404
         res.send('没有这样的用户哦！')
     }
 })
 
-app.get('/Vapp/User/regUserAction', async (req, res) => {
+app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
+    await db.query('insert into users set ?', req.query).catch((err) => {
+        res.statusCode = 400
+        res.send(err)
+    })
+    res.send('')
+})
+
+app.get('updata', async (req, res) => {//更新用户信息，要求是通过高级验证
     const code = req.query.code
-    if (where[code]) {
-        res.send(req.query.code)
+    const data = (await db.query('select id from users where ?', { code }))[0]
+    const id = _.get(data, '0.id')
+    if (id) {
+        await db.query('update users set ? where ?', [req.query.code, { id }]).catch((err) => {
+            res.statusCode = 400
+            res.send(err)
+        })
+        res.send('')
     }
     else {
-        res.statusCode = 403
-        res.send('没有这个注册码！')
+        res.statusCode = 401
+        res.send('注册码无效！')
     }
 })
 
-app.get('/Vapp/Lesson/getStartLessonList', token_check)
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const token = _.get(req, 'query.token', 'sharePage')
     // console.log(where[token])
@@ -110,7 +128,6 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     res.send({ datalist: [], status: 200 })
 })
 
-app.get('/Vapp/Lesson/getEndLessonList', token_check)
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const token = _.get(req, 'query.token', 'sharePage')
     // console.log(where[token])
@@ -185,6 +202,12 @@ app.get('/Vapp/User/refreshUserAction', (req, res) => {
 
 app.use(express.static(path.resolve('static')))
 app.use(express.static(path.resolve()))
+
+app.use(function (err, req, res, next) {
+    if (err.name === 'UnauthorizedError') {
+        res.status(401).send('invalid token')
+    }
+})
 
 const httpsServer = https.createServer(options, app)
 httpsServer.listen(443)
