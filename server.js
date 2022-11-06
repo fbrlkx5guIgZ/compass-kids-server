@@ -58,7 +58,8 @@ app.use((req, res, next) => {
     next()
 })
 app.use(expressjwt({
-    secret: secretKey
+    secret: secretKey,
+    algorithms: ['HS256']
 }).unless({
     path: ['login', '/Vapp/User/regUserAction']
 }))
