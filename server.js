@@ -61,7 +61,7 @@ app.use(expressjwt({
     secret: secretKey,
     algorithms: ['HS256']
 }).unless({
-    path: ['login', '/Vapp/User/regUserAction']
+    path: ['login', '/Vapp/User/regUserAction','update']
 }))
 
 app.get('login', async (req, res) => {//可以靠两种验证登录，返回一个token
@@ -102,7 +102,7 @@ app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
     res.send('')
 })
 
-app.get('updata', async (req, res) => {//更新用户信息，要求是通过高级验证
+app.get('update', async (req, res) => {//更新用户信息，要求是通过高级验证
     const code = req.query.code
     const data = (await db.query('select id from users where ?', { code }))[0]
     const id = _.get(data, '0.id')
