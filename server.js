@@ -110,7 +110,7 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
     const id = _.get(data, '0.id')
     if (id) {
         let data = ''
-        await db.query('update users set ? where ?', [req.query.code, { id }]).catch((err) => {
+        await db.query('update users set ? where ?', [req.query, { id }]).catch((err) => {
             res.statusCode = 400
             data = err
         })
