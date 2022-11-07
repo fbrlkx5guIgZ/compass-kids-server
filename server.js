@@ -89,7 +89,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
         res.send(token)
     }
     else {
-        req.statusCode = 404
+        res.statusCode = 404
         res.send('没有这样的用户哦！')
     }
 })
