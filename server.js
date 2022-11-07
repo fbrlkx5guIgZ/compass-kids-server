@@ -85,7 +85,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
     const id = _.get(data, '0.id')
 
     if (id) {
-        const token = jwt.sign(id, secretKey)
+        const token = 'Bearer ' + jwt.sign(id, secretKey)
         res.send(token)
     }
     else {
