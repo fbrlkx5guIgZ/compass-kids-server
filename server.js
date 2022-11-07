@@ -80,7 +80,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
         const login = {}
         const login_key = Object.keys(req.query)[0]
         login[login_key] = req.query[login_key]
-        data = (await db.query('select * from users where ? and ?', [{ passwd }, { login }]))[0]
+        data = (await db.query('select * from users where ? and ?', [{ passwd }, login]))[0]
     }
 
 
