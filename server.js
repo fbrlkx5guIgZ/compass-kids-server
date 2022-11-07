@@ -105,11 +105,12 @@ app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
 
 app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息，要求是通过高级验证
     const code = req.query.code
+    delete req.query.code
     const data = (await db.query('select id from users where ?', { code }))[0]
     const id = _.get(data, '0.id')
     if (id) {
         let data = ''
-        await db.query('update users set ? where ?', [{ code }, { id }]).catch((err) => {
+        await db.query('update users set ? where ?', [req.query.code, { id }]).catch((err) => {
             res.statusCode = 400
             data = err
         })
