@@ -86,7 +86,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
         const { user, phone, email, openid, passwd, code } = req.query
         const login = { user, phone, email, openid }
         Object.keys(login).map(key => {//删除空值
-            if (!login[key] || Object.keys(login).length == 1) {
+            if (!login[key] && Object.keys(login).length > 1) {
                 delete login[key]
             }
         }).map(key => {//删除余值
@@ -94,7 +94,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
                 delete login[key]
             }
         })
-        data = (await db.query('select * from users where ? and ?', [{ passwd }, login]).catch())[0]
+        data = (await db.query('select * from users where ? and ?', [{ passwd }, login]))[0]
     }
     const id = _.get(data, '0.id')
 
@@ -160,7 +160,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
 
     if (detail) {
         const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-        const pre_datalist = (await db.query('select * from ' + req.table + ' where ? order by classlevel+0 desc, lessonid desc limit ?,10', [detail, (page - 1) * 10]))[0]
+        const pre_datalist = (await db.query('SELECT * FROM userlesson right join compass_kids.vapp_lesson_getendlessonlist on userlesson.lessonid=vapp_lesson_getendlessonlist.lessonid and ? where ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonid desc limit ?,10', [{ uid: id }, detail, (page - 1) * 10]))
         const datalist = jsonfy(pre_datalist)
         res.send({ datalist, status: 200 })
     }
