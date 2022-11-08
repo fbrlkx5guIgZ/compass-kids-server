@@ -236,6 +236,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     lock[index] = req.query.lock
     lock = JSON.stringify(lock)
     await db.query('update userview set ?', { index, lock })
+    res.send('ok')
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
