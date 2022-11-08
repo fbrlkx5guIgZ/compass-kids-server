@@ -223,7 +223,12 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const id = req.query.lessonid + req.query.type
     const index = req.query.count_lock
     const single_array = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
-    const lock = single_array.length ? jsonfy(single_array) : []
+    let lock
+    try {
+        lock = (jsonfy(single_array)).lock
+    } catch (error) {
+        lock = []
+    }
     lock[index - 1] = req.query.lock
     await db.query('update userview set ?', { index, lock })
 })
