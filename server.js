@@ -31,6 +31,7 @@ const jsonfy = (json_array) => {
                 }
             }
         })
+        // return json_array
         if (json_array.length == 1) {
             return json_array[0]
         }
@@ -60,10 +61,10 @@ app.use((req, res, next) => {
 app.use(expressjwt({
     secret: secretKey,
     algorithms: ['HS256'],
-    getToken(req){
+    getToken(req) {
         return req.query.token
     }
-    
+
 }).unless({
     path: ['/login', '/Vapp/User/regUserAction', '/Vapp/User/resetUserAction']
 }))
@@ -130,57 +131,63 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const token = _.get(req, 'query.token', 'sharePage')
     // console.log(where[token])
 
-    const pre_datalist = (await db.query(`select * from ${req.table} ${where[token]}`))[0]
+    const pre_datalist = (await db.query('select * from ? ${where[token]}', req.table))[0]
     const datalist = jsonfy(pre_datalist)
     // res.send({ datalist, status: 200 })
     res.send({ datalist: [], status: 200 })
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
-    const token = _.get(req, 'query.token', 'sharePage')
-    // console.log(where[token])
+    const id = req.auth.id
+    const data = (await db.query('select * from plan where ?', { id }))[0]
+    const detail = _.get(data, '0.detail')
 
-    const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-    // const pre_datalist = (await db.query(`select * from ${req.table} ${where} order by classlevel+0 asc,lessonid asc limit ${(page - 1) * 10},10`))[0]
-    const pre_datalist = (await db.query(`select * from ${req.table} ${where[token]} order by classlevel+0 desc, lessonid desc limit ${(page - 1) * 10},10`))[0]
-    const datalist = jsonfy(pre_datalist)
-    res.send({ datalist, status: 200 })
+    if (detail) {
+        const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
+        const pre_datalist = (await db.query('select * from ' + req.table + ' where ? order by classlevel+0 desc, lessonid desc limit ?,10', [detail, (page - 1) * 10]))[0]
+        const datalist = jsonfy(pre_datalist)
+        res.send({ datalist, status: 200 })
+    }
+    else {
+        res.statusCode = 404
+        res.send('没有课程计划！')
+    }
 })
 
 app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-    const pre_datalist = (await db.query(`select * from ${req.table} order by lessonid asc limit ${(page - 1) * 10},10`))[0]
+    const pre_datalist = (await db.query('select * from ' + req.table + ' order by lessonid asc limit ?,10', (page - 1) * 10))[0]
     const datalist = jsonfy(pre_datalist)
     res.send({ datalist, status: 200, intenum: '4' })
 })
 
 app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.lessonid')) ? req.body.lessonid : 0}${/^\d+$/.test(_.get(req, 'body.lessontype')) ? req.body.lessontype : 0}`))[0]
+    const id = _.get(req, 'body.lessonid') + _.get(req, 'body.lessontype')
+    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     res.send(jsonfy(single_array))
 })
 
 app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.classid')) ? req.body.classid : 0}`))[0]
+    const id = _.get(req, 'body.classid')
+    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     res.send(jsonfy(single_array))
 })
 
 app.post('/Vapp/Book/getBookSource', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.bookid')) ? req.body.bookid : 0}`))[0]
+    const id = _.get(req, 'body.bookid')
+    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     res.send(jsonfy(single_array))
 })
 
-// app.post('/Vapp/Book/getBookSource', async (req, res) => {
-//     const single_array = (await db.query(`select * from ${req.table} where id<${/^\d+$/.test(_.get(req, 'body.bookid')) ? req.body.bookid : 0} order by id desc limit 1`))[0]
-//     res.send(jsonfy(single_array))
-// })
-
 app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'body.part_id')) ? req.body.part_id : 0}`))[0]
+    const id = _.get(req, 'body.part_id')
+    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     res.send(jsonfy(single_array))
 })
 
 app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
-    const single_array = (await db.query(`select * from ${req.table} where id=${/^\d+$/.test(_.get(req, 'query.lessonid')) ? req.query.lessonid : 0}`))[0]
+    const id = _.get(req, 'query.lessonid')
+    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     res.send(jsonfy(single_array))
 })
 
