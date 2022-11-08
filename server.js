@@ -160,7 +160,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
 
     if (detail) {
         const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-        const pre_datalist = (await db.query('SELECT * FROM userlesson right join compass_kids.vapp_lesson_getendlessonlist on userlesson.lessonid=vapp_lesson_getendlessonlist.lessonid and ? where ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonid desc limit ?,10', [{ uid: id }, detail, (page - 1) * 10]))
+        const pre_datalist = (await db.query('SELECT * FROM userlesson right join compass_kids.vapp_lesson_getendlessonlist on userlesson.lessonid=vapp_lesson_getendlessonlist.lessonid and ? where ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonid desc limit ?,10', [{ uid: id }, detail, (page - 1) * 10]))[0]
         const datalist = jsonfy(pre_datalist)
         res.send({ datalist, status: 200 })
     }
