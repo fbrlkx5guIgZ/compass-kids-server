@@ -53,6 +53,9 @@ const where = {
     'sharePage': 'where false',
 }
 
+app.use(express.static(path.resolve('static')))
+app.use(express.static(path.resolve()))
+
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
     req.table = req.path.split('/').filter(value => value).join('_')
@@ -226,9 +229,6 @@ app.get('/Vapp/User/userBindAction', (req, res) => {
 app.get('/Vapp/User/refreshUserAction', (req, res) => {
     res.sendFile(path.resolve('Vapp/User/refreshUserAction' + '.json'))
 })
-
-app.use(express.static(path.resolve('static')))
-app.use(express.static(path.resolve()))
 
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
