@@ -80,7 +80,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
 
     //低级权限，账号密码
     else {
-        const [user, phone, email, openid, passwd, code] = req.query
+        const { user, phone, email, openid, passwd, code } = req.query
         const login = { user, phone, email, openid }
         Object.keys(login).map(key => {
             if (!login[key] || Object.keys(login).length) {
