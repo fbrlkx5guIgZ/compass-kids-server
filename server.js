@@ -62,7 +62,7 @@ app.use(expressjwt({
     secret: secretKey,
     algorithms: ['HS256'],
     getToken(req) {
-        return req.query.token
+        return req.query.token || req.body.token
     }
 
 }).unless({
