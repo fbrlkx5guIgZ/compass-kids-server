@@ -128,13 +128,19 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
 })
 
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
-    const token = _.get(req, 'query.token', 'sharePage')
-    // console.log(where[token])
+    const id = req.auth.id
+    const data = (await db.query('select * from plan where ?', { id }))[0]
+    const detail = _.get(data, '0.detail')
 
-    const pre_datalist = (await db.query('select * from ? ${where[token]}', req.table))[0]
-    const datalist = jsonfy(pre_datalist)
-    // res.send({ datalist, status: 200 })
-    res.send({ datalist: [], status: 200 })
+    if (detail) {
+        const pre_datalist = (await db.query('select * from ' + req.table + ' where ? order by classlevel+0 desc, lessonid desc', detail))[0]
+        const datalist = jsonfy(pre_datalist)
+        res.send({ datalist, status: 200 })
+    }
+    else {
+        res.statusCode = 404
+        res.send('没有课程计划！')
+    }
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
