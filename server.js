@@ -80,12 +80,15 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
 
     //低级权限，账号密码
     else {
-        const passwd = req.query.passwd
-        delete req.query.passwd
-        const login = {}
-        const login_key = Object.keys(req.query)[0]
+        const [user, phone, email, openid, passwd, code] = req.query
+        const login = { user, phone, email, openid }
+        Object.keys(login).map(key => {
+            if (!login[key] || Object.keys(login).length) {
+                delete login[key]
+            }
+        })
         login[login_key] = req.query[login_key]
-        data = (await db.query('select * from users where ? and ?', [{ passwd }, login]))[0]
+        data = (await db.query('select * from users where ? and ?', [{ passwd }, login]).catch())[0]
     }
     const id = _.get(data, '0.id')
 
