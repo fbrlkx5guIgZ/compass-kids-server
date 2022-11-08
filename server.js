@@ -218,8 +218,14 @@ app.post('/Vapp/Book/isCollection', (req, res) => {
     res.send({ code: 200 })
 })
 
-app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
-
+app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
+    const uid = req.auth.id
+    const id = req.query.lessonid + req.query.type
+    const index = req.query.count_lock
+    const single_array = (await db.query('select * from userview where ? and ?', [id, uid]))[0]
+    const lock = single_array.length ? jsonfy(single_array) : []
+    lock[index - 1] = req.query.lock
+    await db.query('update userview set ?', { index, lock })
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
