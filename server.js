@@ -180,7 +180,9 @@ app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
 
 app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
     const id = _.get(req, 'body.lessonid') + _.get(req, 'body.lessontype')
-    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
+    // const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
+    const uid = req.auth.id
+    const single_array = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource left join userview on userview.id=vapp_prereview_getprereviewresource.id and ? where userview.id = ?;', [{ uid }, id]))
     res.send(jsonfy(single_array))
 })
 
@@ -217,7 +219,7 @@ app.post('/Vapp/Book/isCollection', (req, res) => {
 })
 
 app.get('/Vapp/Prereview/addPrereviewLock', (req, res) => {
-    res.send({ code: 200 })
+
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
