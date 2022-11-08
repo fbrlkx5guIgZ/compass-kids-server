@@ -145,7 +145,8 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     // const pre_datalist = (await db.query('SELECT * FROM userlesson right join compass_kids.vapp_lesson_getStartLessonList on userlesson.lessonid=vapp_lesson_getStartLessonList.lessonid and ? where ? order by classlevel+0 desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10', [{ uid: id }, detail, (page - 1) * 10]))[0]
     const datalist = jsonfy(pre_datalist)
     if (datalist.length) {
-        res.send({ datalist, status: 200 })
+        res.send('')
+        // res.send({ datalist, status: 200 })
     }
     else {
         res.statusCode = 404
