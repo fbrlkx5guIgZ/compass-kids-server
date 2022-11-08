@@ -83,7 +83,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
         const { user, phone, email, openid, passwd, code } = req.query
         const login = { user, phone, email, openid }
         Object.keys(login).map(key => {//删除空值
-            if (!login[key] || Object.keys(login).length) {
+            if (!login[key] || Object.keys(login).length == 1) {
                 delete login[key]
             }
         }).map(key => {//删除余值
