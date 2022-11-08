@@ -225,7 +225,11 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const single_array = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
     let lock
     try {
-        lock = (jsonfy(single_array)).lock
+        if (Array.isArray((jsonfy(single_array)).lock)) {
+            lock = (jsonfy(single_array)).lock
+        } else {
+            throw new Error('!!!')
+        }
     } catch (error) {
         lock = []
     }
