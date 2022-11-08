@@ -132,7 +132,7 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
     }
     else {
         res.statusCode = 401
-        res.send('注册码无效！')
+        res.send('注册码无效')
     }
 })
 
@@ -143,7 +143,8 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 
     if (detail) {
         const pre_datalist = (await db.query('select * from ' + req.table + ' where ? order by classlevel+0 desc, lessonid desc', detail))[0]
-        const datalist = jsonfy(pre_datalist)
+        // const datalist = jsonfy(pre_datalist)
+        const datalist = []
         res.send({ datalist, status: 200 })
     }
     else {
@@ -232,7 +233,7 @@ app.get('/Vapp/User/refreshUserAction', (req, res) => {
 
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
-        res.status(401).send('请先登录！')
+        res.status(401).send('请先登录')
     }
 })
 
