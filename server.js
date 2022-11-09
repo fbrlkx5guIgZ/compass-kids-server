@@ -229,7 +229,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     if (old_index <= index) {
         const lock = `[${'0,'.repeat(index + 1)}]`
         console.log(lock)
-        await db.query('update userview set ? where ? and ?', { index, lock }, { id }, { uid })
+        await db.query('update userview set ? where ? and ?', [{ index, lock }, { id }, { uid }])
     }
     res.send('ok')
 
