@@ -226,11 +226,32 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const single_array = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
     const old_index = _.get(single_array, '0.index')
     if (old_index <= index) {
-        const lock = `[${'0,'.repeat(index+1)}]`
+        const lock = `[${'0,'.repeat(index + 1)}]`
         await db.query('update userview set ?', { index, lock })
     }
-
     res.send('ok')
+
+    const json = await db.query('select * from vapp_prereview_getprereviewresource where ?', { id })[0]
+    const count = Number(_.get(json, '0.count'))
+    if (index >= count) {
+        let { ycompnum, compnum, precomplete, complete, yxresetflg, fxresetflg } = await db.query('SELECT * FROM compass_kids.userlesson where lessonid=?;', req.query.lessonid)[0][0]
+        if (req.query.type == 1) {
+            if (!yxresetflg) {
+                ycompnum = ycompnum ? ycompnum + 1 : 1
+                precomplete = 1
+                yxresetflg = 1
+                await db.query('update userlesson set ? where id=?', [{ ycompnum, precomplete, yxresetflg }, req.query.lessonid])
+            }
+        }
+        else if (req.query.type == 2) {
+            if (!fxresetflg) {
+                compnum = compnum ? compnum + 1 : 1
+                complete = 1
+                fxresetflg = 1
+                await db.query('update userlesson set ? where id=?', [{ compnum, complete, fxresetflg }, req.query.lessonid])
+            }
+        }
+    }
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
