@@ -225,7 +225,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const index = Number(req.query.lock) || 0
 
     const single_array = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
-    const old_index = _.get(single_array, '0.index')
+    const old_index = _.get(single_array, '0.index') || 0
     if (old_index <= index) {
         const lock = `[${'0,'.repeat(index + 1)}]`
         console.log(lock)
