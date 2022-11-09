@@ -233,10 +233,10 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
         if (exist.length) {
             await db.query('update userview set ? where ? and ?', [{ index, lock }, { id }, { uid }])
         }
-        else{
-            await db.query('insert into userview set ? where ? and ?', [{ index, lock }, { id }, { uid }])
+        else {
+            await db.query('insert into userview set ? ', [{ index, lock, id, uid }])
         }
-        
+
     }
     res.send('ok')
 
