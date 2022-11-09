@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise'
 
-const table = 'vapp_prereview_getprereviewresource'
+const table = '_vapp_prereview_getprereviewresource'
 
 const db = mysql.createPool({
     host: 'compass-kids.com',
