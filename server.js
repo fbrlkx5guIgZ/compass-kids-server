@@ -221,21 +221,15 @@ app.post('/Vapp/Book/isCollection', (req, res) => {
 app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const uid = req.auth.id
     const id = req.query.lessonid + req.query.type
-    const index = Number(req.query.count_lock) + 1
+    const index = Number(req.query.lock) || 0
+
     const single_array = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
-    let lock
-    try {
-        if (Array.isArray((jsonfy(single_array)).lock)) {
-            lock = (jsonfy(single_array)).lock
-        } else {
-            throw new Error('!!!')
-        }
-    } catch (error) {
-        lock = []
+    const old_index = _.get(single_array, '0.index')
+    if (old_index <= index) {
+        const lock = `[${'0,'.repeat(index+1)}]`
+        await db.query('update userview set ?', { index, lock })
     }
-    lock[index] = Number(req.query.lock)
-    lock = JSON.stringify(lock)
-    await db.query('update userview set ?', { index, lock })
+
     res.send('ok')
 })
 
