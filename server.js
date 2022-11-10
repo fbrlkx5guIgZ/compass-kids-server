@@ -230,7 +230,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     if (old_index <= index) {
         const lock = `[${'0,'.repeat(index + 1)}]`
         console.log(lock)
-        await db.query('insert into userview set ? on duplicate key update', [{ index, lock, id, uid, uid_id }])
+        await db.query('insert into userview set ? on duplicate key update ?', [{ index, lock, id, uid, uid_id }, { index, lock, id, uid, uid_id }])
     }
     res.send('ok')
 
