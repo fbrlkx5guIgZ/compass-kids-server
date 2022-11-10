@@ -222,7 +222,7 @@ app.post('/Vapp/Book/isCollection', (req, res) => {
 app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const uid = req.auth.id
     const id = req.query.lessonid + req.query.type
-    const uid_id = uid + '_' + 'id'
+    const uid_id = uid + '_' + id
     const index = Number(req.query.lock) || 0
 
     const single_array = (await db.query('select * from userview where ?', { uid_id }))[0]
