@@ -183,7 +183,7 @@ app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
     const id = _.get(req, 'body.lessonid') + _.get(req, 'body.lessontype')
     // const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     const uid = req.auth.id
-    const single_array = (await db.query('SELECT * FROM vapp_prereview_getprereviewresource left join (userview left join userlesson on cast(userview.id/10 as unsigned)=userlesson.lessonid and ?) on userview.id=vapp_prereview_getprereviewresource.id where vapp_prereview_getprereviewresource.id=? and ?;', [{ uid }, id, { uid }]))[0]
+    const single_array = (await db.query('SELECT * FROM vapp_prereview_getprereviewresource left join (userview left join userlesson on left(userview.uid_id,length(userview.uid_id)-1)=concat(userlesson.id,"_",userlesson.lessonid)) on userview.id=vapp_prereview_getprereviewresource.id where vapp_prereview_getprereviewresource.id=? and ?;', [ id, { uid }]))[0]
     res.send(jsonfy(single_array))
 })
 
