@@ -222,21 +222,15 @@ app.post('/Vapp/Book/isCollection', (req, res) => {
 app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const uid = req.auth.id
     const id = req.query.lessonid + req.query.type
+    const uid_id = uid + '_' + 'id'
     const index = Number(req.query.lock) || 0
 
-    const single_array = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
+    const single_array = (await db.query('select * from userview where ?', { uid_id }))[0]
     const old_index = _.get(single_array, '0.index') || 0
     if (old_index <= index) {
         const lock = `[${'0,'.repeat(index + 1)}]`
         console.log(lock)
-        const exist = (await db.query('select * from userview where ? and ?', [{ id }, { uid }]))[0]
-        if (exist.length) {
-            await db.query('update userview set ? where ? and ?', [{ index, lock }, { id }, { uid }])
-        }
-        else {
-            await db.query('insert into userview set ? ', [{ index, lock, id, uid }])
-        }
-
+        await db.query('insert into userview set ? on duplicate key update', [{ index, lock, id, uid, uid_id }])
     }
     res.send('ok')
 
