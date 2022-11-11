@@ -110,6 +110,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
 
 app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
     let data = ''
+    delete req.query.token
     await db.query('insert into users set ?', req.query).catch((err) => {
         res.statusCode = 400
         data = err
