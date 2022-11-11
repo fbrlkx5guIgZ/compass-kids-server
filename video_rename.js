@@ -7,7 +7,7 @@ const dir = path.resolve(process.argv[2])
 const ls = fs.readdirSync(dir || process.cwd()).filter(file=>file.match(/\.mov$/))
 for (const file of ls) {
     const new_file = file.replace(/^(.+?)[ .].+$/, '$1.mp4')
-    if (fs.existsSync(new_file)) {
+    if (fs.existsSync(path.resolve(dir, new_file))) {
         console.log(new_file + ' done')
         continue
     }
