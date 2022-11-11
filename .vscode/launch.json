@@ -12,7 +12,10 @@
                 "<node_internals>/**"
             ],
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "args": [
+                "C:\\mnt\\Downloads\\G1课件视频"
+            ]
         }
     ]
 }
