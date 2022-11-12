@@ -16,7 +16,7 @@ for (const file of ls) {
             console.log('has done')
             child.stdin.write('n\n')
         }
-        else if (output.match(/^frame=/)) {
+        else if (output.match(/^frame=.+?\r$/)) {
             process.stdout.write(output)
         }
         else {
