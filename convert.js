@@ -11,8 +11,9 @@ for (const file of ls) {
     const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
     child.stderr.on('data', chunk => {
         const output = String(chunk)
+        console.log(new_file)
         if (output.match(/Overwrite\?/)) {
-            console.log(new_file + ' has done')
+            console.log('has done')
             child.stdin.write('n\n')
         }
         else if (output.match(/^frame=/)) {
