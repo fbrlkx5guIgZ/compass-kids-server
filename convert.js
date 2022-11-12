@@ -17,7 +17,7 @@ for (const file of ls) {
             child.stdin.write('n\n')
         }
         else if (output.match(/^frame=/)) {
-            process.stdout.write(new_file + ' ' + output)
+            process.stdout.write(output)
         }
         else {
             convert_log.write(output)
