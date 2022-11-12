@@ -7,7 +7,7 @@ const convert_log = fs.createWriteStream(path.resolve('concert_log.log'))
 const dir = path.resolve(process.argv[2])
 const ls = fs.readdirSync(dir || process.cwd()).filter(file => file.match(/\.mov$/))
 for (const file of ls) {
-    const new_file = file.replace(/^(.+?)[ .].+$/, '$1.mp4')
+    const new_file = file.replace(/^(.+?)[ .].+$/, '$1')
     const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(dir, new_file)])
     child.stderr.on('data', chunk => {
         const output = String(chunk)
@@ -16,8 +16,7 @@ for (const file of ls) {
             child.stdin.write('n\n')
         }
         else if (output.match(/^frame=/)) {
-            console.log(new_file)
-            process.stdout.write(output)
+            process.stdout.write(new_file + '\t' + output)
         }
         else {
             convert_log.write(output)
