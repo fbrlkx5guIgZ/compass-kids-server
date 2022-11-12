@@ -9,15 +9,15 @@ const ls = fs.readdirSync(dir || process.cwd()).filter(file => file.match(/\.mov
 for (const file of ls) {
     const new_file = file.replace(/^(.+?)[ .].+$/, '$1.mp4')
     const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
+    console.log(new_file)
     child.stderr.on('data', chunk => {
         const output = String(chunk)
-        consgitole.log(new_file)
         if (output.match(/Overwrite\?/)) {
             console.log('has done')
             child.stdin.write('n\n')
         }
         else if (output.match(/^frame=/)) {
-            process.stdout.write(output)
+            process.stdout.write(new_file + ' ' + output)
         }
         else {
             convert_log.write(output)
