@@ -9,7 +9,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002a4a837e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000169776ce740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\1p1gfIrglbpxPYHMYU0hstPuLWZm 105.mov':
   Metadata:
     major_brand     : qt  
@@ -30,7 +30,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\1p1gfIr
       creation_time   : 2022-11-06T05:12:21.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\1p1gfIrglbpxPYHMYU0hstPuLWZm.mp4' already eNot overwriting - exiting
+[NULL @ 0000016977bc1280] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\1p1gfIrglbpxPYHMYU0hstPuLWZm'
+C:\mnt\Downloads\G1课件视频\1p1gfIrglbpxPYHMYU0hstPuLWZm: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -42,7 +43,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002107b45e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000234f13de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\1rxgvrZ8j_o2KUC6T9722j1qO_U4.mov':
   Metadata:
     major_brand     : qt  
@@ -63,7 +64,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\1rxgvrZ
       creation_time   : 2022-11-06T00:35:56.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloNot overwriting - exiting
+[NULL @ 00000234f13e4080] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\1rxgvrZ8j_o2KUC6T9722j1qO_U4'
+C:\mnt\Downloads\G1课件视频\1rxgvrZ8j_o2KUC6T9722j1qO_U4: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -75,7 +77,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000209f8b1e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002828887e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\FgU0rvCKh1bWLLL-PQpWrn_jKjnP 55.mov':
   Metadata:
     major_brand     : qt  
@@ -96,7 +98,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\FgU0rvC
       creation_time   : 2022-11-05T14:15:54.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownlNot overwriting - exiting
+[NULL @ 0000028288de0c80] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\FgU0rvCKh1bWLLL-PQpWrn_jKjnP'
+C:\mnt\Downloads\G1课件视频\FgU0rvCKh1bWLLL-PQpWrn_jKjnP: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -108,7 +111,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001be37afe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001b824d3e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\Fj3fGd-OrQwdoBEDehU9O-mtQuiH 93.mov':
   Metadata:
     major_brand     : qt  
@@ -129,7 +132,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\Fj3fGd-
       creation_time   : 2022-11-06T01:56:15.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 000001b826bbe7c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\Fj3fGd-OrQwdoBEDehU9O-mtQuiH'
+C:\mnt\Downloads\G1课件视频\Fj3fGd-OrQwdoBEDehU9O-mtQuiH: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -141,7 +145,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001f3ff75e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002b3554de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\Fora7iUK9u0ksgfl7PtOeQluCLhG 63.mov':
   Metadata:
     major_brand     : qt  
@@ -162,7 +166,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\Fora7iU
       creation_time   : 2022-11-05T23:52:57.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 000002b355b17c00] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\Fora7iUK9u0ksgfl7PtOeQluCLhG'
+C:\mnt\Downloads\G1课件视频\Fora7iUK9u0ksgfl7PtOeQluCLhG: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -174,7 +179,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002d470f9e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023ea429e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\FpGlFLC0258zrIlbCBQpHcTn2d9J 69.mov':
   Metadata:
     major_brand     : qt  
@@ -195,7 +200,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\FpGlFLC
       creation_time   : 2022-11-05T23:59:23.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\FpGlFLC0258zrIlbCBQpHcTn2d9J.mp4' already exists.Not overwriting - exiting
+[NULL @ 0000023ea42d6580] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\FpGlFLC0258zrIlbCBQpHcTn2d9J'
+C:\mnt\Downloads\G1课件视频\FpGlFLC0258zrIlbCBQpHcTn2d9J: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -207,7 +213,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000022c2d7fe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000252ff0be740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\FvCiaB1HE5se-iXLSS6mlUDG9JvZ 65.mov':
   Metadata:
     major_brand     : qt  
@@ -228,7 +234,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\FvCiaB1
       creation_time   : 2022-11-05T23:55:13.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 00000252ff267c40] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\FvCiaB1HE5se-iXLSS6mlUDG9JvZ'
+C:\mnt\Downloads\G1课件视频\FvCiaB1HE5se-iXLSS6mlUDG9JvZ: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -240,7 +247,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001a65a9ee740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000017fff5fe740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\h9my51V763bEy6SfrDc3EfLrrFf.mov':
   Metadata:
     major_brand     : qt  
@@ -261,7 +268,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\h9my51V
       creation_time   : 2022-11-05T04:43:17.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 0000017fff6f5cc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\h9my51V763bEy6SfrDc3EfLrrFf'
+C:\mnt\Downloads\G1课件视频\h9my51V763bEy6SfrDc3EfLrrFf: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -273,7 +281,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001491dfae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000227ad39e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lg55BEntfF9Y-dB2F7SDbIODcKTn 9.mov':
   Metadata:
     major_brand     : qt  
@@ -294,7 +302,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lg55BEn
       creation_time   : 2022-11-05T04:50:45.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 00000227ad470ac0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lg55BEntfF9Y-dB2F7SDbIODcKTn'
+C:\mnt\Downloads\G1课件视频\lg55BEntfF9Y-dB2F7SDbIODcKTn: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -306,7 +315,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023eee82e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000292a6b8e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lg5jUuCORcsNnPgvj0jJQFhzXlWg.mov':
   Metadata:
     major_brand     : qt  
@@ -327,7 +336,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lg5jUuC
       creation_time   : 2022-11-06T06:43:40.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownlNot overwriting - exiting
+[NULL @ 00000292a6d64cc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lg5jUuCORcsNnPgvj0jJQFhzXlWg'
+C:\mnt\Downloads\G1课件视频\lg5jUuCORcsNnPgvj0jJQFhzXlWg: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -339,7 +349,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001eda978e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000020b3d49e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lg5PFOI2hK6mkAiu0otnbduOP32I 71.mov':
   Metadata:
     major_brand     : qt  
@@ -360,7 +370,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lg5PFOI
       creation_time   : 2022-11-06T00:01:10.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 0000020b3d5704c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lg5PFOI2hK6mkAiu0otnbduOP32I'
+C:\mnt\Downloads\G1课件视频\lg5PFOI2hK6mkAiu0otnbduOP32I: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -372,7 +383,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000027273fae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d061fae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lgGCsOMQ5lUxeTbKLSlJTluQFcd4 91.mov':
   Metadata:
     major_brand     : qt  
@@ -393,7 +404,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lgGCsOM
       creation_time   : 2022-11-06T01:21:57.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 000001d0624f1080] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lgGCsOMQ5lUxeTbKLSlJTluQFcd4'
+C:\mnt\Downloads\G1课件视频\lgGCsOMQ5lUxeTbKLSlJTluQFcd4: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -405,7 +417,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001907e9ae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001fbebfde740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lgN_zHeOcDUZZ1Ilo6yh5R_ykzlZ 85.mov':
   Metadata:
     major_brand     : qt  
@@ -426,7 +438,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lgN_zHe
       creation_time   : 2022-11-06T01:10:19.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 000001fbec160c80] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lgN_zHeOcDUZZ1Ilo6yh5R_ykzlZ'
+C:\mnt\Downloads\G1课件视频\lgN_zHeOcDUZZ1Ilo6yh5R_ykzlZ: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -438,7 +451,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000277b376e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001e5d5b2e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhDQI0S9Isw5WNVNlvK180811Zyv 43.mov':
   Metadata:
     major_brand     : qt  
@@ -459,7 +472,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhDQI0S
       creation_time   : 2022-11-05T23:58:14.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloa] Not overwriting - exiting
+[NULL @ 000001e5d5b36a40] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lhDQI0S9Isw5WNVNlvK180811Zyv'
+C:\mnt\Downloads\G1课件视频\lhDQI0S9Isw5WNVNlvK180811Zyv: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -471,7 +485,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002329358e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000025cd6e1e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhlALuLHQ6cdj8_Eu_bB3NITd8EW 111.mov':
   Metadata:
     major_brand     : qt  
@@ -492,7 +506,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhlALuL
       creation_time   : 2022-11-06T05:20:20.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 0000025cd72704c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lhlALuLHQ6cdj8_Eu_bB3NITd8EW'
+C:\mnt\Downloads\G1课件视频\lhlALuLHQ6cdj8_Eu_bB3NITd8EW: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -504,7 +519,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023db9bce740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000026371e6e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhM0Ph_XwKP7lqYrya8waKDSwBf7 51.mov':
   Metadata:
     major_brand     : qt  
@@ -525,7 +540,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhM0Ph_
       creation_time   : 2022-11-06T00:34:39.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 0000026372044bc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lhM0Ph_XwKP7lqYrya8waKDSwBf7'
+C:\mnt\Downloads\G1课件视频\lhM0Ph_XwKP7lqYrya8waKDSwBf7: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -537,7 +553,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002ae9cd3e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001c12034e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhVeKSqeyRM1NMF2OLKj9A3lOmO_ 101.mov':
   Metadata:
     major_brand     : qt  
@@ -558,7 +574,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lhVeKSq
       creation_time   : 2022-11-06T05:06:07.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-FileNot overwriting - exiting
+[NULL @ 000001c1208bb380] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lhVeKSqeyRM1NMF2OLKj9A3lOmO_'
+C:\mnt\Downloads\G1课件视频\lhVeKSqeyRM1NMF2OLKj9A3lOmO_: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -570,7 +587,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000129900be740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000017f51f6e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\liEq6Ybs0y9Nj5-Qhx2ryFSgYRw4 87.mov':
   Metadata:
     major_brand     : qt  
@@ -591,7 +608,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\liEq6Yb
       creation_time   : 2022-11-06T01:16:26.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 0000017f524a4bc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\liEq6Ybs0y9Nj5-Qhx2ryFSgYRw4'
+C:\mnt\Downloads\G1课件视频\liEq6Ybs0y9Nj5-Qhx2ryFSgYRw4: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -603,7 +621,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000202233ce740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000210f8c6e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lifu0LQYaqJvNjdLYi--6KzFOrs9 83.mov':
   Metadata:
     major_brand     : qt  
@@ -624,7 +642,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lifu0LQ
       creation_time   : 2022-11-06T01:01:09.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 00000210f8c76bc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lifu0LQYaqJvNjdLYi--6KzFOrs9'
+C:\mnt\Downloads\G1课件视频\lifu0LQYaqJvNjdLYi--6KzFOrs9: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -636,7 +655,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001b14083e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001fac20ce740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lig5xNbrVq2fKMkyFqpZTXY6Ojz1 67.mov':
   Metadata:
     major_brand     : qt  
@@ -657,7 +676,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lig5xNb
       creation_time   : 2022-11-05T23:57:11.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 000001fac22d7440] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lig5xNbrVq2fKMkyFqpZTXY6Ojz1'
+C:\mnt\Downloads\G1课件视频\lig5xNbrVq2fKMkyFqpZTXY6Ojz1: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -669,7 +689,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000025bc3c8e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002438d42e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lih7yRVEyCCyWSmAIdtOrL83ow3j 59.mov':
   Metadata:
     major_brand     : qt  
@@ -690,7 +710,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lih7yRV
       creation_time   : 2022-11-05T23:47:57.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\my/N] Not overwriting - exiting
+[NULL @ 000002438d435500] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lih7yRVEyCCyWSmAIdtOrL83ow3j'
+C:\mnt\Downloads\G1课件视频\lih7yRVEyCCyWSmAIdtOrL83ow3j: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -702,7 +723,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002a38edae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001dbff3ce740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\liU5Kf8hm3_Hk6JK1ZRSCjQJlXVS 139.mov':
   Metadata:
     major_brand     : qt  
@@ -723,7 +744,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\liU5Kf8
       creation_time   : 2022-11-06T06:27:05.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\liU5Kf8hm3_Hk6Not overwriting - exiting
+[NULL @ 000001dbff469280] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\liU5Kf8hm3_Hk6JK1ZRSCjQJlXVS'
+C:\mnt\Downloads\G1课件视频\liU5Kf8hm3_Hk6JK1ZRSCjQJlXVS: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -735,7 +757,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000170e56fe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002444374e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\livpWLanB7cP0P6aMCtTdrHwRBrY 103.mov':
   Metadata:
     major_brand     : qt  
@@ -756,7 +778,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\livpWLa
       creation_time   : 2022-11-06T05:09:57.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\livpWLanB7cP0P6aMCtTdrHwRBrY.mp4' already Not overwriting - exiting
+[NULL @ 0000024443924100] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\livpWLanB7cP0P6aMCtTdrHwRBrY'
+C:\mnt\Downloads\G1课件视频\livpWLanB7cP0P6aMCtTdrHwRBrY: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -768,7 +791,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000026f5f15e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001969916e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljfGtdVCilQRO29Lk5CmWs6UtTkA 125.mov':
   Metadata:
     major_brand     : qt  
@@ -789,7 +812,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljfGtdV
       creation_time   : 2022-11-06T05:55:44.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 00000196995c0cc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ljfGtdVCilQRO29Lk5CmWs6UtTkA'
+C:\mnt\Downloads\G1课件视频\ljfGtdVCilQRO29Lk5CmWs6UtTkA: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -801,7 +825,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001ec2e91e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000022a9e67e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljiN83GCNeIpuK-xpP2S3mK7CZvE 123.mov':
   Metadata:
     major_brand     : qt  
@@ -822,7 +846,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljiN83G
       creation_time   : 2022-11-06T05:48:01.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\ljiN83GCNeIpuK-xNot overwriting - exiting
+[NULL @ 0000022a9e731c00] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ljiN83GCNeIpuK-xpP2S3mK7CZvE'
+C:\mnt\Downloads\G1课件视频\ljiN83GCNeIpuK-xpP2S3mK7CZvE: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -834,7 +859,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000197f01be740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002035d52e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljqa6th2p2UUEVcPISKLPjCuIn44 107.mov':
   Metadata:
     major_brand     : qt  
@@ -855,7 +880,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljqa6th
       creation_time   : 2022-11-06T05:14:02.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 000002035db1b480] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ljqa6th2p2UUEVcPISKLPjCuIn44'
+C:\mnt\Downloads\G1课件视频\ljqa6th2p2UUEVcPISKLPjCuIn44: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -867,7 +893,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001767a69e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000252b57ae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljU2psQD8qnmz0_SiRQOQbzTyLEw.mov':
   Metadata:
     major_brand     : qt  
@@ -888,7 +914,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ljU2psQ
       creation_time   : 2022-11-05T05:00:32.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Not overwriting - exiting
+[NULL @ 00000252b58807c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ljU2psQD8qnmz0_SiRQOQbzTyLEw'
+C:\mnt\Downloads\G1课件视频\ljU2psQD8qnmz0_SiRQOQbzTyLEw: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -900,7 +927,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002b121a1e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000255b41de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lk3nYkXofExhbpFhhFoWdwv4heiV.mov':
   Metadata:
     major_brand     : qt  
@@ -921,7 +948,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lk3nYkX
       creation_time   : 2022-11-05T04:48:24.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 00000255b6044700] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lk3nYkXofExhbpFhhFoWdwv4heiV'
+C:\mnt\Downloads\G1课件视频\lk3nYkXofExhbpFhhFoWdwv4heiV: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -933,7 +961,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002143526e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001efc81fe740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lkgRLk2qhpQd45-BEZg1etMzrgoL.mov':
   Metadata:
     major_brand     : qt  
@@ -954,7 +982,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lkgRLk2
       creation_time   : 2022-11-06T01:59:24.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lkgRLk2qhpQd45-BEZg1etMzrgoL.mp4' already exisNot overwriting - exiting
+[NULL @ 000001efc82d04c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lkgRLk2qhpQd45-BEZg1etMzrgoL'
+C:\mnt\Downloads\G1课件视频\lkgRLk2qhpQd45-BEZg1etMzrgoL: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -966,7 +995,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000119947be740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002c976b2e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lkJipCRVS0d5AfSiRa55EtdWhCns 127.mov':
   Metadata:
     major_brand     : qt  
@@ -987,7 +1016,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lkJipCR
       creation_time   : 2022-11-06T05:58:17.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DNot overwriting - exiting
+[NULL @ 000002c976d2cd00] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lkJipCRVS0d5AfSiRa55EtdWhCns'
+C:\mnt\Downloads\G1课件视频\lkJipCRVS0d5AfSiRa55EtdWhCns: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -999,7 +1029,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000014bdf4ae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001d8bef6e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ll0mpp1UrRawLaGkYgrAfr3vQVKv 119.mov':
   Metadata:
     major_brand     : qt  
@@ -1020,7 +1050,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ll0mpp1
       creation_time   : 2022-11-06T05:44:35.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloNot overwriting - exiting
+[NULL @ 000001d8bf16ce00] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ll0mpp1UrRawLaGkYgrAfr3vQVKv'
+C:\mnt\Downloads\G1课件视频\ll0mpp1UrRawLaGkYgrAfr3vQVKv: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1032,7 +1063,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002d65791e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001e17b54e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\llPrwmoYZ14X6YsCWXfS4yU_o5zF.mov':
   Metadata:
     major_brand     : qt  
@@ -1053,7 +1084,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\llPrwmo
       creation_time   : 2022-11-05T05:05:12.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\llPrwmoYZ14X6YsCWNot overwriting - exiting
+[NULL @ 000001e17b556c40] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\llPrwmoYZ14X6YsCWXfS4yU_o5zF'
+C:\mnt\Downloads\G1课件视频\llPrwmoYZ14X6YsCWXfS4yU_o5zF: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1065,7 +1097,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002016f53e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000026d7966e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lls9NCC3-v4kqz8ao0-Yog-BBG4e.mov':
   Metadata:
     major_brand     : qt  
@@ -1086,7 +1118,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lls9NCC
       creation_time   : 2022-11-05T05:24:15.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lls9NCC3-v4kqNot overwriting - exiting
+[NULL @ 0000026d797f1280] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lls9NCC3-v4kqz8ao0-Yog-BBG4e'
+C:\mnt\Downloads\G1课件视频\lls9NCC3-v4kqz8ao0-Yog-BBG4e: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1098,7 +1131,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000027e1f1ce740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023cff08e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\llwVbnLK1IyavvJy51PSo9DdB2P4 89.mov':
   Metadata:
     major_brand     : qt  
@@ -1119,7 +1152,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\llwVbnL
       creation_time   : 2022-11-06T01:20:24.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 0000023cff0b56c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\llwVbnLK1IyavvJy51PSo9DdB2P4'
+C:\mnt\Downloads\G1课件视频\llwVbnLK1IyavvJy51PSo9DdB2P4: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1131,7 +1165,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000026e1e70e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000223a74de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lm7XqM7AKadkz6eyJ9kPHNoCrYfU 15.mov':
   Metadata:
     major_brand     : qt  
@@ -1152,7 +1186,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lm7XqM7
       creation_time   : 2022-11-05T04:58:39.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloadNot overwriting - exiting
+[NULL @ 00000223a7578380] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lm7XqM7AKadkz6eyJ9kPHNoCrYfU'
+C:\mnt\Downloads\G1课件视频\lm7XqM7AKadkz6eyJ9kPHNoCrYfU: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1164,7 +1199,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000024ddedee740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000022d3a26e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmd0Id62mtboueygIZW4kG6eYWl3 61.mov':
   Metadata:
     major_brand     : qt  
@@ -1185,7 +1220,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmd0Id6
       creation_time   : 2022-11-05T23:50:54.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lmd0Not overwriting - exiting
+[NULL @ 0000022d3a3004c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lmd0Id62mtboueygIZW4kG6eYWl3'
+C:\mnt\Downloads\G1课件视频\lmd0Id62mtboueygIZW4kG6eYWl3: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1197,7 +1233,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001fb7dc7e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001834454e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmdCrkaZ4kyaIAZ5yK9FLsU8X3JW.mov':
   Metadata:
     major_brand     : qt  
@@ -1218,7 +1254,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmdCrka
       creation_time   : 2022-11-05T04:45:58.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1����� [y/N] Not overwriting - exiting
+[NULL @ 0000018344757440] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lmdCrkaZ4kyaIAZ5yK9FLsU8X3JW'
+C:\mnt\Downloads\G1课件视频\lmdCrkaZ4kyaIAZ5yK9FLsU8X3JW: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1230,7 +1267,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000216342fe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001673af4e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmFcpslX-SWIGteKJ2RZguPOKBmZ 121.mov':
   Metadata:
     major_brand     : qt  
@@ -1251,7 +1288,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmFcpsl
       creation_time   : 2022-11-06T05:45:34.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lmFcpslX-SWIGteKJ2RZguPOKBNot overwriting - exiting
+[NULL @ 000001673b3e0ac0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lmFcpslX-SWIGteKJ2RZguPOKBmZ'
+C:\mnt\Downloads\G1课件视频\lmFcpslX-SWIGteKJ2RZguPOKBmZ: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1263,7 +1301,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001a7af59e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000015ccd2fe740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmIH2jctQ3OqvYmmgvDozmP817Wg.mov':
   Metadata:
     major_brand     : qt  
@@ -1284,7 +1322,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmIH2jc
       creation_time   : 2022-11-05T05:22:14.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lmIH2jctQ3OqvYmmgvDozmP817Wg.mp4' already existNot overwriting - exiting
+[NULL @ 0000015ccd38e2c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lmIH2jctQ3OqvYmmgvDozmP817Wg'
+C:\mnt\Downloads\G1课件视频\lmIH2jctQ3OqvYmmgvDozmP817Wg: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1296,7 +1335,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000024e70cfe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000145755de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmsa6sjWwh9EjbE5VrS0WJw88Dgs 33.mov':
   Metadata:
     major_brand     : qt  
@@ -1317,7 +1356,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lmsa6sj
       creation_time   : 2022-11-05T05:19:52.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownlNot overwriting - exiting
+[NULL @ 00000145755e4100] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lmsa6sjWwh9EjbE5VrS0WJw88Dgs'
+C:\mnt\Downloads\G1课件视频\lmsa6sjWwh9EjbE5VrS0WJw88Dgs: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1329,7 +1369,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001e70a68e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002128b71e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lngeuM4SmjBJul9oeOMTdTKF4y_a 133.mov':
   Metadata:
     major_brand     : qt  
@@ -1350,7 +1390,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lngeuM4
       creation_time   : 2022-11-06T06:13:57.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 000002128b7cfd00] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lngeuM4SmjBJul9oeOMTdTKF4y_a'
+C:\mnt\Downloads\G1课件视频\lngeuM4SmjBJul9oeOMTdTKF4y_a: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1362,7 +1403,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001a8d84de740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002240a69e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnHb0bQjpbG-v96s8IJZOxsIQ9Vs 81.mov':
   Metadata:
     major_brand     : qt  
@@ -1383,7 +1424,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnHb0bQ
       creation_time   : 2022-11-06T00:56:41.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloaNot overwriting - exiting
+[NULL @ 000002240a736100] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lnHb0bQjpbG-v96s8IJZOxsIQ9Vs'
+C:\mnt\Downloads\G1课件视频\lnHb0bQjpbG-v96s8IJZOxsIQ9Vs: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1395,7 +1437,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000021f9fc2e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000169b380e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnjDxwIgogsnZY-R1fed3pPDafrr 41.mov':
   Metadata:
     major_brand     : qt  
@@ -1416,7 +1458,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnjDxwI
       creation_time   : 2022-11-05T23:54:27.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloa] Not overwriting - exiting
+[NULL @ 00000169b38e07c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lnjDxwIgogsnZY-R1fed3pPDafrr'
+C:\mnt\Downloads\G1课件视频\lnjDxwIgogsnZY-R1fed3pPDafrr: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1428,7 +1471,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001c572a1e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000265c752e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnmH6Aphi3TGytgXShgU9qvB9Jm1.mov':
   Metadata:
     major_brand     : qt  
@@ -1449,7 +1492,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnmH6Ap
       creation_time   : 2022-11-05T23:45:36.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 00000265c7536440] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lnmH6Aphi3TGytgXShgU9qvB9Jm1'
+C:\mnt\Downloads\G1课件视频\lnmH6Aphi3TGytgXShgU9qvB9Jm1: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1461,7 +1505,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000015688dbe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001ed33e4e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnovZOVto6sruBMkjYwWWcYc_d4O 47.mov':
   Metadata:
     major_brand     : qt  
@@ -1482,7 +1526,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lnovZOV
       creation_time   : 2022-11-06T00:26:48.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloaNot overwriting - exiting
+[NULL @ 000001ed33f20ac0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lnovZOVto6sruBMkjYwWWcYc_d4O'
+C:\mnt\Downloads\G1课件视频\lnovZOVto6sruBMkjYwWWcYc_d4O: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1494,7 +1539,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000168a4f9e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000021d68b3e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lo4mXSf9xVw0cij3FmBbdjV_WCvW.mov':
   Metadata:
     major_brand     : qt  
@@ -1515,7 +1560,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lo4mXSf
       creation_time   : 2022-11-06T06:39:19.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownlNot overwriting - exiting
+[NULL @ 0000021d68b440c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lo4mXSf9xVw0cij3FmBbdjV_WCvW'
+C:\mnt\Downloads\G1课件视频\lo4mXSf9xVw0cij3FmBbdjV_WCvW: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1527,7 +1573,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000288a30ce740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000260f41be740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\loJvlcchBfpi4HoGTycC6kXBdVQC 49.mov':
   Metadata:
     major_brand     : qt  
@@ -1548,7 +1594,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\loJvlcc
       creation_time   : 2022-11-06T00:38:03.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 00000260f4290ac0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\loJvlcchBfpi4HoGTycC6kXBdVQC'
+C:\mnt\Downloads\G1课件视频\loJvlcchBfpi4HoGTycC6kXBdVQC: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1560,7 +1607,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000261b3bce740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000239f842e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\loK-YtTsgx-G4extl_CBc6YMdaZ9 113.mov':
   Metadata:
     major_brand     : qt  
@@ -1581,7 +1628,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\loK-YtT
       creation_time   : 2022-11-06T05:22:59.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 00000239f842fb40] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\loK-YtTsgx-G4extl_CBc6YMdaZ9'
+C:\mnt\Downloads\G1课件视频\loK-YtTsgx-G4extl_CBc6YMdaZ9: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1593,7 +1641,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001e8c55fe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002171131e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lp3lIaVJMBD6dQNo1YSIVif0wwyH 13.mov':
   Metadata:
     major_brand     : qt  
@@ -1614,7 +1662,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lp3lIaV
       creation_time   : 2022-11-05T04:56:26.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Not overwriting - exiting
+[NULL @ 00000217118eb280] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lp3lIaVJMBD6dQNo1YSIVif0wwyH'
+C:\mnt\Downloads\G1课件视频\lp3lIaVJMBD6dQNo1YSIVif0wwyH: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1626,7 +1675,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000020dcc4ae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001efad06e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lpZ1_SP35D4QUjjMfRIg1119gpsD 79.mov':
   Metadata:
     major_brand     : qt  
@@ -1647,7 +1696,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lpZ1_SP
       creation_time   : 2022-11-06T00:41:25.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lpZ1_SP35D4QUjjMfRIg1119gpsD.mp4/N] Not overwriting - exiting
+[NULL @ 000001efad601480] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lpZ1_SP35D4QUjjMfRIg1119gpsD'
+C:\mnt\Downloads\G1课件视频\lpZ1_SP35D4QUjjMfRIg1119gpsD: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1659,7 +1709,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000018a21a8e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002cfadb6e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqEVBZxk1YOla8eRNnTnE-sVl8Nz.mov':
   Metadata:
     major_brand     : qt  
@@ -1680,7 +1730,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqEVBZx
       creation_time   : 2022-11-06T04:50:07.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\Not overwriting - exiting
+[NULL @ 000002cfadb73040] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lqEVBZxk1YOla8eRNnTnE-sVl8Nz'
+C:\mnt\Downloads\G1课件视频\lqEVBZxk1YOla8eRNnTnE-sVl8Nz: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1692,7 +1743,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002a08ff2e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000029e376ae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqgW20TPQnNLd7VHBDSuqbGXccD-.mov':
   Metadata:
     major_brand     : qt  
@@ -1713,7 +1764,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqgW20T
       creation_time   : 2022-11-06T00:33:47.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lqgW20TPQnNLd7VHBDSuqbGXccD-.mp4' already exiNot overwriting - exiting
+[NULL @ 0000029e376b6480] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lqgW20TPQnNLd7VHBDSuqbGXccD-'
+C:\mnt\Downloads\G1课件视频\lqgW20TPQnNLd7VHBDSuqbGXccD-: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1725,7 +1777,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000017989d4e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001db838ae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqKrQxXoeSwRUSrOY3UBJ7D4E-fn.mov':
   Metadata:
     major_brand     : qt  
@@ -1746,7 +1798,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqKrQxX
       creation_time   : 2022-11-05T23:45:54.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DoNot overwriting - exiting
+[NULL @ 000001db838b43c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lqKrQxXoeSwRUSrOY3UBJ7D4E-fn'
+C:\mnt\Downloads\G1课件视频\lqKrQxXoeSwRUSrOY3UBJ7D4E-fn: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1758,7 +1811,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000017c6cc8e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000016c8576e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqMaRApRRTRYSZIVOyuWG5LpQH5x.mov':
   Metadata:
     major_brand     : qt  
@@ -1779,7 +1832,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqMaRAp
       creation_time   : 2022-11-06T06:06:31.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloaNot overwriting - exiting
+[NULL @ 0000016c858400c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lqMaRApRRTRYSZIVOyuWG5LpQH5x'
+C:\mnt\Downloads\G1课件视频\lqMaRApRRTRYSZIVOyuWG5LpQH5x: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1791,7 +1845,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001fb9e0de740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000232a191e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqu7CwiGZXyPZVZyuldUSdgnBhby 73.mov':
   Metadata:
     major_brand     : qt  
@@ -1812,7 +1866,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lqu7Cwi
       creation_time   : 2022-11-06T00:04:03.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownlNot overwriting - exiting
+[NULL @ 00000232a19f00c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lqu7CwiGZXyPZVZyuldUSdgnBhby'
+C:\mnt\Downloads\G1课件视频\lqu7CwiGZXyPZVZyuldUSdgnBhby: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1824,7 +1879,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001fdf4a6e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002a3a44ee740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrIbNL-Jy5jYdLTt8WoNi0Zyh5P1 29.mov':
   Metadata:
     major_brand     : qt  
@@ -1845,7 +1900,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrIbNL-
       creation_time   : 2022-11-05T05:15:15.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视�Not overwriting - exiting
+[NULL @ 000002a3a45c06c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lrIbNL-Jy5jYdLTt8WoNi0Zyh5P1'
+C:\mnt\Downloads\G1课件视频\lrIbNL-Jy5jYdLTt8WoNi0Zyh5P1: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1857,7 +1913,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002c0aec2e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001c4a005e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrjdo0RbDHmZk0w5KFrn_cx5mavf 53.mov':
   Metadata:
     major_brand     : qt  
@@ -1878,7 +1934,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrjdo0R
       creation_time   : 2022-11-06T00:40:09.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lrjdo0RbDNot overwriting - exiting
+[NULL @ 000001c4a0065000] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lrjdo0RbDHmZk0w5KFrn_cx5mavf'
+C:\mnt\Downloads\G1课件视频\lrjdo0RbDHmZk0w5KFrn_cx5mavf: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1890,7 +1947,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000027689f7e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002c93e3de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrRaBqgD_Nox3jlLFg7y0o3ijJNv 75.mov':
   Metadata:
     major_brand     : qt  
@@ -1911,7 +1968,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrRaBqg
       creation_time   : 2022-11-06T00:25:07.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownNot overwriting - exiting
+[NULL @ 000002c93e941280] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lrRaBqgD_Nox3jlLFg7y0o3ijJNv'
+C:\mnt\Downloads\G1课件视频\lrRaBqgD_Nox3jlLFg7y0o3ijJNv: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1923,7 +1981,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002691034e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000002248f8ae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrYvnFQ_9RHaoXJSgH3gphlGRRw3.mov':
   Metadata:
     major_brand     : qt  
@@ -1944,7 +2002,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lrYvnFQ
       creation_time   : 2022-11-05T05:07:19.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件视频\lrYvnFQ_9RHaoXJSgH3gphlGRRw3.mp4' already eNot overwriting - exiting
+[NULL @ 000002248f8afa80] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lrYvnFQ_9RHaoXJSgH3gphlGRRw3'
+C:\mnt\Downloads\G1课件视频\lrYvnFQ_9RHaoXJSgH3gphlGRRw3: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1956,7 +2015,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000002bde7fbe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000276dbcce740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsPTFb0xQsdn18CRTOXOaeUkZAWM 31.mov':
   Metadata:
     major_brand     : qt  
@@ -1977,7 +2036,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsPTFb0
       creation_time   : 2022-11-05T05:18:11.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课件�Not overwriting - exiting
+[NULL @ 00000276dbcd0680] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lsPTFb0xQsdn18CRTOXOaeUkZAWM'
+C:\mnt\Downloads\G1课件视频\lsPTFb0xQsdn18CRTOXOaeUkZAWM: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -1989,7 +2049,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000020f01f5e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001db792ae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsWqcTzk40p2XTNPtZq0WBBgMn0G.mov':
   Metadata:
     major_brand     : qt  
@@ -2010,7 +2070,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsWqcTz
       creation_time   : 2022-11-05T23:41:03.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 000001db792b5180] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lsWqcTzk40p2XTNPtZq0WBBgMn0G'
+C:\mnt\Downloads\G1课件视频\lsWqcTzk40p2XTNPtZq0WBBgMn0G: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2022,7 +2083,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023074abe740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000172136ae740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsXN_fYqi9DSrkmE2bH_J-hJ27ZO 27.mov':
   Metadata:
     major_brand     : qt  
@@ -2043,7 +2104,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsXN_fY
       creation_time   : 2022-11-05T05:13:57.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\G1课�Not overwriting - exiting
+[NULL @ 00000172136b3fc0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lsXN_fYqi9DSrkmE2bH_J-hJ27ZO'
+C:\mnt\Downloads\G1课件视频\lsXN_fYqi9DSrkmE2bH_J-hJ27ZO: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2055,7 +2117,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000022be36ce740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000238d73fe740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsZ8C40FhG9fMumy3lEbgbOI1z9N 37.mov':
   Metadata:
     major_brand     : qt  
@@ -2076,7 +2138,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lsZ8C40
       creation_time   : 2022-11-05T14:16:59.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Downloads\Not overwriting - exiting
+[NULL @ 00000238d7429800] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lsZ8C40FhG9fMumy3lEbgbOI1z9N'
+C:\mnt\Downloads\G1课件视频\lsZ8C40FhG9fMumy3lEbgbOI1z9N: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2088,7 +2151,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000286ca14e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000027ab71de740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lt2AVMYndGepVEBF0Qq_7tkTOVVD 11.mov':
   Metadata:
     major_brand     : qt  
@@ -2109,7 +2172,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lt2AVMY
       creation_time   : 2022-11-05T04:52:54.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DowNot overwriting - exiting
+[NULL @ 0000027ab72948c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lt2AVMYndGepVEBF0Qq_7tkTOVVD'
+C:\mnt\Downloads\G1课件视频\lt2AVMYndGepVEBF0Qq_7tkTOVVD: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2121,7 +2185,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000295d0d4e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001795b5ce740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lt9DfhbCrOpcoIyBv4XcXS80_2LS 99.mov':
   Metadata:
     major_brand     : qt  
@@ -2142,7 +2206,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lt9Dfhb
       creation_time   : 2022-11-06T04:54:00.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\Down Not overwriting - exiting
+[NULL @ 000001795b6c6b80] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lt9DfhbCrOpcoIyBv4XcXS80_2LS'
+C:\mnt\Downloads\G1课件视频\lt9DfhbCrOpcoIyBv4XcXS80_2LS: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2154,7 +2219,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000210e4ece740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000260be73e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltCOroE0RXHLGxTFRimsknjb8TRM.mov':
   Metadata:
     major_brand     : qt  
@@ -2175,7 +2240,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltCOroE
       creation_time   : 2022-11-05T23:49:46.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloadNot overwriting - exiting
+[NULL @ 00000260be836040] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ltCOroE0RXHLGxTFRimsknjb8TRM'
+C:\mnt\Downloads\G1课件视频\ltCOroE0RXHLGxTFRimsknjb8TRM: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2187,7 +2253,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023ae3e1e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001ef755fe740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltgxUOnf5KXNlkmq29ON86H1YwCE.mov':
   Metadata:
     major_brand     : qt  
@@ -2208,7 +2274,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltgxUOn
       creation_time   : 2022-11-06T06:09:59.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-File 'C:\mnt\DownloadNot overwriting - exiting
+[NULL @ 000001ef75a606c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ltgxUOnf5KXNlkmq29ON86H1YwCE'
+C:\mnt\Downloads\G1课件视频\ltgxUOnf5KXNlkmq29ON86H1YwCE: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2220,7 +2287,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 000001e8a00ae740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001bc81d6e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltlJGzw5n5VXIwVI5idVuVeyN4sJ 117.mov':
   Metadata:
     major_brand     : qt  
@@ -2241,54 +2308,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltlJGzw
       creation_time   : 2022-11-06T05:29:16.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-Stream mapping:
-  Stream #0:0 -> #0:0 (hevc (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 000001e8a0284580] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
-[libx264 @ 000001e8a0284580] profile High, level 4.0, 4:2:0, 8-bit
-[libx264 @ 000001e8a0284580] 264 - core 164 r3099 e067ab0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2022 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=12 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'C:\mnt\Downloads\G1课件视频\ltlJGzw5n5VXIwVI5idVuVeyN4sJ.mp4':
-  Metadata:
-    major_brand     : qt  
-    minor_version   : 0
-    compatible_brands: qt  
-    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
-    com.apple.quicktime.copyright: 3a40d83373c96c6dd99bc6e167339e42
-    encoder         : Lavf59.33.100
-  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1080x1920, q=2-31, 30 fps, 15360 tbn (default)
-    Metadata:
-      creation_time   : 2022-11-06T05:29:16.000000Z
-      handler_name    : Core Media Video
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
-    Metadata:
-      creation_time   : 2022-11-06T05:29:16.000000Z
-      handler_name    : Core Media Audio
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 aac
-[libx264 @ 000001e8a0284580] frame I:27    Avg QP:14.68  size: 79824
-[libx264 @ 000001e8a0284580] frame P:1300  Avg QP:19.37  size: 11037
-[libx264 @ 000001e8a0284580] frame B:3555  Avg QP:25.27  size:  1756
-[libx264 @ 000001e8a0284580] consecutive B-frames:  2.0%  1.8%  2.8% 93.4%
-[libx264 @ 000001e8a0284580] mb I  I16..4: 25.7% 60.8% 13.5%
-[libx264 @ 000001e8a0284580] mb P  I16..4:  1.1%  3.4%  0.4%  P16..4: 10.1%  4.4%  1.9%  0.0%  0.0%    skip:78.8%
-[libx264 @ 000001e8a0284580] mb B  I16..4:  0.1%  0.1%  0.0%  B16..8: 10.0%  0.8%  0.1%  direct: 0.2%  skip:88.8%  L0:46.1% L1:50.2% BI: 3.7%
-[libx264 @ 000001e8a0284580] 8x8 transform intra:66.5% inter:76.1%
-[libx264 @ 000001e8a0284580] coded y,uvDC,uvAC intra: 37.2% 38.8% 17.6% inter: 2.2% 2.2% 0.2%
-[libx264 @ 000001e8a0284580] i16 v,h,dc,p: 58% 21%  6% 15%
-[libx264 @ 000001e8a0284580] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 17% 25%  4%  4%  5%  4%  4%  4%
-[libx264 @ 000001e8a0284580] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 31% 24% 12%  4%  7%  7%  6%  5%  4%
-[libx264 @ 000001e8a0284580] i8c dc,h,v,p: 59% 18% 19%  4%
-[libx264 @ 000001e8a0284580] Weighted P-Frames: Y:0.0% UV:0.0%
-[libx264 @ 000001e8a0284580] ref P L0: 66.9% 11.4% 16.3%  5.3%
-[libx264 @ 000001e8a0284580] ref B L0: 83.9% 14.0%  2.1%
-[libx264 @ 000001e8a0284580] ref B L1: 95.4%  4.6%
-[libx264 @ 000001e8a0284580] kb/s:1118.10
-[aac @ 000001e8a030bb80] Qavg: 6764.722
+[NULL @ 000001bc81d76300] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ltlJGzw5n5VXIwVI5idVuVeyN4sJ'
+C:\mnt\Downloads\G1课件视频\ltlJGzw5n5VXIwVI5idVuVeyN4sJ: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2300,7 +2321,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000281a0e3e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000020dc830e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltoRGBwkOg95nXHkE--hsNPk2jMK.mov':
   Metadata:
     major_brand     : qt  
@@ -2321,54 +2342,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltoRGBw
       creation_time   : 2022-11-05T04:34:01.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-Stream mapping:
-  Stream #0:0 -> #0:0 (hevc (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 00000281a1047b80] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
-[libx264 @ 00000281a1047b80] profile High, level 4.0, 4:2:0, 8-bit
-[libx264 @ 00000281a1047b80] 264 - core 164 r3099 e067ab0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2022 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=12 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'C:\mnt\Downloads\G1课件视频\ltoRGBwkOg95nXHkE--hsNPk2jMK.mp4':
-  Metadata:
-    major_brand     : qt  
-    minor_version   : 0
-    compatible_brands: qt  
-    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
-    com.apple.quicktime.copyright: e343964397afab7d629d6952d167c3f2
-    encoder         : Lavf59.33.100
-  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1080x1918, q=2-31, 30 fps, 15360 tbn (default)
-    Metadata:
-      creation_time   : 2022-11-05T04:34:01.000000Z
-      handler_name    : Core Media Video
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
-    Metadata:
-      creation_time   : 2022-11-05T04:34:01.000000Z
-      handler_name    : Core Media Audio
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 aac
-[libx264 @ 00000281a1047b80] frame I:16    Avg QP:13.83  size: 61807
-[libx264 @ 00000281a1047b80] frame P:898   Avg QP:17.34  size:  9354
-[libx264 @ 00000281a1047b80] frame B:2404  Avg QP:24.90  size:  2009
-[libx264 @ 00000281a1047b80] consecutive B-frames:  2.1%  2.8%  3.3% 91.7%
-[libx264 @ 00000281a1047b80] mb I  I16..4: 24.6% 62.8% 12.6%
-[libx264 @ 00000281a1047b80] mb P  I16..4:  2.9%  6.0%  0.4%  P16..4: 10.9%  3.8%  1.2%  0.0%  0.0%    skip:74.7%
-[libx264 @ 00000281a1047b80] mb B  I16..4:  0.2%  0.3%  0.0%  B16..8: 10.3%  0.7%  0.1%  direct: 0.3%  skip:88.1%  L0:44.9% L1:51.8% BI: 3.3%
-[libx264 @ 00000281a1047b80] 8x8 transform intra:63.4% inter:87.1%
-[libx264 @ 00000281a1047b80] coded y,uvDC,uvAC intra: 25.2% 33.4% 11.1% inter: 1.9% 2.6% 0.1%
-[libx264 @ 00000281a1047b80] i16 v,h,dc,p: 39% 33%  5% 23%
-[libx264 @ 00000281a1047b80] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 39% 20% 21%  3%  4%  4%  4%  3%  3%
-[libx264 @ 00000281a1047b80] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 39% 25% 12%  3%  6%  5%  5%  3%  2%
-[libx264 @ 00000281a1047b80] i8c dc,h,v,p: 59% 20% 16%  6%
-[libx264 @ 00000281a1047b80] Weighted P-Frames: Y:0.0% UV:0.0%
-[libx264 @ 00000281a1047b80] ref P L0: 71.2%  9.3% 15.5%  4.0%
-[libx264 @ 00000281a1047b80] ref B L0: 84.2% 14.3%  1.5%
-[libx264 @ 00000281a1047b80] ref B L1: 97.0%  3.0%
-[libx264 @ 00000281a1047b80] kb/s:1028.44
-[aac @ 00000281a0ed7a40] Qavg: 577.809
+[NULL @ 0000020dc83c0b00] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ltoRGBwkOg95nXHkE--hsNPk2jMK'
+C:\mnt\Downloads\G1课件视频\ltoRGBwkOg95nXHkE--hsNPk2jMK: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2380,7 +2355,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 00000159ae38e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000023965f0e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltRIdWtj3K3FV8sXPGPav27xi-vO 115.mov':
   Metadata:
     major_brand     : qt  
@@ -2401,54 +2376,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\ltRIdWt
       creation_time   : 2022-11-06T05:26:18.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-Stream mapping:
-  Stream #0:0 -> #0:0 (hevc (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 00000159ae390780] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
-[libx264 @ 00000159ae390780] profile High, level 4.0, 4:2:0, 8-bit
-[libx264 @ 00000159ae390780] 264 - core 164 r3099 e067ab0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2022 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=12 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'C:\mnt\Downloads\G1课件视频\ltRIdWtj3K3FV8sXPGPav27xi-vO.mp4':
-  Metadata:
-    major_brand     : qt  
-    minor_version   : 0
-    compatible_brands: qt  
-    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
-    com.apple.quicktime.copyright: f0be0c462b376356e5372ed8328f40ba
-    encoder         : Lavf59.33.100
-  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1080x1920, q=2-31, 30 fps, 15360 tbn (default)
-    Metadata:
-      creation_time   : 2022-11-06T05:26:18.000000Z
-      handler_name    : Core Media Video
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
-    Metadata:
-      creation_time   : 2022-11-06T05:26:18.000000Z
-      handler_name    : Core Media Audio
-      vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 aac
-[libx264 @ 00000159ae390780] frame I:19    Avg QP:13.81  size: 79048
-[libx264 @ 00000159ae390780] frame P:961   Avg QP:19.09  size: 11098
-[libx264 @ 00000159ae390780] frame B:2628  Avg QP:25.75  size:  1726
-[libx264 @ 00000159ae390780] consecutive B-frames:  2.2%  1.4%  2.2% 94.2%
-[libx264 @ 00000159ae390780] mb I  I16..4: 30.8% 53.6% 15.7%
-[libx264 @ 00000159ae390780] mb P  I16..4:  1.3%  4.1%  0.5%  P16..4:  9.3%  4.3%  1.7%  0.0%  0.0%    skip:78.8%
-[libx264 @ 00000159ae390780] mb B  I16..4:  0.1%  0.2%  0.0%  B16..8:  9.0%  0.8%  0.1%  direct: 0.2%  skip:89.6%  L0:47.0% L1:49.7% BI: 3.3%
-[libx264 @ 00000159ae390780] 8x8 transform intra:64.8% inter:74.5%
-[libx264 @ 00000159ae390780] coded y,uvDC,uvAC intra: 35.5% 45.6% 21.1% inter: 1.9% 1.9% 0.2%
-[libx264 @ 00000159ae390780] i16 v,h,dc,p: 59% 25%  5% 11%
-[libx264 @ 00000159ae390780] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 35% 20% 22%  3%  4%  4%  4%  4%  4%
-[libx264 @ 00000159ae390780] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 33% 23% 13%  4%  7%  6%  6%  5%  3%
-[libx264 @ 00000159ae390780] i8c dc,h,v,p: 55% 20% 20%  5%
-[libx264 @ 00000159ae390780] Weighted P-Frames: Y:0.0% UV:0.0%
-[libx264 @ 00000159ae390780] ref P L0: 67.8% 10.0% 17.2%  5.0%
-[libx264 @ 00000159ae390780] ref B L0: 84.7% 13.0%  2.3%
-[libx264 @ 00000159ae390780] ref B L1: 95.0%  5.0%
-[libx264 @ 00000159ae390780] kb/s:1111.12
-[aac @ 00000159ae42ca00] Qavg: 19309.627
+[NULL @ 0000023966421980] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\ltRIdWtj3K3FV8sXPGPav27xi-vO'
+C:\mnt\Downloads\G1课件视频\ltRIdWtj3K3FV8sXPGPav27xi-vO: Invalid argument
 ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
   built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
@@ -2460,7 +2389,7 @@ ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright
   libswscale      6.  8.112 /  6.  8.112
   libswresample   4.  9.100 /  4.  9.100
   libpostproc    56.  7.100 / 56.  7.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0000016902b4e740] Unknown cover type: 0x1.
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001bfb998e740] Unknown cover type: 0x1.
 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lu5RH66lG2npQdI5_VUaXEe0xb5r.mov':
   Metadata:
     major_brand     : qt  
@@ -2481,32 +2410,311 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lu5RH66
       creation_time   : 2022-11-05T05:11:03.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-Stream mapping:
-  Stream #0:0 -> #0:0 (hevc (native) -> h264 (libx264))
-  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
-Press [q] to stop, [?] for help
-[libx264 @ 0000016902be8780] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
-[libx264 @ 0000016902be8780] profile High, level 4.0, 4:2:0, 8-bit
-[libx264 @ 0000016902be8780] 264 - core 164 r3099 e067ab0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2022 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=12 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
-Output #0, mp4, to 'C:\mnt\Downloads\G1课件视频\lu5RH66lG2npQdI5_VUaXEe0xb5r.mp4':
+[NULL @ 000001bfb9dd06c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lu5RH66lG2npQdI5_VUaXEe0xb5r'
+C:\mnt\Downloads\G1课件视频\lu5RH66lG2npQdI5_VUaXEe0xb5r: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001ecf325e740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\luxQyWCcQfuMnef58-adP-FqfGo4.mov':
   Metadata:
     major_brand     : qt  
     minor_version   : 0
     compatible_brands: qt  
+    creation_time   : 2022-11-05T05:09:09.000000Z
+    com.apple.quicktime.copyright: 8bd93d8b528a209b7de567581ed89103
     com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
-    com.apple.quicktime.copyright: c6180d66d4c0db1fe15aadd34192cd7f
-    encoder         : Lavf59.33.100
-  Stream #0:0(und): Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1080x1918, q=2-31, 30 fps, 15360 tbn (default)
+  Duration: 00:01:59.77, start: 0.000000, bitrate: 11631 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1918, 11562 kb/s, 30 fps, 30 tbr, 600 tbn (default)
     Metadata:
-      creation_time   : 2022-11-05T05:11:03.000000Z
+      creation_time   : 2022-11-05T05:09:09.000000Z
       handler_name    : Core Media Video
       vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 libx264
-    Side data:
-      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
-  Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 65 kb/s (default)
     Metadata:
-      creation_time   : 2022-11-05T05:11:03.000000Z
+      creation_time   : 2022-11-05T05:09:09.000000Z
       handler_name    : Core Media Audio
       vendor_id       : [0][0][0][0]
-      encoder         : Lavc59.48.100 aac
+[NULL @ 000001ecf325fd40] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\luxQyWCcQfuMnef58-adP-FqfGo4'
+C:\mnt\Downloads\G1课件视频\luxQyWCcQfuMnef58-adP-FqfGo4: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000025ca4e3e740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\luz12OWu0p5ioz4EbtkENKPPOLh5 95.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-06T01:57:46.000000Z
+    com.apple.quicktime.copyright: 208125b47e0fd01bc13a1f208ad6ec48
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:00:52.07, start: 0.000000, bitrate: 5865 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1920, 5799 kb/s, 30.04 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-06T01:57:46.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 62 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-06T01:57:46.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 0000025ca5047440] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\luz12OWu0p5ioz4EbtkENKPPOLh5'
+C:\mnt\Downloads\G1课件视频\luz12OWu0p5ioz4EbtkENKPPOLh5: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001f1ca7de740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\luzVg0wzTMDBj0QKa2Q6zbharcxd.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-05T05:02:35.000000Z
+    com.apple.quicktime.copyright: 23373c78bc82be2bc20c24bca3703bd4
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:02:27.50, start: 0.000000, bitrate: 12867 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1918, 12761 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-05T05:02:35.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 102 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-05T05:02:35.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 000001f1ca8b07c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\luzVg0wzTMDBj0QKa2Q6zbharcxd'
+C:\mnt\Downloads\G1课件视频\luzVg0wzTMDBj0QKa2Q6zbharcxd: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0000019219e6e740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lv7bwqk06t0nd2z1ooVUPjOhWYgV 137.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-06T06:24:19.000000Z
+    com.apple.quicktime.copyright: 77e566c23f5637cdc376751750612a0e
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:02:42.10, start: 0.000000, bitrate: 6107 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1920x1080, 5978 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-06T06:24:19.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 125 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-06T06:24:19.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 0000019219e73580] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lv7bwqk06t0nd2z1ooVUPjOhWYgV'
+C:\mnt\Downloads\G1课件视频\lv7bwqk06t0nd2z1ooVUPjOhWYgV: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001a133ece740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lvAg-kQTlOQoUoKxDrGYx78WLURv 135.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-06T06:18:43.000000Z
+    com.apple.quicktime.copyright: 2c6829f8ad9e1eb1c185229cd465e1be
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:04:47.50, start: 0.000000, bitrate: 14396 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1920, 14319 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-06T06:18:43.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 73 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-06T06:18:43.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 000001a133ed6c80] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lvAg-kQTlOQoUoKxDrGYx78WLURv'
+C:\mnt\Downloads\G1课件视频\lvAg-kQTlOQoUoKxDrGYx78WLURv: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000241ae49e740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lvE9SFobH-sZp5hDTzBtF677X32Y 131.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-06T06:12:06.000000Z
+    com.apple.quicktime.copyright: fb34be40ab4768b1bd10071fa94e518c
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:01:31.07, start: 0.000000, bitrate: 11125 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1920, 11022 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-06T06:12:06.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 99 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-06T06:12:06.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 00000241ae528980] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lvE9SFobH-sZp5hDTzBtF677X32Y'
+C:\mnt\Downloads\G1课件视频\lvE9SFobH-sZp5hDTzBtF677X32Y: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001a04adde740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lviU9Mu1Wmq2lTe3_wyCL-njh-rb 45.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-06T00:02:57.000000Z
+    com.apple.quicktime.copyright: 7d2640bb528a9f1eda54cf8cf87a6c8f
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:00:52.80, start: 0.000000, bitrate: 11967 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1918, 11887 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-06T00:02:57.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 76 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-06T00:02:57.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 000001a04afe7440] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lviU9Mu1Wmq2lTe3_wyCL-njh-rb'
+C:\mnt\Downloads\G1课件视频\lviU9Mu1Wmq2lTe3_wyCL-njh-rb: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 000001ec1e19e740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lvPxCjrcZucM5NaCSVRcvaEr1wCI 109.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-06T05:17:17.000000Z
+    com.apple.quicktime.copyright: 76d3add54a6ef383efb2de0cea6ea4e9
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:01:48.07, start: 0.000000, bitrate: 10327 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1080x1920, 10257 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-06T05:17:17.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 66 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-06T05:17:17.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 000001ec1e6509c0] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lvPxCjrcZucM5NaCSVRcvaEr1wCI'
+C:\mnt\Downloads\G1课件视频\lvPxCjrcZucM5NaCSVRcvaEr1wCI: Invalid argument
+ffmpeg version 2022-09-26-git-dd2ea014ef-essentials_build-www.gyan.dev Copyright (c) 2000-2022 the FFmpeg developers
+  built with gcc 12.1.0 (Rev2, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-ffnvcodec --enable-nvdec --enable-nvenc --enable-d3d11va --enable-dxva2 --enable-libmfx --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      57. 37.100 / 57. 37.100
+  libavcodec     59. 48.100 / 59. 48.100
+  libavformat    59. 33.100 / 59. 33.100
+  libavdevice    59.  8.101 / 59.  8.101
+  libavfilter     8. 49.100 /  8. 49.100
+  libswscale      6.  8.112 /  6.  8.112
+  libswresample   4.  9.100 /  4.  9.100
+  libpostproc    56.  7.100 / 56.  7.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 00000269ec2ae740] Unknown cover type: 0x1.
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\mnt\Downloads\G1课件视频\lvTx8bIERkMWKqE32zrqgyJfQwBm.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 0
+    compatible_brands: qt  
+    creation_time   : 2022-11-05T04:36:06.000000Z
+    com.apple.quicktime.copyright: b21f32bf47777c95fea44fc8f3800d26
+    com.apple.quicktime.software: {{"publicMode":"1"},{"TEEditor":"2"},{"isFastImport":"0"},{"transType":"2"},{"te_is_reencode":"1"},{"source":""}}
+  Duration: 00:02:55.63, start: 0.000000, bitrate: 12629 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main) (hvc1 / 0x31637668), yuv420p(tv, bt709), 1920x1068, 12534 kb/s, 30 fps, 30 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2022-11-05T04:36:06.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 91 kb/s (default)
+    Metadata:
+      creation_time   : 2022-11-05T04:36:06.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+[NULL @ 00000269ec2b6c80] Unable to find a suitable output format for 'C:\mnt\Downloads\G1课件视频\lvTx8bIERkMWKqE32zrqgyJfQwBm'
+C:\mnt\Downloads\G1课件视频\lvTx8bIERkMWKqE32zrqgyJfQwBm: Invalid argument
