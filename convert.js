@@ -11,16 +11,18 @@ const once = async () => {
         const new_file = file.replace(/^(.+?)[ .].+$/, '$1.mp4')
         const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
         console.log(new_file)
+        let sum = ''
         child.stderr.on('data', chunk => {
             const output = String(chunk)
-            if (output.match(/Overwrite\?/)) {
+            if (sum.match(/Overwrite\?/)) {
                 console.log('has done')
                 child.stdin.write('n\n')
             }
-            else if (output.match(/^frame=.+?\r$/)) {
+            else if (sum.match(/^frame=.+?\r$/)) {
                 process.stdout.write(output)
             }
             else {
+                sum = sum.concat(output)
                 convert_log.write(output)
             }
         })
@@ -28,11 +30,11 @@ const once = async () => {
         await new Promise((resolve, reject) => {
             child.stdout.on('end', resolve)
         })
-        fs.rm(path.resolve(dir, file), (err) => { 
+        fs.rm(path.resolve(dir, file), (err) => {
             if (err) {
-                console.log(err) 
+                console.log(err)
             }
-            else{
+            else {
                 console.log('delete raw!')
             }
         })
