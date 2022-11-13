@@ -38,7 +38,7 @@ const once = async () => {
                 console.log(err)
             }
             else {
-                console.log('delete raw!')
+                console.log('delete raw: ', file)
             }
         })
         child.kill()
