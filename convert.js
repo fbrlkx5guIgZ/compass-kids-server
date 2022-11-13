@@ -1,12 +1,12 @@
-// import fs from 'fs'
-// import process from 'process'
-// import path from 'path'
-// import { spawn } from 'child_process'
+import fs from 'fs'
+import process from 'process'
+import path from 'path'
+import { spawn } from 'child_process'
 
-const fs = require('fs')
-const process = require('process')
-const path = require('path')
-const { spawn } = require('child_process')
+// const fs = require('fs')
+// const process = require('process')
+// const path = require('path')
+// const { spawn } = require('child_process')
 
 const convert_log = fs.createWriteStream(path.resolve('concert_log.log'))
 const dir = path.resolve(process.argv[2] || '')
