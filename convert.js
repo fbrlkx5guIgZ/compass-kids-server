@@ -1,16 +1,25 @@
-import fs from 'fs'
-import process from 'process'
-import path from 'path'
-import { spawn } from 'child_process'
+// import fs from 'fs'
+// import process from 'process'
+// import path from 'path'
+// import { spawn } from 'child_process'
+
+const fs = require('fs')
+const process = require('process')
+const path = require('path')
+const { spawn } = require('child_process')
 
 const convert_log = fs.createWriteStream(path.resolve('concert_log.log'))
-const dir = path.resolve(process.argv[2])
+const dir = path.resolve(process.argv[2] || '')
 const once = async () => {
     const ls = fs.readdirSync(dir || process.cwd()).filter(file => file.match(/\.mov$/))
     for (const file of ls) {
         const new_file = file.replace(/^(.+?)[ .].+$/, '$1.mp4')
-        fs.mkdirSync(path.resolve(process.cwd(), 'static'), () => { })
-        const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
+        try {
+            fs.mkdirSync(path.resolve(process.cwd(), 'static'))
+        } catch (error) {
+
+        }
+        const child = spawn(path.join(__dirname, 'ffmpeg/bin/ffmpeg.exe'), ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
         console.log(new_file)
         let sum = ''
         child.stderr.on('data', chunk => {
