@@ -14,6 +14,7 @@ const once = async () => {
         let sum = ''
         child.stderr.on('data', chunk => {
             const output = String(chunk)
+            sum = sum.concat(output)
             if (sum.match(/Overwrite\?/)) {
                 sum = ''
                 console.log('has done')
@@ -24,7 +25,6 @@ const once = async () => {
                 process.stdout.write(output)
             }
             else {
-                sum = sum.concat(output)
                 // convert_log.write(output + '\n')
                 fs.writeFile(path.resolve('concert_log.log'), sum, () => { })
             }
