@@ -15,15 +15,18 @@ const once = async () => {
         child.stderr.on('data', chunk => {
             const output = String(chunk)
             if (sum.match(/Overwrite\?/)) {
+                sum = ''
                 console.log('has done')
                 child.stdin.write('n\n')
             }
             else if (sum.match(/^frame=.+?\r$/)) {
+                sum = ''
                 process.stdout.write(output)
             }
             else {
                 sum = sum.concat(output)
-                convert_log.write(output + '\n')
+                // convert_log.write(output + '\n')
+                fs.writeFile(path.resolve('concert_log.log'), sum)
             }
         })
 
