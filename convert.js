@@ -19,7 +19,7 @@ const once = async () => {
         } catch (error) {
 
         }
-        const child = spawn(path.join(__dirname, 'ffmpeg/bin/ffmpeg.exe'), ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
+        const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
         console.log(new_file)
         let sum = ''
         child.stderr.on('data', chunk => {
