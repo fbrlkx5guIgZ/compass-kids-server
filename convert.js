@@ -20,7 +20,7 @@ const once = async () => {
                 console.log('has done')
                 child.stdin.write('n\n')
             }
-            else if (sum.match(/^frame=.+?\r$/)) {
+            else if (output.match(/^frame=.+?\r$/)) {
                 sum = ''
                 process.stdout.write(output)
             }
