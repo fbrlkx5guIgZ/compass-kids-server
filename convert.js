@@ -23,7 +23,7 @@ const once = async () => {
             }
             else {
                 sum = sum.concat(output)
-                convert_log.write(output)
+                convert_log.write(output + '\n')
             }
         })
 
