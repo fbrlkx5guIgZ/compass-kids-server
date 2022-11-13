@@ -20,10 +20,13 @@ const json = (await db.query('SELECT * FROM vapp_prereview_getprereviewresource'
 for (const item of json) {
     // stream.write(item.lessonname)
     // const lessonid = json[index].lessonid || 0
-    const lessonname = list_new[index]
+    // const lessonname = list_new[index]
     const id = item.id || 0
     let partList = JSON.parse(item.partList) || [{}]
-    partList[0].url = _.get(partList, '0.url.replace') ? partList[0].url.replace(/https?:\/\/.+?\//, 'https://www.compass-kids.com/') : ''
+    for (const part of partList) {
+        console.log(part.url)
+        part.url = _.get(part, 'url.replace') ? part.url.replace(/https?:\/\/.+?\/([^.]+).*$/, 'https://www.compass-kids.com/$1.mp4') : ''
+    }
     partList = JSON.stringify(partList)
 
     console.log(id)

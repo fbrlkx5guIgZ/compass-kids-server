@@ -14,7 +14,7 @@ const db = mysql.createPool({
     database: 'compass_kids'
 })
 
-const excel = xlsx.readFile(path.resolve('课件英语排序_ver02.xlsx'))
+const excel = xlsx.readFile(path.resolve('课件英语排序_ver04.xlsx'))
 
 const pattern = (title) => {
     let p1, p2, p3
@@ -44,8 +44,8 @@ for (let classlevel = 1; classlevel <= excel.SheetNames.length; classlevel++) {
 
         if (single_array.length == 0) {
             if (item['备注'] || lessonname) {
-                // console.log(['not match', lessonname, item['备注']])
-                console.log(lessonname)
+                console.log(['not match', lessonname, item['备注']])
+                // console.log(lessonname)
             }
             continue
         }
@@ -56,7 +56,8 @@ for (let classlevel = 1; classlevel <= excel.SheetNames.length; classlevel++) {
         const lessonid = single_array[0].lessonid || 0
 
         // console.log(lessonid)
-        await db.query('update vapp_lesson_getendlessonlist set ? where ? and classlevel=0', [{ lessonname, lessonno, classlevel }, { lessonid }])
+        // await db.query('update vapp_lesson_getendlessonlist set ? where ? and classlevel=0', [{ lessonname, lessonno, classlevel }, { lessonid }])
+        await db.query('update vapp_lesson_getendlessonlist set ? where ?', [{ lessonname, lessonno, classlevel }, { lessonid }])
     }
 
 }

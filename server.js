@@ -54,7 +54,7 @@ const where = {
 }
 
 app.use(express.static(path.resolve('static')))
-app.use(express.static(path.resolve()))
+// app.use(express.static(path.resolve()))
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {

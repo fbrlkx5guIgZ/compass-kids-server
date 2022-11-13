@@ -9,6 +9,7 @@ const once = async () => {
     const ls = fs.readdirSync(dir || process.cwd()).filter(file => file.match(/\.mov$/))
     for (const file of ls) {
         const new_file = file.replace(/^(.+?)[ .].+$/, '$1.mp4')
+        fs.mkdirSync(path.resolve(process.cwd(), 'static'), () => { })
         const child = spawn('ffmpeg', ['-i', path.resolve(dir, file), path.resolve(process.cwd(), 'static', new_file)])
         console.log(new_file)
         let sum = ''
@@ -25,8 +26,8 @@ const once = async () => {
                 process.stdout.write(output)
             }
             else {
-                // convert_log.write(output + '\n')
-                fs.writeFile(path.resolve('concert_log.log'), sum, () => { })
+                convert_log.write(output + '\n')
+                // fs.writeFile(path.resolve('concert_log.log'), sum, () => { })
             }
         })
 
