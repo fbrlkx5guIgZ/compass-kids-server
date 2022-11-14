@@ -1,11 +1,8 @@
-import fs, { realpathSync } from 'fs'
+import fs from 'fs'
 import mysql from 'mysql2/promise'
 import _ from 'lodash'
 import xlsx from 'xlsx'
 import path from 'path'
-
-const getendlessonlist = 'vapp_lesson_getendlessonlist'
-const getprereviewresource = 'vapp_prereview_getprereviewresource'
 
 const db = mysql.createPool({
     host: 'compass-kids.com',
@@ -14,5 +11,11 @@ const db = mysql.createPool({
     database: 'compass_kids'
 })
 
-const text = await db.query('SELECT * FROM compass_kids.__vapp_lesson_getendlessonlist where lessonname like ? order by classlevel+0,lessonno+0;','k2b%')
-1
+const ls = fs.readdirSync(path.resolve('static'))
+for (const file of ls) {
+    const new_file = file.replace(/^([^ .]+)/, '$1.mp4')
+    if (!new_file == file) {
+        console.log(new_file, file)
+        fs.rename(path.resolve('static', file), path.resolve('static', new_file), () => { })
+    }
+}
