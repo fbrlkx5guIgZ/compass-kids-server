@@ -31,8 +31,8 @@ const LessonBook = 'Vapp/Lesson/getLessonBook'
 const BookSource = 'Vapp/Book/getBookSource'
 
 const sessionid = 75399
-// const user_list = [56150, 23305, 55311, 29329]
-const user_list = [56150]
+const user_list = [56150, 23305, 55311, 29329]
+// const user_list = [56150]
 
 const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
 const to_url = (url, base) => {
