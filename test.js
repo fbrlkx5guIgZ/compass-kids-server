@@ -13,8 +13,8 @@ const db = mysql.createPool({
 
 const ls = fs.readdirSync(path.resolve('static'))
 for (const file of ls) {
-    const new_file = file.replace(/^([^ .]+)/, '$1.mp4')
-    if (!new_file == file) {
+    const new_file = file.replace(/^([^ .]+).*$/, '$1.mp4')
+    if (new_file != file) {
         console.log(new_file, file)
         fs.rename(path.resolve('static', file), path.resolve('static', new_file), () => { })
     }
