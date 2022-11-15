@@ -238,7 +238,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     }
     res.send('ok')
 
-    const json = await db.query('select * from vapp_prereview_getprereviewresource where ?', { id })[0]
+    const json = (await db.query('select * from vapp_prereview_getprereviewresource where ?', { id }))[0]
     const count = Number(_.get(json, '0.count'))
     if (index >= count) {
         let { ycompnum, compnum, precomplete, complete, yxresetflg, fxresetflg } = await db.query('SELECT * FROM compass_kids.userlesson where lessonid=?;', req.query.lessonid)[0][0]
