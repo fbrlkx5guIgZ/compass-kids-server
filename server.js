@@ -166,7 +166,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
         (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonid desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
         :
         (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonid desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
-    const datalist = jsonfy(pre_datalist)
+    const datalist = pre_datalist
     if (datalist.length) {
         res.send({ datalist, status: 200 })
     }
