@@ -247,7 +247,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
                 ycompnum = ycompnum ? ycompnum + 1 : 1
                 precomplete = 1
                 yxresetflg = 1
-                await db.query('update userlesson set ? where id=?', [{ ycompnum, precomplete, yxresetflg }, req.query.lessonid])
+                await db.query('update userlesson set ? where lessonid=?', [{ ycompnum, precomplete, yxresetflg }, req.query.lessonid])
             }
         }
         else if (req.query.type == 2) {
@@ -255,7 +255,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
                 compnum = compnum ? compnum + 1 : 1
                 complete = 1
                 fxresetflg = 1
-                await db.query('update userlesson set ? where id=?', [{ compnum, complete, fxresetflg }, req.query.lessonid])
+                await db.query('update userlesson set ? where lessonid=?', [{ compnum, complete, fxresetflg }, req.query.lessonid])
             }
         }
     }
