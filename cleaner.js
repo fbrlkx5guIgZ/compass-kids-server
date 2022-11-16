@@ -12,9 +12,19 @@ const db = mysql.createPool({
 
 const ls = fs.readdirSync(path.resolve('static'))
 for (const file of ls) {
-    const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource where partList like "%?%";', file))[0]
+    const name = `%${file}%`
+    const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource where partList like ?;', name))[0]
     if (!json.length) {
-        console.log(file)
+        console.log('no ' + file)
+    }
+    else {
+        const partList = JSON.parse(json[0].partList)
+        for (const part of partList) {
+            if (part.title.match(/拓展视频|动漫歌曲|动漫故事|故事预热/)) {
+                console.log(part.title, part.url)
+            }
+        }
     }
 }
+
 db.end()
