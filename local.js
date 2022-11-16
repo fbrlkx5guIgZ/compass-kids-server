@@ -15,26 +15,18 @@ const db = mysql.createPool({
 const code = 'admin'
 const list_raw = []
 const list_new = []
-const json = (await db.query('SELECT * FROM vapp_prereview_getprereviewresource'))[0]
-// const stream = fs.createWriteStream('video_L_series.txt', 'utf-8')
+const json = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist left join _vapp_prereview_getprereviewresource on lessonid=cast(id/10 as unsigned) where lessonname like "k3%" order by lessonno+0 desc;'))[0]
+const stream = fs.createWriteStream('video_K3_series.txt', 'utf-8')
 for (const item of json) {
-    // stream.write(item.lessonname)
-    // const lessonid = json[index].lessonid || 0
-    // const lessonname = list_new[index]
-    const id = item.id || 0
+    stream.write('\n' + item.lessonname)
     let partList = JSON.parse(item.partList) || [{}]
-    for (const part of partList) {
-        console.log(part.url)
-        part.url = _.get(part, 'url.replace') ? part.url.replace(/https?:\/\/.+?\/([^.]+).*$/, 'https://www.compass-kids.com/$1.mp4') : ''
-    }
-    partList = JSON.stringify(partList)
+    // for (const part of partList) {
+    //     stream.write(part.url ? '\n' + part.url : '')
+    //     console.log(part.url)
+    // }
 
-    console.log(id)
-    // await db.query('update vapp_lesson_getendlessonlist set ? where ?', [{ lessonname }, { lessonid }])
-    await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
-    // stream.write(partList.url ? '\r\n' + partList.title + '\n' + partList.url : '')
-    // partList = (JSON.parse(part2.partList) || [{ url: undefined }])[0]
-    // stream.write(partList.url ? '\r\n' + partList.title + '\n' + partList.url + '\n\n' : '\n\n')
+    const part = partList[1]
+    stream.write(part.url ? '\n' + part.url : '')
 }
 
 db.end()
