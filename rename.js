@@ -4,9 +4,6 @@ import _ from 'lodash'
 import xlsx from 'xlsx'
 import path from 'path'
 
-const getendlessonlist = 'vapp_lesson_getendlessonlist'
-const getprereviewresource = 'vapp_prereview_getprereviewresource'
-
 const db = mysql.createPool({
     host: 'compass-kids.com',
     user: 'root',
