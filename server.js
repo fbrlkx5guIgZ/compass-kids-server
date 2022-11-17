@@ -160,7 +160,8 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const id = req.auth.id
 
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-    const limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
+    // const limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
+    const limit_time = Date.now().toString().slice(0, -3)
     const lessonname = '%' + req.query.searchString + '%'
     const pre_datalist = req.query.searchString ?
         (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonid desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
