@@ -212,7 +212,7 @@ app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
 
 app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
     const id = _.get(req, 'query.lessonid')
-    const datalist = (await db.query('select * from vapp_lesson_getendlessonlist where lessonid=?', { id }))[0]
+    const datalist = (await db.query('select * from vapp_lesson_getendlessonlist where lessonid=?', id))[0]
     res.send(Object.assign({ "tabBarList": [{ "name": "预习AI课", "type": 1 }, { "name": "复习AI课", "type": 2 }], "tabBarList2": [{ "name": "基础关", "type": 1 }, { "name": "提升关", "type": 2 }] }, { id }, { datalist }))
 })
 
