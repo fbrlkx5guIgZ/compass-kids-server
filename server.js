@@ -164,9 +164,9 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const limit_time = Date.now().toString().slice(0, -3)
     const lessonname = '%' + req.query.searchString + '%'
     const pre_datalist = req.query.searchString ?
-        (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
+        (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonno+0 desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
         :
-        (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
+        (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonno+0 desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
     const datalist = pre_datalist
     if (datalist.length) {
         res.send({ datalist, status: 200 })
