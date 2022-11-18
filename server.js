@@ -212,8 +212,8 @@ app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
 
 app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
     const id = _.get(req, 'query.lessonid')
-    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
-    res.send(jsonfy(single_array))
+    const datalist = (await db.query('select * from vapp_lesson_getendlessonlist where lessonid=?', { id }))[0]
+    res.send(Object.assign({ "tabBarList": [{ "name": "预习AI课", "type": 1 }, { "name": "复习AI课", "type": 2 }], "tabBarList2": [{ "name": "基础关", "type": 1 }, { "name": "提升关", "type": 2 }] }, { id }, { datalist }))
 })
 
 app.post('/book/Book/addReadingAction', (req, res) => {
@@ -282,4 +282,4 @@ app.use(function (err, req, res, next) {
 
 const httpsServer = https.createServer(options, app)
 httpsServer.listen(443)
-// httpsServer.listen(80)
+httpsServer.listen(80)
