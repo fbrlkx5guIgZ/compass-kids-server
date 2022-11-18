@@ -30,7 +30,7 @@ for (const item of json) {
                 // console.log(part.title, [part.url, file])
                 try {
                     const raw_url = JSON.parse((await db.query('SELECT * FROM compass_kids._vapp_prereview_getprereviewresource where ?;', { id }))[0][0].partList)[index].url
-                    // console.log(raw_url)
+                    console.log(part.title, raw_url)
                     list_file.write(raw_url + '\n')
                 } catch (error) {
                     console.log('no raw url', file)
