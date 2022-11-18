@@ -19,10 +19,10 @@ const ls = fs.readdirSync(path.resolve('static'))
 const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource;'))[0]
 
 for (const item of json) {
-    const partList = JSON.parse(item.partList)
+    const part_list = JSON.parse(item.partList)
     const id = item.id
-    for (let index = 0; index < partList.length; index++) {
-        const part = partList[index]
+    for (let index = 0; index < part_list.length; index++) {
+        const part = part_list[index]
         if (part.url) {
             const file = part.url.match(/[^/]+$/)[0]
             // if (part.title.match(/拓展视频|动漫歌曲|动漫故事|故事预热/)) {
@@ -30,8 +30,11 @@ for (const item of json) {
                 // console.log(part.title, [part.url, file])
                 try {
                     const raw_url = JSON.parse((await db.query('SELECT * FROM compass_kids._vapp_prereview_getprereviewresource where ?;', { id }))[0][0].partList)[index].url
-                    console.log(part.title, raw_url)
-                    list_file.write(raw_url + '\n')
+                    part.url = raw_url
+                    const partList = JSON.stringify(part_list)
+                    await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
+                    // console.log(part.title, raw_url)
+                    // list_file.write(raw_url + '\n')
                 } catch (error) {
                     console.log('no raw url', file)
                 }

@@ -3,8 +3,8 @@ import process from 'process'
 import path from 'path'
 import { spawn } from 'child_process'
 
-const raw_path = 'C:\\Users\\DuHeng\\Desktop\\raw\\g2b'
-const dist_path = 'C:\\Users\\DuHeng\\Desktop\\static\\g2b'
+const raw_path = 'C:\\Users\\DuHeng\\Videos'
+const dist_path = 'C:\\Users\\DuHeng\\Desktop\\static\\k'
 
 const convert_log = fs.createWriteStream(path.resolve('concert_log.log'))
 const ls = fs.readdirSync(path.resolve(raw_path)).filter(file => file.match(/\.mp4$/))
