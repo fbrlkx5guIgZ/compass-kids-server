@@ -11,12 +11,13 @@ const db = mysql.createPool({
 })
 
 const list_file = fs.createWriteStream(path.resolve('static', 'videos.txt'))
-
-const ls = fs.readdirSync(path.resolve('static'))
-const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource;'))[0]
 await new Promise((resolve, reject) => {
     list_file.on('ready', resolve)
 })
+
+const ls = fs.readdirSync(path.resolve('static'))
+const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource;'))[0]
+
 for (const item of json) {
     const partList = JSON.parse(item.partList)
     for (const part of partList) {
