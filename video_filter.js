@@ -20,13 +20,22 @@ const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprere
 
 for (const item of json) {
     const partList = JSON.parse(item.partList)
-    for (const part of partList) {
+    const id = item.id
+    for (let index = 0; index < partList.length; index++) {
+        const part = partList[index]
         if (part.url) {
             const file = part.url.match(/[^/]+$/)[0]
             // if (part.title.match(/拓展视频|动漫歌曲|动漫故事|故事预热/)) {
             if (!ls.includes(file)) {
                 // console.log(part.title, [part.url, file])
-                list_file.write(part.url.replace(/www\.compass-kids\.com/,'cloud.nicekid.com'))
+                try {
+                    const raw_url = JSON.parse((await db.query('SELECT * FROM compass_kids._vapp_prereview_getprereviewresource where ?;', { id }))[0][0].partList)[index].url
+                    // console.log(raw_url)
+                    list_file.write(raw_url + '\n')
+                } catch (error) {
+                    console.log('no raw url', file)
+                }
+
             }
         }
     }
