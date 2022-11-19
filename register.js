@@ -49,7 +49,7 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
     return m
 }
 
-const excel = xlsx.readFile(path.resolve('Compass-登记课表_ver03.xlsx'))
+const excel = xlsx.readFile(path.resolve('Compass-登记课表K_ver01.xlsx'))
 
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
@@ -90,7 +90,7 @@ for (const item of sheet_json) {
             if (!times && index) {
                 startdate.setDate(startdate.getDate() + 7)
                 starttime = startdate.getTime().toString().slice(0, -3)
-                // console.log(starttime)
+                console.log(starttime)
             }
             for (const id of ids) {
                 const id_lessonid = `${id}_${lessonid}`

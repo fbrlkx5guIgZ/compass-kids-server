@@ -33,7 +33,7 @@ for (const item of json) {
                     part.url = raw_url
                     const partList = JSON.stringify(part_list)
                     await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
-                    // console.log(part.title, raw_url)
+                    console.log([item.lessonname, part.title], raw_url)
                     // list_file.write(raw_url + '\n')
                 } catch (error) {
                     console.log('no raw url', file)
