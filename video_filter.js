@@ -47,8 +47,8 @@ for (const item of json) {
                     part.url = local_url
                     const partList = JSON.stringify(part_list)
                     await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
-                    console.log([item.lessonname, part.title], raw_url)
-                    // list_file.write(raw_url + '\n')
+                    console.log([item.lessonname, part.title], local_url)
+                    // list_file.write(local_url + '\n')
                 }
             }
         }
