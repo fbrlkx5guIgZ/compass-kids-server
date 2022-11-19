@@ -24,21 +24,32 @@ for (const item of json) {
     for (let index = 0; index < part_list.length; index++) {
         const part = part_list[index]
         if (part.url) {
-            const file = part.url.match(/[^/]+$/)[0]
+            const file = decodeURI(part.url.match(/[^/]+$/)[0])
             // if (part.title.match(/拓展视频|动漫歌曲|动漫故事|故事预热/)) {
             if (!ls.includes(file)) {
                 // console.log(part.title, [part.url, file])
                 try {
                     const raw_url = JSON.parse((await db.query('SELECT * FROM compass_kids._vapp_prereview_getprereviewresource where ?;', { id }))[0][0].partList)[index].url
-                    part.url = raw_url
+                    if (!part.url == raw_url) {
+                        part.url = raw_url
+                        const partList = JSON.stringify(part_list)
+                        await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
+                        console.log([item.lessonname, part.title], raw_url)
+                        // list_file.write(raw_url + '\n')
+                    }
+                } catch (error) {
+                    console.log('no raw url', file)
+                }
+            }
+            else {
+                const local_url = part.url.replace(/https?:\/\/[^/]+?\//, 'https://www.compass-kids.com/')
+                if (local_url != part.url) {
+                    part.url = local_url
                     const partList = JSON.stringify(part_list)
                     await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
                     console.log([item.lessonname, part.title], raw_url)
                     // list_file.write(raw_url + '\n')
-                } catch (error) {
-                    console.log('no raw url', file)
                 }
-
             }
         }
     }
