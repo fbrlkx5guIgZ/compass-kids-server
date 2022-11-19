@@ -13,7 +13,11 @@ try {
 
 }
 for (const file of ls) {
-    if (!file.match(/\.mp4/)) {
-        fs.renameSync(path.resolve(raw_path, file), `${file}.mp4`)
+    // if (!file.match(/\.mp4/)) {
+    //     fs.renameSync(path.resolve(raw_path, file), path.resolve(raw_path, `${file}.mp4`))
+    // }
+    if (decodeURI(file) != file) {
+        console.log(file)
+        fs.renameSync(path.resolve(raw_path, file), path.resolve(raw_path, decodeURI(file)))
     }
 }

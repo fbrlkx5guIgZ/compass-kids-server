@@ -49,7 +49,7 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
     return m
 }
 
-const excel = xlsx.readFile(path.resolve('Compass-登记课表K_ver01.xlsx'))
+const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
 
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
@@ -58,9 +58,9 @@ const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
 for (const item of sheet_json) {
     let grade, remark, names = [], ids = [], startdate
     try {
-        grade = item['Grade'].match(/[^-&]+/g).map(value => value.trim())
+        grade = item['Grade'].match(/[^-&]+/g).map(value => value.trim()).filter(value => value)
         names = grade.slice(1)
-        remark = item['Remark'].match(/(?<=\d\.).+?(?=  |$)/g).map(title => `%${title.trim()}%`)
+        remark = item['Remark'].match(/(?<=\d\.).+?(?=  |$)/g).map(title => title.trim()).filter(value => value).map(title => `%${title}%`)
         startdate = new Date(item['跟新时间'].match(/[\d.]+/)[0])
         // startdate.setDate(startdate.getDate() - (startdate.getDay() - 1)) //转到这周周一
     } catch (error) {
@@ -90,7 +90,7 @@ for (const item of sheet_json) {
             if (!times && index) {
                 startdate.setDate(startdate.getDate() + 7)
                 starttime = startdate.getTime().toString().slice(0, -3)
-                console.log(starttime)
+                // console.log(starttime)
             }
             for (const id of ids) {
                 const id_lessonid = `${id}_${lessonid}`
