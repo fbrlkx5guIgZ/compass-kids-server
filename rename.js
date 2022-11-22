@@ -11,7 +11,7 @@ const db = mysql.createPool({
     database: 'compass_kids'
 })
 
-const excel = xlsx.readFile(path.resolve('课件英语排序_ver04.xlsx'))
+const excel = xlsx.readFile(path.resolve('课件英语排序_ver05.xlsx'))
 
 const pattern = (title) => {
     let p1, p2, p3

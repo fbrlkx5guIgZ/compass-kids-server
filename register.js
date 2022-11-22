@@ -49,7 +49,8 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
     return m
 }
 
-const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
+// const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
+const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver04.xlsx'))
 
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
@@ -58,7 +59,7 @@ const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
 for (const item of sheet_json) {
     let grade, remark, names = [], ids = [], startdate
     try {
-        grade = item['Grade'].match(/[^-&]+/g).map(value => value.trim()).filter(value => value)
+        grade = item['Grade'].match(/[^-&]+/g).map(value => value.trim().replace(' ', '')).filter(value => value)
         names = grade.slice(1)
         remark = item['Remark'].match(/(?<=\d\.).+?(?=  |$)/g).map(title => title.trim()).filter(value => value).map(title => `%${title}%`)
         startdate = new Date(item['跟新时间'].match(/[\d.]+/)[0])
