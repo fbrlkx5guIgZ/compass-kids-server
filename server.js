@@ -41,18 +41,6 @@ const jsonfy = (json_array) => {
     }
 }
 
-const where = {
-    admin: 'where classgroupid and lessonname like "G%"',
-    '1Hb(8NL/x6': "where lessonid='923767' or lessonid='923768'",
-    '50wNp>&%EE': "where lessonid='923767' or lessonid='923768'",
-    '8nT-U/l62l': 'where lessonid=816556 or lessonid=816557',
-    'h)B50*3&Hg': 'where lessonid=816556 or lessonid=816557',
-    'Oj@P!eD70kNk': 'where lessonid >= 1010225 and lessonid <= 1010228',
-    '1)G*1hbKUR07': 'where lessonid >= 1010225 and lessonid <= 1010228',
-
-    'sharePage': 'where false',
-}
-
 app.use(express.static(path.resolve('static')))
 // app.use(express.static(path.resolve()))
 
@@ -194,7 +182,8 @@ app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
 
 app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
     const id = _.get(req, 'body.classid')
-    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
+    // const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
+    const single_array = {}
     res.send(jsonfy(single_array))
 })
 

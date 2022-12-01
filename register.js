@@ -1,9 +1,7 @@
-import fs from 'fs'
 import mysql from 'mysql2/promise'
 import _ from 'lodash'
 import xlsx from 'xlsx'
 import path from 'path'
-import { title } from 'process'
 
 const db = mysql.createPool({
     host: 'compass-kids.com',
@@ -50,7 +48,7 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
 }
 
 // const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
-const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver04.xlsx'))
+const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
 
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])

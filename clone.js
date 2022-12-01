@@ -97,63 +97,60 @@ const fetch_datalist = async (url, args) => {
     // const table = url.split('/').join('_')
     const table = url.split('/').join('_').replace('StartLessonList', 'EndLessonList')
 
-    const exists = await db.query(`SELECT * FROM information_schema.tables where table_name='${table}'`)
-    if (!exists[0].length) {
-        await db.query(`create table ${table} (lessonid int, primary key (lessonid))`)
+    try {
+        await db.query('SELECT * FROM ? limit 0;', table)
+    } catch (error) {
+        await db.query('create table ? (lessonid int primary key)', table)
     }
-
 
     const para = url_encode(args)
     const full_url = to_url(url + '?' + para, base)
     const resp = await fetch(full_url)
     const json = await resp.json()
-    if (json.datalist) {
+
+    try {
         json.datalist = Array.prototype.slice.call(json.datalist)
         for (const data of json.datalist) {
-            for (const key of Object.keys(data)) {
-                const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
-                if (!exists[0].length) {
-                    if (typeof data[key] == 'number') {
-                        await db.query(`alter table ${table} add \`${key}\` int`)
+
+            // const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
+            // await fetch_resource(LessonBook, book_args, `${data.classid}${data.lessonno}`, 'POST')
+
+            try {
+                await db.query('insert into ? set ?', [table, data])
+            } catch (error) {
+                for (const key of Object.keys(data)) {
+                    const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
+                    if (!exists[0].length) {
+                        if (typeof data[key] == 'number') {
+                            await db.query(`alter table ${table} add \`${key}\` int`)
+                        }
+                        else if (typeof data[key] == 'string') {
+                            await db.query(`alter table ${table} add \`${key}\` text`)
+                        }
+                        else {
+                            await db.query(`alter table ${table} add \`${key}\` text`)
+                        }
+                    }
+
+                    if (typeof data[key] != 'number' && typeof data[key] != 'string' && data[key] != null) {
+                        data[key] = JSON.stringify(data[key])
                     }
                     else if (typeof data[key] == 'string') {
-                        await db.query(`alter table ${table} add \`${key}\` text`)
-                    }
-                    else {
-                        await db.query(`alter table ${table} add \`${key}\` text`)
+                        data[key] = data[key]
                     }
                 }
-
-                if (typeof data[key] != 'number' && typeof data[key] != 'string' && data[key] != null) {
-                    data[key] = JSON.stringify(data[key])
-                }
-                else if (typeof data[key] == 'string') {
-                    data[key] = data[key]
-                }
+                await db.query('insert into ? set ?', [table, data]).catch((error) => {
+                    console.log(error.sqlMessage)
+                })
             }
 
-            const done = await db.query(`select * from ${table} where lessonid='${data.lessonid}'`)
-            if (done[0].length) {
-                console.log(`lessonid ${data.lessonid} done`)
-                continue
-            }
-
-            const book_args = { classtype: data.classtype, classlevel: data.classlevel, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, version: data.version }
-            await fetch_resource(LessonBook, book_args, `${data.classid}${data.lessonno}`, 'POST')
-
-            await db.query(`insert into ${table} set ?`, data).catch((err) => {
-                console.log(err.sqlMessage)
-                // console.log(err)
-                // throw err
-            })
-
-            await fetch_resource(EndLesson, { lessonid: data.lessonid, userid }, data.lessonid)
+            // await fetch_resource(EndLesson, { lessonid: data.lessonid, userid }, data.lessonid)
             for (let lessontype = 1; lessontype <= 2; lessontype++) {
                 const args = { classtype: data.classtype, classlevel: data.classlevel, lessontype, lessonno: data.lessonno, starttime: data.starttime, classid: data.classid, lessonid: data.lessonid, userid }
-                const json = await fetch_resource(PrereviewResource, args, `${data.lessonid}${lessontype}`, 'POST')
+                const view = await fetch_resource(PrereviewResource, args, `${data.lessonid}${lessontype}`, 'POST')
                 console.log(data.lessonid)
 
-                for (const part of json.data.partList) {
+                for (const part of view.data.partList) {
                     if (part.partid) {
                         const exam_part_json = await fetch_resource(ExamPart, { part_id: part.partid }, part.partid, 'POST')
                         for (const question of exam_part_json.data.questions) {
@@ -169,19 +166,23 @@ const fetch_datalist = async (url, args) => {
                 }
             }
         }
+        return json.datalist
+    } catch (error) {
+        return []
     }
-    return json.datalist ? json.datalist : []
 }
 
 const fetch_resource = async (url, args, id, method = 'GET') => {
     const table = url.split('/').join('_')
-    const exists = await db.query(`SELECT * FROM information_schema.tables where table_name='${table}'`)
-    if (!exists[0].length) {
-        await db.query(`create table ${table} (id int, primary key (id))`)
+
+    try {
+        await db.query('SELECT * FROM ? limit 0', table)
+    } catch (error) {
+        await db.query('create table ? (id int primary key)', table)
     }
 
     const para = url_encode(args)
-    let full_url, resp
+    let resp
     if (method == 'POST') {
         const headers = {
             Accept: "*/*",
@@ -191,13 +192,17 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
             "Sec-Fetch-Site": "cross-site",
             Xweb_xhr: "1"
         }
-        full_url = to_url(url, base)
+        const full_url = to_url(url, base)
         resp = await fetch(full_url, { method, body: para, headers })
     }
-    else {
-        full_url = to_url(url + '?' + para, base)
+    else if (method == 'GET') {
+        const full_url = to_url(url + '?' + para, base)
         resp = await fetch(full_url)
     }
+    else {
+        return
+    }
+
     const json = await resp.json()
     const raw_json = Object.assign({}, json)
     for (const key of Object.keys(json)) {
