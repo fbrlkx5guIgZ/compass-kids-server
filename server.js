@@ -60,6 +60,10 @@ app.use(expressjwt({
     path: ['/', '/login', '/Vapp/User/regUserAction', '/Vapp/User/resetUserAction', '/Vapp/index/getIndexData']
 }))
 
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve('static', 'index.html'))
+})
+
 app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一个token
     let data = {}
 
