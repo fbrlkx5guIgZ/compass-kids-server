@@ -175,7 +175,7 @@ const fetch_datalist = async (url, args) => {
 const fetch_resource = async (url, args, id, method = 'GET') => {
     const table = url.split('/').join('_')
 
-    try {
+        try {
         await db.query('SELECT * FROM ? limit 0', table)
     } catch (error) {
         await db.query('create table ? (id int primary key)', table)
@@ -205,33 +205,39 @@ const fetch_resource = async (url, args, id, method = 'GET') => {
 
     const json = await resp.json()
     const raw_json = Object.assign({}, json)
-    for (const key of Object.keys(json)) {
-        const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
-        if (!exists[0].length) {
-            if (typeof json[key] == 'number') {
-                await db.query(`alter table ${table} add \`${key}\` int`)
+    json.id = id
+
+    try {
+        await db.query('insert into ? set ?', [table, json])
+    } catch (error) {
+        for (const key of Object.keys(json)) {
+            const exists = await db.query(`SELECT * FROM information_schema.columns where table_name='${table}' and column_name='${key}'`)
+            if (!exists[0].length) {
+                if (typeof json[key] == 'number') {
+                    await db.query(`alter table ${table} add \`${key}\` int`)
+                }
+                else if (typeof json[key] == 'string') {
+                    await db.query(`alter table ${table} add \`${key}\` text`)
+                }
+                else {
+                    await db.query(`alter table ${table} add \`${key}\` text`)
+                }
+            }
+
+            if (typeof json[key] != 'number' && typeof json[key] != 'string' && json[key] != null) {
+                json[key] = JSON.stringify(json[key])
             }
             else if (typeof json[key] == 'string') {
-                await db.query(`alter table ${table} add \`${key}\` text`)
-            }
-            else {
-                await db.query(`alter table ${table} add \`${key}\` text`)
+                json[key] = json[key]
             }
         }
-
-        if (typeof json[key] != 'number' && typeof json[key] != 'string' && json[key] != null) {
-            json[key] = JSON.stringify(json[key])
-        }
-        else if (typeof json[key] == 'string') {
-            json[key] = json[key]
-        }
+        await db.query('insert into ? set ?', [table, json]).catch((err) => {
+            console.log(err.sqlMessage)
+            // console.log(err)
+            // throw err
+        })
     }
-    json.id = id
-    await db.query(`insert into ${table} set ?`, json).catch((err) => {
-        console.log(err.sqlMessage)
-        // console.log(err)
-        // throw err
-    })
+
     return raw_json
 }
 

@@ -2,22 +2,6 @@ import fs from 'fs'
 import process from 'process'
 import path from 'path'
 import { spawn } from 'child_process'
+import _ from 'lodash'
 
-const raw_path = 'C:\\Users\\DuHeng\\Videos'
-
-const convert_log = fs.createWriteStream(path.resolve('concert_log.log'))
-const ls = fs.readdirSync(path.resolve(raw_path))
-try {
-    fs.mkdirSync(path.resolve(dist_path))
-} catch (error) {
-
-}
-for (const file of ls) {
-    // if (!file.match(/\.mp4/)) {
-    //     fs.renameSync(path.resolve(raw_path, file), path.resolve(raw_path, `${file}.mp4`))
-    // }
-    if (decodeURI(file) != file) {
-        console.log(file)
-        fs.renameSync(path.resolve(raw_path, file), path.resolve(raw_path, decodeURI(file)))
-    }
-}
+console.log(_.get())

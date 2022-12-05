@@ -57,7 +57,7 @@ app.use(expressjwt({
     }
 
 }).unless({
-    path: ['/login', '/Vapp/User/regUserAction', '/Vapp/User/resetUserAction', '/Vapp/index/getIndexData']
+    path: ['/', '/login', '/Vapp/User/regUserAction', '/Vapp/User/resetUserAction', '/Vapp/index/getIndexData']
 }))
 
 app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一个token
