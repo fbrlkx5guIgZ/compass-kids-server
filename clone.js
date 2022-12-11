@@ -116,7 +116,7 @@ const fetch_datalist = async (url, args) => {
     const userid = args.userid
 
     // const table = url.split('/').join('_')
-    const table = url.split('/').join('_').replace('StartLessonList', 'EndLessonList') + '0'
+    const table = url.split('/').join('_').replace('StartLessonList', 'EndLessonList')
 
     try {
         await db.query('SELECT * FROM ' + table + ' limit 0')
@@ -192,7 +192,7 @@ const fetch_datalist = async (url, args) => {
 }
 
 const fetch_resource = async (url, args, id, method = 'GET', path = '', pre_func) => {
-    const table = url.split('/').join('_') + '0'
+    const table = url.split('/').join('_')
 
     try {
         await db.query('SELECT * FROM ' + table + ' limit 0')
