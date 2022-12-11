@@ -33,7 +33,7 @@ for (const item of json) {
             const file = decodeURI(part.url.match(/[^/]+$/)[0])
             // if (part.title.match(/拓展视频|动漫歌曲|动漫故事|故事预热/)) {
             if (ls.includes(file)) {
-                cos.putObject({
+                const data = await cos.putObject({
                     Bucket: 'lqxeln8v8bow-1314265802', /* 填入您自己的存储桶，必须字段 */
                     Region: 'ap-nanjing',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
                     Key: file,  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
@@ -44,9 +44,7 @@ for (const item of json) {
                     onProgress: function (progressData) {
                         console.log(JSON.stringify(progressData));
                     }
-                }, function (err, data) {
-                    console.log(err || data);
-                });
+                }).catch()
             }
         }
     }
