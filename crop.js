@@ -12,7 +12,7 @@ const cos = new COS({
 // const raw_path = 'C:\\Users\\DuHeng\\Videos'
 // const dist_path = 'C:\\Users\\DuHeng\\Desktop\\static\\k'
 
-const raw_path = 'static'
+const raw_path = '_static'
 const dist_path = 'crop'
 
 const convert_log = fs.createWriteStream(path.resolve('concert_log.log'))
