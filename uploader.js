@@ -45,6 +45,15 @@ for (const item of json) {
                         console.log(JSON.stringify(progressData));
                     }
                 }).catch()
+                fs.rename(path.resolve('static', file), path.resolve('temp', file))
+                const local_url = part.url.replace(/https?:\/\/[^/]+?\//, 'https://static.compass-kids.com/')
+                if (local_url != part.url) {
+                    part.url = local_url
+                    const partList = JSON.stringify(part_list)
+                    await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
+                    console.log([item.id, part.title], local_url)
+                    // list_file.write(local_url + '\n')
+                }
             }
         }
     }
