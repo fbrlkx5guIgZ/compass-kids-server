@@ -35,8 +35,14 @@ for (const file of ls) {
     probe_child.kill()
 
     const json = JSON.parse(sum)
-    const height = json.streams[0].height * (1 - 0.055 * 2)
-    const width = json.streams[0].width
+    let height, width
+    try {
+        height = json.streams[0].height * (1 - 0.055 * 2)
+        width = json.streams[0].width
+    } catch (error) {
+        console.log('!!!')
+        continue
+    }
     const dist_file = file.includes('.mp4') ? file : file + '.mp4'
     if (height > width) {
         const child = spawn('ffmpeg', ['-i', path.resolve(raw_path, file), '-vf', `crop=${width}:${height}`, path.resolve(dist_path, dist_file), '-n'])
