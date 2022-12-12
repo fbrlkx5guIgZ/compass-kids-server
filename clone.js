@@ -106,7 +106,7 @@ const pre_resource = async (json) => {
     for (const part of json.partList) {
         if (part.url) {
             await save_static(part.url)
-            part.url = part.url.replace(/^https?:\/\/[^/]+?\//, 'https://compass-kids.com/')
+            part.url = part.url.replace(/^https?:\/\/[^/]+?\//, 'https://static.compass-kids.com/')
         }
     }
     return Object.assign({}, json.partList)
