@@ -31,13 +31,11 @@ for (const item of json) {
         const part = part_list[index]
         if (part.url) {
             const file = decodeURI(part.url.match(/[^/]+$/)[0])
-            // if (part.title.match(/拓展视频|动漫歌曲|动漫故事|故事预热/)) {
-            const local_url = part.url.replace('https://compass-kids.com/', 'https://static.compass-kids.com/')
-            if (local_url != part.url) {
-                part.url = local_url
+            if (!file.includes('.')) {
+                part.url = part.url + '.mp4'
                 const partList = JSON.stringify(part_list)
                 await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
-                console.log([item.id, part.title], local_url)
+                console.log([item.id, part.title])
             }
         }
     }
