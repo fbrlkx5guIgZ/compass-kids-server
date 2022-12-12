@@ -41,4 +41,5 @@ for (const item of json) {
             }
         }
     }
-    db.end()
+}
+db.end()
