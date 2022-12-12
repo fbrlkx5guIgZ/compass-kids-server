@@ -37,7 +37,7 @@ for (const file of ls) {
     const json = JSON.parse(sum)
     const height = json.streams[0].height * (1 - 0.055 * 2)
     const width = json.streams[0].width
-    const dist_file = file.replace(/\..+?$/, '.mp4')
+    const dist_file = file.includes('.mp4') ? file : file + '.mp4'
     if (height > width) {
         const child = spawn('ffmpeg', ['-i', path.resolve(raw_path, file), '-vf', `crop=${width}:${height}`, path.resolve(dist_path, dist_file), '-n'])
         console.log(file)
