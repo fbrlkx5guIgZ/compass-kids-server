@@ -45,7 +45,11 @@ for (const item of json) {
                         console.log(JSON.stringify(progressData));
                     }
                 }).catch()
-                fs.rename(path.resolve('static', file), path.resolve('temp', file))
+                fs.rename(path.resolve('static', file), path.resolve('temp', file), (err) => {
+                    if (err) {
+                        console.log(err)
+                    }
+                })
                 const local_url = part.url.replace(/https?:\/\/[^/]+?\//, 'https://static.compass-kids.com/')
                 if (local_url != part.url) {
                     part.url = local_url
