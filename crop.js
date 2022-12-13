@@ -40,7 +40,7 @@ for (const file of ls) {
         height = json.streams[0].height * (1 - 0.055 * 2)
         width = json.streams[0].width
     } catch (error) {
-        console.log('!!!')
+        console.log(`${file}!!!`)
         continue
     }
     const dist_file = file.includes('.mp4') ? file : file + '.mp4'
@@ -81,10 +81,10 @@ for (const file of ls) {
             Key: file,  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
             StorageClass: 'STANDARD',
             /* 当Body为stream类型时，ContentLength必传，否则onProgress不能返回正确的进度信息 */
-            Body: fs.createReadStream(path.resolve('crop', dist_file)), // 上传文件对象
-            ContentLength: fs.statSync(path.resolve('crop', dist_file)).size,
+            Body: fs.createReadStream(path.resolve(dist_path, dist_file)), // 上传文件对象
+            ContentLength: fs.statSync(path.resolve(dist_path, dist_file)).size,
             onProgress: function (progressData) {
-                console.log(JSON.stringify(progressData));
+                // console.log(JSON.stringify(progressData));
             }
         }).catch()
     }
@@ -95,8 +95,8 @@ for (const file of ls) {
             Key: file,  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
             StorageClass: 'STANDARD',
             /* 当Body为stream类型时，ContentLength必传，否则onProgress不能返回正确的进度信息 */
-            Body: fs.createReadStream(path.resolve('static', file)), // 上传文件对象
-            ContentLength: fs.statSync(path.resolve('static', file)).size,
+            Body: fs.createReadStream(path.resolve(raw_path, file)), // 上传文件对象
+            ContentLength: fs.statSync(path.resolve(raw_path, file)).size,
             onProgress: function (progressData) {
                 console.log(JSON.stringify(progressData));
             }
