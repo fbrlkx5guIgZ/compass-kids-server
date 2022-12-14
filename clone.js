@@ -176,10 +176,10 @@ const fetch_datalist = async (url, args) => {
 
                 for (const part of partList) {
                     if (part.partid) {
-                        await fetch_resource(ExamPart, { part_id: part.partid }, part.partid, 'POST')
+                        await fetch_resource(ExamPart, { part_id: part.partid }, part.partid, 'POST', 'data')
                     }
                     if (part.bookid) {
-                        await fetch_resource(BookSource, { bookid: part.bookid }, part.bookid, 'POST')
+                        await fetch_resource(BookSource, { bookid: part.bookid }, part.bookid, 'POST', 'data')
                     }
                 }
             }

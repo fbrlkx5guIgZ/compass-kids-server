@@ -22,22 +22,23 @@ await new Promise((resolve, reject) => {
 })
 
 const ls = fs.readdirSync(path.resolve('static'))
-const json = (await db.query('SELECT * FROM compass_kids.vapp_prereview_getprereviewresource;'))[0]
+const json = (await db.query('SELECT * FROM vapp_challenge_getexampart where questions is null;'))[0]
 
 for (const item of json) {
-    const part_list = JSON.parse(item.partList)
-    const id = item.id
-    for (let index = 0; index < part_list.length; index++) {
-        const part = part_list[index]
-        if (part.url) {
-            const file = decodeURI(part.url.match(/[^/]+$/)[0])
-            if (!file.includes('.')) {
-                part.url = part.url + '.mp4'
-                const partList = JSON.stringify(part_list)
-                await db.query('update vapp_prereview_getprereviewresource set ? where ?', [{ partList }, { id }])
-                console.log([item.id, part.title])
+    try {
+        const data = JSON.parse(item.data)
+        for (const key in data) {
+            if (Object.hasOwnProperty.call(data, key)) {
+                const item = data[key];
+                if (typeof item == 'object') {
+                    data[key] = JSON.stringify(data[key])
+                }
             }
         }
+        const id = item.id
+        await db.query('update vapp_challenge_getexampart set ? where ?', [data, { id }])
+    } catch (error) {
+        console.log(item.id, error)
     }
 }
 db.end()

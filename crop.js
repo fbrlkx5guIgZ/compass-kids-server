@@ -99,8 +99,8 @@ for (const file of ls) {
             Key: file,  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
             StorageClass: 'STANDARD',
             /* 当Body为stream类型时，ContentLength必传，否则onProgress不能返回正确的进度信息 */
-            Body: fs.createReadStream(path.resolve(raw_path, file)), // 上传文件对象
-            ContentLength: fs.statSync(path.resolve(raw_path, file)).size,
+            Body: fs.createReadStream(path.resolve(raw_path, dist_file)), // 上传文件对象
+            ContentLength: fs.statSync(path.resolve(raw_path, dist_file)).size,
             onProgress: function (progressData) {
                 // console.log(JSON.stringify(progressData));
             }
