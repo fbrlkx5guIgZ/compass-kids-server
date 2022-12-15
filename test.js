@@ -34,7 +34,7 @@ for (const item of json) {
                 if (ls.includes(file)) {
                     const child = spawn('ffmpeg', ['-i', path.resolve(raw_path, file), '-ss', '4', '-vcodec', 'copy', '-acodec', 'copy', path.resolve(dist_path, file), '-n'])
                     console.log(file)
-                    let exists
+                    let exists, sum
                     child.stderr.on('data', chunk => {
                         const output = String(chunk)
                         sum = sum.concat(output)
