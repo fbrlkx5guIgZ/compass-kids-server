@@ -3,6 +3,7 @@ import mysql from 'mysql2/promise'
 import _ from 'lodash'
 import path from 'path'
 import COS from 'cos-nodejs-sdk-v5'
+import { spawn } from 'child_process'
 
 const db = mysql.createPool({
     host: 'compass-kids.com',
