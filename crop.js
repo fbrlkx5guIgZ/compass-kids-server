@@ -45,8 +45,6 @@ for (const file of ls) {
     }
     const dist_file = file.includes('.mp4') ? file : file + '.mp4'
     if (height > width) {
-        const child = spawn('ffmpeg', ['-i', path.resolve(raw_path, file), '-vf', `crop=${width}:${height}`, path.resolve(dist_path, dist_file), '-n'])
-        console.log(file)
         let exists
         await new Promise((resolve, reject) => {
             cos.headObject({
@@ -65,6 +63,8 @@ for (const file of ls) {
                 }
             });
         })
+        const child = spawn('ffmpeg', ['-i', path.resolve(raw_path, file), '-vf', `crop=${width}:${height}`, path.resolve(dist_path, dist_file), '-n'])
+        console.log(file)
         child.stderr.on('data', chunk => {
             const output = String(chunk)
             sum = sum.concat(output)
