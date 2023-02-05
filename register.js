@@ -47,11 +47,11 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
     return m
 }
 
-// const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
-const excel = xlsx.readFile(path.resolve('Compass-登记课表G_ver05.xlsx'))
-
+const excel = xlsx.readFile(path.resolve('what2change.xlsx'))
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
+
+const drop_lessons = [998938, 998939, 998940, 998941, 1000952, 1000953, 1000954, 1000956, 1000957, 1005250]
 
 // const json = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like "K3%" order by classlevel+0,lessonno+0;'))[0]
 for (const item of sheet_json) {
@@ -67,7 +67,7 @@ for (const item of sheet_json) {
         continue
     }
     for (const name of names) {
-        const code = genEnCode(11, 1, 1, 1)
+        const code = genEnCode(11, 1, 1, 0)
         try {
             await db.query('insert into users set ?', { code, name })
         } catch (error) {
@@ -75,13 +75,16 @@ for (const item of sheet_json) {
             // continue
         }
         const { id } = (await db.query('select * from users where ?', { name }))[0][0]
+        if (id == 1209) {
+            // console.log(id)
+        }
         ids.push(id)
     }
 
     const json = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like ? and lessonname like ?;', [grade[0] + '%', remark[0]]))[0]
     if (json.length == 1) {
         const { classlevel, lessonno } = json[0]
-        const lessonlist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where ? and lessonno+0 >= ? order by lessonno+0;', [{ classlevel }, lessonno]))[0]
+        const lessonlist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where ? and lessonno >= ? or classlevel > ? order by classlevel, lessonno;', [{ classlevel }, lessonno, classlevel]))[0]
         let starttime = startdate.getTime().toString().slice(0, -3)
         // console.log(starttime)
         for (let index = 0, times = 0; index < lessonlist.length; index++, times = (times + 1) % remark.length) {
@@ -94,7 +97,7 @@ for (const item of sheet_json) {
             for (const id of ids) {
                 const id_lessonid = `${id}_${lessonid}`
                 await db.query('insert into userlesson set ? on duplicate key update ?', [{ lessonid, starttime, id, id_lessonid }, { lessonid, starttime, id, id_lessonid }])
-                // console.log([starttime, id_lessonid])
+                console.log([starttime, id_lessonid])
             }
         }
     }
@@ -105,4 +108,6 @@ for (const item of sheet_json) {
         console.log('multi match', [grade[0], remark[0]])
     }
 }
+
+await db.query(`delete from userlesson where lessonid = ${drop_lessons.join(' or lessonid = ')}`)
 db.end()

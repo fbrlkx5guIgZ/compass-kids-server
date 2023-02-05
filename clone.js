@@ -99,7 +99,7 @@ const pre_fetch = async (url, args) => {
     }
 }
 
-const pre_resource = async (json) => {
+const pre_resource = async (json) => { //保存静态资源 不包含 insert
     if (!json.partList) {
         return []
     }
@@ -107,12 +107,15 @@ const pre_resource = async (json) => {
         if (part.url) {
             await save_static(part.url)
             part.url = part.url.replace(/^https?:\/\/[^/]+?\//, 'https://static.compass-kids.com/')
+            if (!part.url.match(/\.[^/]+$/)) {
+                part.url = part.url + '.mp4'
+            }
         }
     }
     return Object.assign({}, json.partList)
 }
 
-const fetch_datalist = async (url, args) => {
+const fetch_datalist = async (url, args) => { //包含 insert 以及 BookSource 和 ExamPart
     const userid = args.userid
 
     // const table = url.split('/').join('_')
@@ -133,6 +136,10 @@ const fetch_datalist = async (url, args) => {
         json.datalist = Array.isArray(json.datalist) ? json.datalist : Object.values(json.datalist)
         for (const data of json.datalist) {
             try {
+                if (data.lock) {
+                    console.log(`${data.lessonid} locked`)
+                    continue
+                }
                 for (const key of Object.keys(data)) {
                     if (typeof data[key] == 'object' && json[key] != null) {
                         data[key] = JSON.stringify(data[key])
@@ -141,7 +148,7 @@ const fetch_datalist = async (url, args) => {
                 await db.query('insert into ' + table + ' set ?', data)
             } catch (error) {
                 if (error.sqlMessage && error.sqlMessage.match(/Duplicate/)) {
-                    console.log(`${data.lessonid} done`)
+                    console.log(`${data.lessonid} done`) //重复不会拉资源
                     continue
                 }
                 for (const key of Object.keys(data)) {
@@ -191,7 +198,7 @@ const fetch_datalist = async (url, args) => {
     }
 }
 
-const fetch_resource = async (url, args, id, method = 'GET', path = '', pre_func) => {
+const fetch_resource = async (url, args, id, method = 'GET', path = '', pre_func) => { //提取数据 包含 insert
     const table = url.split('/').join('_')
 
     try {

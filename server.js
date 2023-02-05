@@ -219,6 +219,7 @@ app.post('/Vapp/Book/isCollection', (req, res) => {
 
 app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const uid = req.auth.id
+    req.query.type = Number(req.query.type) || 1
     const id = req.query.lessonid + req.query.type
     const uid_id = uid + '_' + id
     const index = Number(req.query.lock) || 0
