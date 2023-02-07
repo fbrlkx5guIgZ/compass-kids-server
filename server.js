@@ -149,7 +149,7 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const name = req.query.name
-    const id = req.auth.id
+    let id = req.auth.id
 
     if (name) {
         const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
