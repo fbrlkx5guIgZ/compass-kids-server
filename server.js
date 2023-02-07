@@ -152,9 +152,9 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const id = req.auth.id
 
     if (name) {
-        const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0]
+        const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
         if (admin) {
-            const user = await db.query('SELECT * FROM compass_kids.users where ?', { name })
+            const user = (await db.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
             id = _.get(user, '0.id')
             if (!id) {
                 res.statusCode = 404
