@@ -150,6 +150,7 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     const name = req.query.name
     let id = req.auth.id
+    let limit_time = Date.now().toString().slice(0, -3)
 
     if (name) {
         const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
@@ -161,12 +162,14 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
                 res.send('没有课程计划！')
                 return
             }
+            else {
+                limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
+            }
         }
     }
 
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-    // const limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
-    const limit_time = Date.now().toString().slice(0, -3)
+
     req.query.searchString = req.query.searchString || ''
     const lessonname = '%' + req.query.searchString + '%'
     const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
