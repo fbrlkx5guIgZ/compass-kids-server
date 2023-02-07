@@ -75,7 +75,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
 
     //低级权限，账号密码
     else {
-        const { user, phone, email, openid, passwd, code } = req.query
+        const { user, phone, email, openid, passwd } = req.query
         const login = { user, phone, email, openid }
         Object.keys(login).map(key => {//删除空值
             if (!login[key] && Object.keys(login).length > 1) {
@@ -135,8 +135,7 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 
     const page = /^\d+$/.test(_.get(req, 'query.page')) > 0 ? req.query.page : 1
     const limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
-    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getStartLessonList right join userlesson on vapp_lesson_getStartLessonList.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
-    // const pre_datalist = (await db.query('SELECT * FROM userlesson right join compass_kids.vapp_lesson_getStartLessonList on userlesson.lessonid=vapp_lesson_getStartLessonList.lessonid and ? where ? order by classlevel+0 desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10', [{ uid: id }, detail, (page - 1) * 10]))[0]
+    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getStartLessonList right join userlesson on vapp_lesson_getStartLessonList.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classleve desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
     const datalist = jsonfy(pre_datalist)
     if (datalist.length) {
         res.send('')
@@ -149,16 +148,28 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
 })
 
 app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
+    const name = req.query.name
     const id = req.auth.id
+
+    if (name) {
+        const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0]
+        if (admin) {
+            const user = await db.query('SELECT * FROM compass_kids.users where ?', { name })
+            id = _.get(user, '0.id')
+            if (!id) {
+                res.statusCode = 404
+                res.send('没有课程计划！')
+                return
+            }
+        }
+    }
 
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
     // const limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
     const limit_time = Date.now().toString().slice(0, -3)
+    req.query.searchString = req.query.searchString || ''
     const lessonname = '%' + req.query.searchString + '%'
-    const pre_datalist = req.query.searchString ?
-        (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonno+0 desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
-        :
-        (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classlevel+0 desc, vapp_lesson_getendlessonlist.lessonno+0 desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
+    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
     const datalist = pre_datalist
     if (datalist.length) {
         res.send({ datalist, status: 200 })
