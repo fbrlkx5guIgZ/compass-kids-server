@@ -297,7 +297,7 @@ app.get('/setTime', async (req, res) => {
                 return
             }
             else {
-                await db.query('update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
+                await db.query('set sql_safe_updates=0;update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
                 res.send()
                 return
             }
