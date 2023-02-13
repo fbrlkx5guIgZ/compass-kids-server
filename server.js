@@ -306,7 +306,7 @@ app.get('/setTime', async (req, res) => {
                 })
                 await connection.query('set sql_safe_updates=0;update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, old_time])
                 connection.end()
-                res.send()
+                res.send('')
                 return
             }
         }
