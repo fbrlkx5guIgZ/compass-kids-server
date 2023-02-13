@@ -286,7 +286,7 @@ app.get('/setTime', async (req, res) => {
     const { name, old_time, delta_time } = req.query
     let id = req.auth.id
 
-    if (name && Number(id + old_time + delta_time)) {
+    if (name && Number(delta_time + id + old_time)) {
         const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
         if (admin) {
             const user = (await db.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
