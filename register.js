@@ -85,13 +85,13 @@ for (const item of sheet_json) {
     if (json.length == 1) {
         const { classlevel, lessonno } = json[0]
         const lessonlist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where ? and lessonno >= ? or classlevel > ? order by classlevel, lessonno;', [{ classlevel }, lessonno, classlevel]))[0]
-        let starttime = startdate.getTime().toString().slice(0, -3)
+        let starttime = startdate / 1000
         // console.log(starttime)
         for (let index = 0, times = 0; index < lessonlist.length; index++, times = (times + 1) % remark.length) {
             const { lessonid } = lessonlist[index];
             if (!times && index) {
                 startdate.setDate(startdate.getDate() + 7)
-                starttime = startdate.getTime().toString().slice(0, -3)
+                starttime = startdate / 1000
                 // console.log(starttime)
             }
             for (const id of ids) {

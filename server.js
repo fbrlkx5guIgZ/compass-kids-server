@@ -282,6 +282,27 @@ app.get('/Vapp/User/refreshUserAction', (req, res) => {
     res.sendFile(path.resolve('Vapp/User/refreshUserAction' + '.json'))
 })
 
+app.get('/setTime', async (req, res) => {
+    const { name, starttime, delta_time } = req.query
+    let id = req.auth.id
+
+    if (name && Number(id + starttime + delta_time)) {
+        const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
+        if (admin) {
+            const user = (await db.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
+            id = _.get(user, '0.id')
+            if (!id) {
+                res.statusCode = 404
+                res.send('没有课程计划！')
+                return
+            }
+            else {
+                await db.query('update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
+            }
+        }
+    }
+})
+
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
         res.status(401).send('请先登录')
