@@ -283,10 +283,10 @@ app.get('/Vapp/User/refreshUserAction', (req, res) => {
 })
 
 app.get('/setTime', async (req, res) => {
-    const { name, starttime, delta_time } = req.query
+    const { name, old_time, delta_time } = req.query
     let id = req.auth.id
 
-    if (name && Number(id + starttime + delta_time)) {
+    if (name && Number(id + old_time + delta_time)) {
         const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
         if (admin) {
             const user = (await db.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
@@ -304,7 +304,7 @@ app.get('/setTime', async (req, res) => {
                     database: 'compass_kids',
                     multipleStatements: true
                 })
-                await connection.query('set sql_safe_updates=0;update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
+                await connection.query('set sql_safe_updates=0;update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, old_time])
                 connection.end()
                 res.send()
                 return
