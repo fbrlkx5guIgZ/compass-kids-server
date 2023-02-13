@@ -297,8 +297,15 @@ app.get('/setTime', async (req, res) => {
                 return
             }
             else {
-                await db.query('set sql_safe_updates=0;')
-                await db.query('update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
+                const connection = mysql.createPool({
+                    host: 'compass-kids.com',
+                    user: 'root',
+                    password: 'REDACTED_DB_PASSWORD',
+                    database: 'compass_kids',
+                    multipleStatements: true
+                })
+                await connection.query('set sql_safe_updates=0;update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
+                connection.end()
                 res.send()
                 return
             }
