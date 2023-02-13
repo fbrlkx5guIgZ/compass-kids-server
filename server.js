@@ -298,6 +298,8 @@ app.get('/setTime', async (req, res) => {
             }
             else {
                 await db.query('update userlesson set starttime=starttime+? where ? and starttime>=?;', [delta_time, { id }, starttime])
+                res.send()
+                return
             }
         }
     }
