@@ -163,7 +163,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
                 return
             }
             else {
-                limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
+                limit_time = (Date.now() + Date.UTC(1970, 1, 1)).toString().slice(0, -3)
             }
         }
     }
