@@ -134,7 +134,7 @@ app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const id = req.auth.id
 
     const page = /^\d+$/.test(_.get(req, 'query.page')) > 0 ? req.query.page : 1
-    const limit_time = (Date.now() + Date.UTC(1970, 0, 8)).toString().slice(0, -3)
+    const limit_time = (Date.now() + Date.UTC(1970, 1, 1)).toString().slice(0, -3)
     const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getStartLessonList right join userlesson on vapp_lesson_getStartLessonList.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classleve desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
     const datalist = jsonfy(pre_datalist)
     if (datalist.length) {
