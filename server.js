@@ -88,11 +88,11 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
         })
         data = (await db.query('select * from users where ? and ?', [{ passwd }, login]))[0]
     }
-    const id = _.get(data, '0.id')
+    const { id, admin } = _.get(data, '0')
 
     if (id) {
         const token = jwt.sign({ id }, secretKey, { algorithm: 'HS256' })
-        res.send(token)
+        res.send({ token, admin })
     }
     else {
         res.statusCode = 404
