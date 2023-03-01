@@ -92,7 +92,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
 
     if (id) {
         const token = jwt.sign({ id }, secretKey, { algorithm: 'HS256' })
-        res.send({ token, admin })
+        res.send(token)
     }
     else {
         res.statusCode = 404
