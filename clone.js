@@ -1,11 +1,12 @@
-import mysql from 'mysql2/promise'
-import fs from 'fs'
-import path from 'path'
-import _ from 'lodash'
-import fetch from 'node-fetch'
-import https from 'https'
-import console from 'console'
-import COS from 'cos-nodejs-sdk-v5'
+const mysql = require('mysql2/promise');
+const fs = require('fs');
+const path = require('path');
+const _ = require('lodash');
+const fetch = require('node-fetch');
+const https = require('https');
+const console = require('console');
+const COS = require('cos-nodejs-sdk-v5');
+
 
 https.globalAgent = new https.Agent({
     timeout: 60 * 1000,
@@ -66,8 +67,12 @@ const save_static = async (source, base) => {
             errno = err.errno
         })
         // console.log(`write source ${url}`)
-        pre_mkdir(path.join('_static', decodeURI(url.pathname)))
-        fs.writeFile(path.join('_static', decodeURI(url.pathname)), Buffer.from(data || errno), (err) => {
+        let pathname = decodeURI(url.pathname)
+        if (!pathname.match(/\.[^/]+$/)) {
+            pathname = pathname + '.mp4'
+        }
+        pre_mkdir(path.join('_static', pathname))
+        fs.writeFile(path.join('_static', pathname), Buffer.from(data || errno), (err) => {
             if (err) {
                 console.log(err)
             }

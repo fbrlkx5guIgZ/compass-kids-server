@@ -1,11 +1,13 @@
-import express from 'express'
-import mysql from 'mysql2/promise'
-import https from 'https'
-import fs from 'fs'
-import path from 'path'
-import _ from 'lodash'
-import { expressjwt } from 'express-jwt'
-import jwt from 'jsonwebtoken'
+const express = require('express');
+const mysql = require('mysql2/promise');
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const _ = require('lodash');
+const { expressjwt } = require('express-jwt');
+const jwt = require('jsonwebtoken');
+
 
 const db = mysql.createPool({
     host: 'compass-kids.com',
@@ -15,8 +17,8 @@ const db = mysql.createPool({
 })
 
 const options = {
-    key: fs.readFileSync(path.resolve('keys/compass-kids.com.key'), 'utf-8'),
-    cert: fs.readFileSync(path.resolve('keys/compass-kids.com_bundle.crt'), 'utf-8')
+    key: fs.readFileSync(path.resolve(__dirname, 'keys/compass-kids.com.key'), 'utf-8'),
+    cert: fs.readFileSync(path.resolve(__dirname, 'keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
 const secretKey = 'REDACTED_JWT_SECRET'
 
@@ -41,8 +43,8 @@ const jsonfy = (json_array) => {
     }
 }
 
-app.use(express.static(path.resolve('static')))
-// app.use(express.static(path.resolve()))
+app.use(express.static(path.resolve(__dirname, 'static')))
+app.use(express.static(path.resolve(__dirname, 'sideload')))
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
@@ -61,7 +63,13 @@ app.use(expressjwt({
 }))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve('static', 'index.html'))
+    // res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
+    res.send('这是 Compass-Kids 公司的主页！')
+})
+
+app.get(/^(\/)*tingyu/, (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'sideload/_.html'))
+    // res.send('这是一个奇怪的主页！') 
 })
 
 app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一个token
@@ -88,19 +96,26 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
         })
         data = (await db.query('select * from users where ? and ?', [{ passwd }, login]))[0]
     }
-    const { id, admin } = _.get(data, '0')
+    try {
+        const { id, admin } = data[0]
 
-    if (id) {
-        if (admin) {
-            res.statusCode = 206
+        if (id) {
+            if (admin) {
+                res.statusCode = 206
+            }
+            const token = jwt.sign({ id }, secretKey, { algorithm: 'HS256' })
+            res.send(token)
         }
-        const token = jwt.sign({ id }, secretKey, { algorithm: 'HS256' })
-        res.send(token)
-    }
-    else {
+        else {
+            res.statusCode = 404
+            res.send('没有这样的用户哦！')
+        }
+    } catch (error) {
         res.statusCode = 404
         res.send('没有这样的用户哦！')
     }
+
+
 })
 
 app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
@@ -175,7 +190,7 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
 
     req.query.searchString = req.query.searchString || ''
     const lessonname = '%' + req.query.searchString + '%'
-    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? order by classlevel desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
+    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? and classlevel != 0 order by classlevel desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
     const datalist = pre_datalist
     if (datalist.length) {
         res.send({ datalist, status: 200 })
@@ -274,15 +289,15 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
-    res.sendFile(path.resolve('Vapp/index/getIndexData' + '.json'))
+    res.sendFile(path.resolve(__dirname, 'Vapp/index/getIndexData' + '.json'))
 })
 
 app.get('/Vapp/User/userBindAction', (req, res) => {
-    res.sendFile(path.resolve('Vapp/User/userBindAction' + '.json'))
+    res.sendFile(path.resolve(__dirname, 'Vapp/User/userBindAction' + '.json'))
 })
 
 app.get('/Vapp/User/refreshUserAction', (req, res) => {
-    res.sendFile(path.resolve('Vapp/User/refreshUserAction' + '.json'))
+    res.sendFile(path.resolve(__dirname, 'Vapp/User/refreshUserAction' + '.json'))
 })
 
 app.get('/setTime', async (req, res) => {
@@ -325,3 +340,12 @@ app.use(function (err, req, res, next) {
 const httpsServer = https.createServer(options, app)
 httpsServer.listen(443)
 // httpsServer.listen(80)
+
+
+http.createServer((req, res) => {
+    res.writeHead(302, {
+        'Location': `https://compass-kids.com${req.url}`
+    });
+    // console.log(req.url)
+    res.end();
+}).listen(80);

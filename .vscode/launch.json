@@ -14,7 +14,7 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "C:\\mnt\\Downloads\\G课件V视频"
+                
             ]
         }
     ]

@@ -9,16 +9,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.11.18",
     "express": "^4.18.1",
-    "express-jwt": "^7.7.7",
-    "forever": "^4.0.3",
-    "jsonwebtoken": "^8.5.1",
+    "express-jwt": "^8.4.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "forever": "^0.14.2",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "mysql2": "^2.3.3",
     "node-fetch": "^3.2.10",
+    "supervisor": "^0.12.0",
     "xlsx": "^0.18.5"
   }
 }

@@ -11,7 +11,7 @@ const db = mysql.createPool({
     database: 'compass_kids'
 })
 
-const excel = xlsx.readFile(path.resolve('课件英语排序_ver05.xlsx'))
+const excel = xlsx.readFile(path.resolve('课件英语排序_ver06.xlsx'))
 
 const pattern = (title) => {
     let p1, p2, p3
@@ -23,6 +23,8 @@ const pattern = (title) => {
     return [p1 + p2 + '%', '%-' + p3]
 }
 
+let single_array = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist;'))[0]
+
 for (let classlevel = 1; classlevel <= excel.SheetNames.length; classlevel++) {
     const sheetName = excel.SheetNames[classlevel - 1];
     const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
@@ -32,11 +34,11 @@ for (let classlevel = 1; classlevel <= excel.SheetNames.length; classlevel++) {
         const [pattern1, pattern2] = [pattern(item['名称']), pattern(item['备注'])]
         const lessonname = item['名称']
         const lessonno = item['序号']
-        let single_array = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like ? or lessonname like ? or lessonname like ? or lessonname like ?;', [pattern1, pattern2].flat(1)))[0]
+        
         if (single_array.length > 1) {
             pattern1[0] = undefined
             pattern2[0] = undefined
-            single_array = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like ? or lessonname like ? or lessonname like ? or lessonname like ?;', [pattern1, pattern2].flat(1)))[0]
+            single_array = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where classlevel!=0 and (lessonname like ? or lessonname like ? or lessonname like ? or lessonname like ?);', [pattern1, pattern2].flat(1)))[0]
         }
 
         if (single_array.length == 0) {
@@ -54,7 +56,7 @@ for (let classlevel = 1; classlevel <= excel.SheetNames.length; classlevel++) {
 
         // console.log(lessonid)
         // await db.query('update vapp_lesson_getendlessonlist set ? where ? and classlevel=0', [{ lessonname, lessonno, classlevel }, { lessonid }])
-        await db.query('update vapp_lesson_getendlessonlist set ? where ?', [{ lessonname, lessonno, classlevel }, { lessonid }])
+        await db.query('update vapp_lesson_getendlessonlist set ? where ? and classlevel!=0', [{ lessonname, lessonno, classlevel }, { lessonid }])
     }
 
 }
