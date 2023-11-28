@@ -9,11 +9,16 @@ const { expressjwt } = require('express-jwt');
 const jwt = require('jsonwebtoken');
 
 
-const db = mysql.createPool({
-    host: 'compass-kids.com',
+const pool = mysql.createPool({
+    host: '127.0.0.1',
     user: 'root',
     password: 'REDACTED_DB_PASSWORD',
-    database: 'compass_kids'
+    database: 'compass_kids',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
+    connectTimeout: 20000, // 设置连接超时时间为20秒
+    // acquireTimeout: 20000  // 设置获取连接的超时时间为20秒
 })
 
 const options = {
@@ -21,9 +26,9 @@ const options = {
     cert: fs.readFileSync(path.resolve(__dirname, 'keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
 const secretKey = 'REDACTED_JWT_SECRET'
+const LIMIT_DAY = 15
 
-const app = express()
-const jsonfy = (json_array) => {
+const parseToJSON = (json_array) => {
     if (Array.isArray(json_array)) {
         json_array.forEach(json_like => {
             for (const key of Object.keys(json_like)) {
@@ -42,6 +47,9 @@ const jsonfy = (json_array) => {
         }
     }
 }
+
+
+const app = express()
 
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(express.static(path.resolve(__dirname, 'sideload')))
@@ -78,7 +86,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
     //高级权限
     const code = req.query.code
     if (req.query.code) {
-        data = (await db.query('select * from users where ?', { code }))[0]
+        data = (await pool.query('select * from users where ?', { code }))[0]
     }
 
     //低级权限，账号密码
@@ -94,7 +102,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
                 delete login[key]
             }
         })
-        data = (await db.query('select * from users where ? and ?', [{ passwd }, login]))[0]
+        data = (await pool.query('select * from users where ? and ?', [{ passwd }, login]))[0]
     }
     try {
         const { id, admin } = data[0]
@@ -121,7 +129,7 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
 app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
     let data = ''
     delete req.query.token
-    await db.query('insert into users set ?', req.query).catch((err) => {
+    await pool.query('insert into users set ?', req.query).catch((err) => {
         res.statusCode = 400
         data = err
     })
@@ -132,11 +140,13 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
     delete req.query.token
     const code = req.query.code
     delete req.query.code
-    const data = (await db.query('select id from users where ?', { code }))[0]
-    const id = _.get(data, '0.id')
+    const data = (await pool.query('select id from users where ?', { code }))[0]
+    try {
+        id = data[0][id]
+    } catch (error) { }
     if (id) {
         let data = ''
-        await db.query('update users set ? where ?', [req.query, { id }]).catch((err) => {
+        await pool.query('update users set ? where ?', [req.query, { id }]).catch((err) => {
             res.statusCode = 400
             data = err
         })
@@ -151,10 +161,16 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
 app.get('/Vapp/Lesson/getStartLessonList', async (req, res) => {
     const id = req.auth.id
 
-    const page = /^\d+$/.test(_.get(req, 'query.page')) > 0 ? req.query.page : 1
-    const limit_time = (Date.now() + Date.UTC(1970, 0, 15)).toString().slice(0, -3)
-    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getStartLessonList right join userlesson on vapp_lesson_getStartLessonList.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classleve desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
-    const datalist = jsonfy(pre_datalist)
+    let page
+    try {
+        page = req.query.page.match(/\d+/)[0]
+    } catch (error) { }
+    if (!page > 0) {
+        page = 1
+    }
+    const limit_time = (Date.now() + Date.UTC(1970, 0, LIMIT_DAY)).toString().slice(0, -3)
+    const pre_datalist = (await pool.query('SELECT * FROM compass_kids.vapp_lesson_getStartLessonList right join userlesson on vapp_lesson_getStartLessonList.lessonid=userlesson.lessonid where userlesson.starttime < ? and ? order by classleve desc, vapp_lesson_getStartLessonList.lessonid desc limit ?,10;', [limit_time, { id }, (page - 1) * 10]))[0]
+    const datalist = parseToJSON(pre_datalist)
     if (datalist.length) {
         res.send('')
         // res.send({ datalist, status: 200 })
@@ -171,9 +187,9 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
     let limit_time = Date.now().toString().slice(0, -3)
 
     if (name) {
-        const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
+        const { admin } = (await pool.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
         if (admin) {
-            const user = (await db.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
+            const user = (await pool.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
             id = _.get(user, '0.id')
             if (!id) {
                 res.statusCode = 404
@@ -181,16 +197,22 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
                 return
             }
             else {
-                limit_time = (Date.now() + Date.UTC(1970, 0, 15)).toString().slice(0, -3)
+                limit_time = (Date.now() + Date.UTC(1970, 0, LIMIT_DAY)).toString().slice(0, -3)
             }
         }
     }
 
-    const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
+    let page
+    try {
+        page = req.query.page.match(/\d+/)[0]
+    } catch (error) { }
+    if (!page > 0) {
+        page = 1
+    }
 
     req.query.searchString = req.query.searchString || ''
     const lessonname = '%' + req.query.searchString + '%'
-    const pre_datalist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? and classlevel != 0 order by classlevel desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
+    const pre_datalist = (await pool.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist right join userlesson on vapp_lesson_getendlessonlist.lessonid=userlesson.lessonid where lessonname like ? and userlesson.starttime < ? and ? and classlevel != 0 order by classlevel desc, vapp_lesson_getendlessonlist.lessonno desc limit ?,10;', [lessonname, limit_time, { id }, (page - 1) * 10]))[0]
     const datalist = pre_datalist
     if (datalist.length) {
         res.send({ datalist, status: 200 })
@@ -203,8 +225,8 @@ app.get('/Vapp/Lesson/getEndLessonList', async (req, res) => {
 
 app.get('/Vapp/Lesson/getEndLessonCmpflg', async (req, res) => {
     const page = /^\d+$/.test(_.get(req, 'query.page')) ? req.query.page : 1
-    const pre_datalist = (await db.query('select * from ' + req.table + ' order by lessonid asc limit ?,10', (page - 1) * 10))[0]
-    const datalist = jsonfy(pre_datalist)
+    const pre_datalist = (await pool.query('select * from ' + req.table + ' order by lessonid asc limit ?,10', (page - 1) * 10))[0]
+    const datalist = parseToJSON(pre_datalist)
     res.send({ datalist, status: 200, intenum: '4' })
 })
 
@@ -212,32 +234,32 @@ app.post('/Vapp/Prereview/getPrereviewResource', async (req, res) => {
     const id = _.get(req, 'body.lessonid') + _.get(req, 'body.lessontype')
     // const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     const uid = req.auth.id
-    const single_array = (await db.query('select * from vapp_prereview_getprereviewresource left join (userlesson left join userview on id_lessonid=left(uid_id,length(uid_id)-1)) on userview.id=vapp_prereview_getprereviewresource.id where vapp_prereview_getprereviewresource.id=? and userlesson.id=?;', [id, uid]))[0]
-    res.send(jsonfy(single_array))
+    const single_array = (await pool.query('select * from vapp_prereview_getprereviewresource left join (userlesson left join userview on id_lessonid=left(uid_id,length(uid_id)-1)) on userview.id=vapp_prereview_getprereviewresource.id where vapp_prereview_getprereviewresource.id=? and userlesson.id=?;', [id, uid]))[0]
+    res.send(parseToJSON(single_array))
 })
 
 app.post('/Vapp/Lesson/getLessonBook', async (req, res) => {
     const id = _.get(req, 'body.classid')
     // const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
     const single_array = {}
-    res.send(jsonfy(single_array))
+    res.send(parseToJSON(single_array))
 })
 
 app.post('/Vapp/Book/getBookSource', async (req, res) => {
     const id = _.get(req, 'body.bookid')
-    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
-    res.send(jsonfy(single_array))
+    const single_array = (await pool.query('select * from ' + req.table + ' where ?', { id }))[0]
+    res.send(parseToJSON(single_array))
 })
 
 app.post('/Vapp/Challenge/getExamPart', async (req, res) => {
     const id = _.get(req, 'body.part_id')
-    const single_array = (await db.query('select * from ' + req.table + ' where ?', { id }))[0]
-    res.send(jsonfy(single_array))
+    const single_array = (await pool.query('select * from ' + req.table + ' where ?', { id }))[0]
+    res.send(parseToJSON(single_array))
 })
 
 app.get('/Vapp/Lesson/getEndLesson', async (req, res) => {
     const id = _.get(req, 'query.lessonid')
-    const datalist = (await db.query('select * from vapp_lesson_getendlessonlist where lessonid=?', id))[0]
+    const datalist = (await pool.query('select * from vapp_lesson_getendlessonlist where lessonid=?', id))[0]
     res.send(Object.assign({ "tabBarList": [{ "name": "预习AI课", "type": 1 }, { "name": "复习AI课", "type": 2 }], "tabBarList2": [{ "name": "基础关", "type": 1 }, { "name": "提升关", "type": 2 }] }, { id }, { datalist }))
 })
 
@@ -256,25 +278,25 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
     const uid_id = uid + '_' + id
     const index = Number(req.query.lock) || 0
 
-    const single_array = (await db.query('select * from userview where ?', { uid_id }))[0]
+    const single_array = (await pool.query('select * from userview where ?', { uid_id }))[0]
     const old_index = _.get(single_array, '0.index') || 0
     if (old_index <= index) {
         // const lock = `[${'0,'.repeat(index + 1)}]`
         // console.log(lock)
-        await db.query('insert into userview set ? on duplicate key update ?', [{ index, id, uid, uid_id }, { index, id, uid, uid_id }])
+        await pool.query('insert into userview set ? on duplicate key update ?', [{ index, id, uid, uid_id }, { index, id, uid, uid_id }])
     }
     res.send('ok')
 
-    const json = (await db.query('select * from vapp_prereview_getprereviewresource where ?', { id }))[0]
+    const json = (await pool.query('select * from vapp_prereview_getprereviewresource where ?', { id }))[0]
     const count = Number(_.get(json, '0.count'))
     if (index >= count) {
-        let { ycompnum, compnum, precomplete, complete, yxresetflg, fxresetflg } = (await db.query('SELECT * FROM compass_kids.userlesson where lessonid=?;', req.query.lessonid))[0][0]
+        let { ycompnum, compnum, precomplete, complete, yxresetflg, fxresetflg } = (await pool.query('SELECT * FROM compass_kids.userlesson where lessonid=?;', req.query.lessonid))[0][0]
         if (req.query.type == 1) {
             if (!yxresetflg) {
                 ycompnum = ycompnum ? ycompnum + 1 : 1
                 precomplete = 1
                 yxresetflg = 1
-                await db.query('update userlesson set ? where lessonid=?', [{ ycompnum, precomplete, yxresetflg }, req.query.lessonid])
+                await pool.query('update userlesson set ? where lessonid=?', [{ ycompnum, precomplete, yxresetflg }, req.query.lessonid])
             }
         }
         else if (req.query.type == 2) {
@@ -282,7 +304,7 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
                 compnum = compnum ? compnum + 1 : 1
                 complete = 1
                 fxresetflg = 1
-                await db.query('update userlesson set ? where lessonid=?', [{ compnum, complete, fxresetflg }, req.query.lessonid])
+                await pool.query('update userlesson set ? where lessonid=?', [{ compnum, complete, fxresetflg }, req.query.lessonid])
             }
         }
     }
@@ -305,9 +327,9 @@ app.get('/setTime', async (req, res) => {
     let id = req.auth.id
 
     if (name && Number(delta_time + id + old_time)) {
-        const { admin } = (await db.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
+        const { admin } = (await pool.query('SELECT * FROM compass_kids.users where ?', { id }))[0][0]
         if (admin) {
-            const user = (await db.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
+            const user = (await pool.query('SELECT * FROM compass_kids.users where ?', { name }))[0]
             id = _.get(user, '0.id')
             if (!id) {
                 res.statusCode = 404

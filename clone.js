@@ -2,7 +2,7 @@ const mysql = require('mysql2/promise');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 const https = require('https');
 const console = require('console');
 const COS = require('cos-nodejs-sdk-v5');
@@ -278,9 +278,14 @@ const fetch_resource = async (url, args, id, method = 'GET', path = '', pre_func
     return raw_json
 }
 
-for (const userid of user_list) {
-    await fetch_datalist(StartLessonList, { sessionid, userid })
-    await fetch_datalist(EndLessonList, { sessionid, userid })
+const main = async () => {
+    for (const userid of user_list) {
+        await fetch_datalist(StartLessonList, { sessionid, userid })
+        await fetch_datalist(EndLessonList, { sessionid, userid })
+    }
 }
-console.log('finished!')
-db.end()
+
+main().then(() => {
+    console.log('finished!')
+    db.end()
+})

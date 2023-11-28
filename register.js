@@ -50,7 +50,7 @@ const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
 
 const register = async () => {
     const db = mysql.createPool({
-        host: 'compass-kids.com',
+        host: '127.0.0.1',
         user: 'root',
         password: 'REDACTED_DB_PASSWORD',
         database: 'compass_kids'
