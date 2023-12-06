@@ -10,7 +10,8 @@ const jwt = require('jsonwebtoken');
 
 
 const pool = mysql.createPool({
-    host: '127.0.0.1',
+    host: 'compass-kids.com',
+    "port": 31011,
     user: 'root',
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids',
@@ -56,7 +57,7 @@ app.use(express.static(path.resolve(__dirname, 'sideload')))
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
-    req.table = req.path.split('/').filter(value => value).join('_')
+    req.table = req.path.split('/').filter(value => value).join('_').toLowerCase()
     next()
 })
 app.use(expressjwt({
