@@ -1,8 +1,5 @@
 node_modules/*
-_static/*
 static/*
-temp/*
 *.log
 .vscode/*
-cut/*
-crop/*
+upload/*

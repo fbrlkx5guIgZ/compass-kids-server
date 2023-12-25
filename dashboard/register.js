@@ -49,13 +49,19 @@ const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
 
 const register = async () => {
-    const db = mysql.createPool({
-        host: '127.0.0.1',
+    const pool = mysql.createPool({
+        host: 'compass-kids.com',
+        "port": 31011,
         user: 'root',
         password: 'REDACTED_DB_PASSWORD',
-        database: 'compass_kids'
+        database: 'compass_kids',
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0,
+        connectTimeout: 20000, // 设置连接超时时间为20秒
+        // acquireTimeout: 20000  // 设置获取连接的超时时间为20秒
     })
-    const json = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like "K3%" order by classlevel+0,lessonno+0;'))[0]
+    const json = (await pool.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like "K3%" order by classlevel+0,lessonno+0;'))[0]
     for (const item of sheet_json) {
         let grade, remark, names = [], ids = [], startdate
         try {
@@ -73,12 +79,12 @@ const register = async () => {
         for (const name of names) {
             try {
                 const code = genEnCode(11, 1, 1, 0)
-                await db.query('insert into users set ?', { code, name })
+                await pool.query('insert into users set ?', { code, name })
             } catch (error) {
                 // console.log(error)
                 // continue
             }
-            const { id, code } = (await db.query('select * from users where ?', { name }))[0][0]
+            const { id, code } = (await pool.query('select * from users where ?', { name }))[0][0]
             if (id == 1209) {
                 // console.log(id)
             }
@@ -86,10 +92,10 @@ const register = async () => {
             ids.push(id)
         }
 
-        const json = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like ? and lessonname like ? and classlevel > 0;', [grade[0] + '%', remark[0]]))[0]
+        const json = (await pool.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where lessonname like ? and lessonname like ? and classlevel > 0;', [grade[0] + '%', remark[0]]))[0]
         if (json.length == 1) {
             const { classlevel, lessonno } = json[0]
-            const lessonlist = (await db.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where ? and lessonno >= ? or classlevel > ? order by classlevel, lessonno;', [{ classlevel }, lessonno, classlevel]))[0]
+            const lessonlist = (await pool.query('SELECT * FROM compass_kids.vapp_lesson_getendlessonlist where ? and lessonno >= ? or classlevel > ? order by classlevel, lessonno;', [{ classlevel }, lessonno, classlevel]))[0]
             let starttime = startdate / 1000
             // console.log(starttime)
             for (let index = 0, times = 0; index < lessonlist.length; index++, times = (times + 1) % remark.length) {
@@ -101,7 +107,7 @@ const register = async () => {
                 }
                 for (const id of ids) {
                     const id_lessonid = `${id}_${lessonid}`
-                    await db.query('insert into userlesson set ? on duplicate key update ?', [{ lessonid, starttime, id, id_lessonid }, { lessonid, starttime, id, id_lessonid }])
+                    await pool.query('insert into userlesson set ? on duplicate key update ?', [{ lessonid, starttime, id, id_lessonid }, { lessonid, starttime, id, id_lessonid }])
                     // console.log([starttime, id_lessonid])
                 }
             }
@@ -115,7 +121,7 @@ const register = async () => {
     }
 
     // await db.query(`delete from userlesson where lessonid = ${drop_lessons.join(' or lessonid = ')}`)
-    db.end()
+    pool.end()
 }
 
 register()
