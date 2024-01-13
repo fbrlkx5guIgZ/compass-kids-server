@@ -141,7 +141,7 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
     delete req.query.code
     const data = (await pool.query('select id from users where ?', { code }))[0]
     try {
-        id = data[0][id]
+        id = data[0]['id']
     } catch (error) { }
     if (id) {
         let data = ''

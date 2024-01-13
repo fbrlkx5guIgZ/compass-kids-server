@@ -43,7 +43,7 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
 }
 
 
-const excel = xlsx.readFile(path.resolve('change.xlsx'))
+const excel = xlsx.readFile(path.resolve('dashboard/template/change.xlsx'))
 // const excel = xlsx.readFile(path.resolve('admin.xlsx'))
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
