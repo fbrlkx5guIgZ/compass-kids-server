@@ -145,7 +145,7 @@ app.get('/Vapp/User/resetUserAction', async (req, res) => {//更新用户信息�
     
     let id
     try {
-        id = data[0][id]
+        id = data[0]['id']
     } catch (error) { }
     if (id) {
         let data = ''
