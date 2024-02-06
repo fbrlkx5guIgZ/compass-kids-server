@@ -23,8 +23,8 @@ const pool = mysql.createPool({
 })
 
 const options = {
-    key: fs.readFileSync(path.resolve(__dirname, 'keys/compass-kids.com.key'), 'utf-8'),
-    cert: fs.readFileSync(path.resolve(__dirname, 'keys/compass-kids.com_bundle.crt'), 'utf-8')
+    key: fs.readFileSync(path.resolve('vapp/keys/compass-kids.com.key'), 'utf-8'),
+    cert: fs.readFileSync(path.resolve('vapp/keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
 const secretKey = 'REDACTED_JWT_SECRET'
 const LIMIT_DAY = 15
@@ -52,8 +52,6 @@ const parseToJSON = (json_array) => {
 
 const app = express()
 
-app.use(express.static(path.resolve(__dirname, 'static')))
-app.use(express.static(path.resolve(__dirname, 'sideload')))
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
@@ -72,12 +70,12 @@ app.use(expressjwt({
 }))
 
 app.get('/', (req, res) => {
-    // res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
+    // res.sendFile(path.resolve('static', 'index.html'))
     res.send('这是 Compass-Kids 公司的主页！')
 })
 
 app.get(/^(\/)*tingyu/, (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'sideload/_.html'))
+    res.sendFile(path.resolve('sideload/_.html'))
     // res.send('这是一个奇怪的主页！') 
 })
 
@@ -314,15 +312,15 @@ app.get('/Vapp/Prereview/addPrereviewLock', async (req, res) => {
 })
 
 app.get('/Vapp/index/getIndexData', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'Vapp/index/getIndexData' + '.json'))
+    res.sendFile(path.resolve('Vapp/index/getIndexData' + '.json'))
 })
 
 app.get('/Vapp/User/userBindAction', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'Vapp/User/userBindAction' + '.json'))
+    res.sendFile(path.resolve('Vapp/User/userBindAction' + '.json'))
 })
 
 app.get('/Vapp/User/refreshUserAction', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'Vapp/User/refreshUserAction' + '.json'))
+    res.sendFile(path.resolve('Vapp/User/refreshUserAction' + '.json'))
 })
 
 app.get('/setTime', async (req, res) => {

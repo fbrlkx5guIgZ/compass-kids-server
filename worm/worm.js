@@ -2,7 +2,7 @@ const mysql = require('mysql2/promise');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
-// const fetch = require('node-fetch');
+const axios = require('axios');
 const https = require('https');
 const console = require('console');
 const COS = require('cos-nodejs-sdk-v5');
@@ -43,8 +43,7 @@ const sessionid = 75399
 const user_list = [56150, 23305, 55311, 29329]
 // const user_list = [56150]
 
-const url_encode = args => Object.keys(args).length ? Object.keys(args).map(value => `${value}=${args[value]}`).join('&') : ''
-const to_url = (url, base) => {
+const resolveUrl = (url, base) => {
     try {
         return new URL(url)
     }
@@ -53,55 +52,94 @@ const to_url = (url, base) => {
     }
 }
 
-const save_static = async (source, base) => {
-    const url = to_url(source, base)
-    let errno, resp
-    try {
-        resp = await fetch(url)
-    } catch (error) {
-        await save_static(source, base)
-        return
-    }
-    if (resp && resp.status == 200) {
-        const data = await resp.arrayBuffer().catch((err) => {
-            errno = err.errno
-        })
-        // console.log(`write source ${url}`)
-        let pathname = decodeURI(url.pathname)
-        if (!pathname.match(/\.[^/]+$/)) {
-            pathname = pathname + '.mp4'
+async function downloadResource(source, base, maxRetries = 3) {
+    const absoluteURL = resolveUrl(source, base)
+
+    let retries = 0;
+    let success = false;
+
+    while (retries < maxRetries && !success) {
+        try {
+            const response = await axios.get(absoluteURL, { responseType: 'arraybuffer' });
+            const relativePath = absoluteURL.pathname
+            const outputPath = path.resolve(relativePath);
+
+            // Ensure the directory exists
+            fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+
+            // Save the binary data to the local file system
+            fs.writeFileSync(outputPath, Buffer.from(response.data));
+
+            console.log(`Downloaded and saved ${source} to ${outputPath}`);
+            success = true;
+        } catch (error) {
+            console.error(`Error downloading ${absoluteURL}: ${error.message}`);
+            retries++;
+            if (retries < maxRetries) {
+                console.log(`Retrying (${retries}/${maxRetries})...`);
+                await new Promise(resolve => setTimeout(resolve, 1000 * retries));
+            } else {
+                console.error(`Max retries reached. Unable to download ${absoluteURL}`);
+            }
         }
-        pre_mkdir(path.join('_static', pathname))
-        fs.writeFile(path.join('_static', pathname), Buffer.from(data || errno), (err) => {
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log(`source ${url} written`)
-            }
-        })
-    }
-    else {
-        console.log(`source ${url} failed with status ${resp ? resp.status : errno}`)
     }
 }
 
-const pre_mkdir = (pth) => {
-    const dirname = path.dirname(pth)
-    if (!fs.existsSync(dirname)) {
-        pre_mkdir(dirname)
-        fs.mkdirSync(dirname)
+async function fetchData(url) {
+    try {
+        const response = await axios.get(url);
+        return response.data;
+    } catch (error) {
+        throw new Error(`Error fetching data from ${url}: ${error.message}`);
     }
 }
 
-const pre_fetch = async (url, args) => {
-    const para = url_encode(args)
-    const full_url = to_url(url + '?' + para, base)
-    const resp = await fetch(full_url)
-    const json = await resp.json()
-    if (json.intenum) {
-        return json.intenum
+async function createTableIfNotExists(connection, tableName, fields) {
+    const [rows] = await connection.execute('SHOW TABLES LIKE ?', [tableName]);
+    if (rows.length === 0) {
+        // Table does not exist, create it
+        const createTableQuery = `CREATE TABLE ${tableName} (${fields.map(field => `${field.name} ${field.type}`).join(', ')})`;
+        await connection.execute(createTableQuery);
+        console.log(`Table '${tableName}' created.`);
     }
+}
+
+
+async function addFieldIfNotExists(connection, tableName, fieldName, fieldType) {
+    const [columns] = await connection.execute(`SHOW COLUMNS FROM ${tableName} LIKE ?`, [fieldName]);
+    if (columns.length === 0) {
+        // Field does not exist, add it
+        const addFieldQuery = `ALTER TABLE ${tableName} ADD COLUMN ${fieldName} ${fieldType}`;
+        await connection.execute(addFieldQuery);
+        console.log(`Field '${fieldName}' added to '${tableName}'.`);
+    }
+}
+
+async function insertDataIntoTable(connection, tableName, data) {
+    const keys = Object.keys(data);
+    const values = Object.values(data);
+    const placeholders = Array(values.length).fill('?').join(', ');
+
+    const insertQuery = `INSERT INTO ${tableName} (${keys.join(', ')}) VALUES (${placeholders})`;
+
+    await connection.execute(insertQuery, values);
+    console.log(`Data inserted into '${tableName}'.`);
+}
+
+async function processData(url, tableName, connection) {
+    const jsonData = await fetchData(url);
+
+    if (typeof jsonData !== 'object') {
+        throw new Error('Invalid JSON format.');
+    }
+
+    await createTableIfNotExists(connection, tableName, Object.entries(jsonData).map(([key, value]) => ({ name: key, type: typeof value })));
+
+    for (const [key, value] of Object.entries(jsonData)) {
+        await addFieldIfNotExists(connection, tableName, key, typeof value);
+    }
+
+    await insertDataIntoTable(connection, tableName, jsonData);
 }
 
 const pre_resource = async (json) => { //保存静态资源 不包含 insert
@@ -110,7 +148,7 @@ const pre_resource = async (json) => { //保存静态资源 不包含 insert
     }
     for (const part of json.partList) {
         if (part.url) {
-            await save_static(part.url)
+            await downloadResource(part.url)
             part.url = part.url.replace(/^https?:\/\/[^/]+?\//, 'https://static.compass-kids.com/')
             if (!part.url.match(/\.[^/]+$/)) {
                 part.url = part.url + '.mp4'
@@ -132,8 +170,8 @@ const fetch_datalist = async (url, args) => { //包含 insert 以及 BookSource 
         await db.query('create table ' + table + ' (lessonid int primary key)')
     }
 
-    const para = url_encode(args)
-    const full_url = to_url(url + '?' + para, base)
+    const para = new URLSearchParams(args).toString()
+    const full_url = resolveUrl(url + '?' + para, base)
     const resp = await fetch(full_url)
     const json = await resp.json()
 
@@ -212,7 +250,7 @@ const fetch_resource = async (url, args, id, method = 'GET', path = '', pre_func
         await db.query('create table ' + table + ' (id int primary key)')
     }
 
-    const para = url_encode(args)
+    const para = new URLSearchParams(args).toString()
     let resp
     if (method == 'POST') {
         const headers = {
@@ -223,11 +261,11 @@ const fetch_resource = async (url, args, id, method = 'GET', path = '', pre_func
             "Sec-Fetch-Site": "cross-site",
             Xweb_xhr: "1"
         }
-        const full_url = to_url(url, base)
+        const full_url = resolveUrl(url, base)
         resp = await fetch(full_url, { method, body: para, headers })
     }
     else if (method == 'GET') {
-        const full_url = to_url(url + '?' + para, base)
+        const full_url = resolveUrl(url + '?' + para, base)
         resp = await fetch(full_url)
     }
     else {
