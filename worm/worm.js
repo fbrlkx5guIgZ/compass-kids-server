@@ -162,7 +162,7 @@ const fetch_datalist = async (url, args) => { //包含 insert 以及 BookSource 
     const userid = args.userid
 
     // const table = url.split('/').join('_')
-    const table = url.split('/').join('_').replace('StartLessonList', 'EndLessonList')
+    const table = url.split('/').join('_').replace('StartLessonList', 'EndLessonList').toLowerCase()
 
     try {
         await db.query('SELECT * FROM ' + table + ' limit 0')
@@ -179,6 +179,10 @@ const fetch_datalist = async (url, args) => { //包含 insert 以及 BookSource 
         json.datalist = Array.isArray(json.datalist) ? json.datalist : Object.values(json.datalist)
         for (const data of json.datalist) {
             try {
+                if (data.lock) {
+                    console.log(`${data.lessonid} locked`)
+                    continue
+                }
                 if (data.lock) {
                     console.log(`${data.lessonid} locked`)
                     continue
