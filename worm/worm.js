@@ -40,8 +40,8 @@ const LessonBook = 'Vapp/Lesson/getLessonBook'
 const BookSource = 'Vapp/Book/getBookSource'
 
 const sessionid = 75399
-const user_list = [56150, 23305, 55311, 29329]
-// const user_list = [56150]
+// const user_list = [56150, 23305, 55311, 29329]
+const user_list = [55581]
 
 const resolveUrl = (url, base) => {
     try {
