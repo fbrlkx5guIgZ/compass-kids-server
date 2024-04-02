@@ -42,8 +42,8 @@ const genEnCode = (length, hasNum, hasChar, hasSymbol, caseSense, lowerCase) => 
     return m
 }
 
-const excel = xlsx.readFile(path.resolve('dashboard/custom/kids.xlsx'))
-// const excel = xlsx.readFile(path.resolve('admin.xlsx'))
+// const excel = xlsx.readFile(path.resolve('dashboard/custom/kids.xlsx'))
+const excel = xlsx.readFile(path.resolve('dashboard/template/admin.xlsx'))
 const sheetName = excel.SheetNames[0];
 const sheet_json = xlsx.utils.sheet_to_json(excel.Sheets[sheetName])
 
@@ -68,7 +68,7 @@ const register = async () => {
             grade = item['Grade'].match(/[^-&]+/g).map(value => value.trim()).filter(value => value)
             names = grade.slice(1)
             remark = item['Remark'].match(/(?<=\d\.).+?(?=  |$)/g).map(title => title.trim()).filter(value => value).map(title => `%${title}%`)
-            startdate = new Date(item['跟新时间'].match(/[\d.]+/)[0])
+            startdate = new Date(item['更新时间'].match(/[\d.]+/)[0])
             // startdate.setDate(startdate.getDate() - (startdate.getDay() - 1)) //转到这周周一
         } catch (error) {
             // console.log('skip', [item['Grade'], remark])
