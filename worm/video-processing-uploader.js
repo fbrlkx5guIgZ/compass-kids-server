@@ -12,7 +12,7 @@ const bucketName = 'lqxeln8v8bow-1314265802';
 const region = 'ap-nanjing';
 
 // const videoFolder = './sideload/__files';
-const videoFolder = './_static/';
+const videoFolder = './static/';
 
 // 获取视频的长和宽
 function getVideoSize(filePath) {
