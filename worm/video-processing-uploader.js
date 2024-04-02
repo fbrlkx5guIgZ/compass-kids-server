@@ -11,8 +11,8 @@ const cos = new COS({
 const bucketName = 'lqxeln8v8bow-1314265802';
 const region = 'ap-nanjing';
 
-const videoFolder = './sideload/__files';
-// const videoFolder = './_static/';
+// const videoFolder = './sideload/__files';
+const videoFolder = './_static/';
 
 // 获取视频的长和宽
 function getVideoSize(filePath) {
@@ -102,7 +102,7 @@ async function processVideo(fileName) {
 async function processVideos() {
   const videoFiles = fs.readdirSync(videoFolder).filter((file) => {
     const extname = path.extname(file).toLowerCase();
-    return extname === '.mp4' || extname === '.mov' || extname === ''; // 根据需要修改支持的视频格式
+    return extname === '.mp4' || extname === '.mov'; // 根据需要修改支持的视频格式
   });
 
   for (const fileName of videoFiles) {

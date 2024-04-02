@@ -63,7 +63,7 @@ async function downloadResource(source, base, maxRetries = 3) {
         try {
             const response = await axios.get(absoluteURL, { responseType: 'arraybuffer' });
             const relativePath = absoluteURL.pathname
-            const outputPath = path.resolve(__dirname, relativePath);
+            const outputPath = path.join(__dirname, relativePath);
 
             // Ensure the directory exists
             fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -188,7 +188,7 @@ const fetch_datalist = async (url, args) => { //包含 insert 以及 BookSource 
                     console.log(`${data.lessonid} locked`)
                     continue
                 }
-                if (!data.lessonname.match(/G1B|GK/)) continue
+                if (!data.lessonname.match(/G1B-39/)) continue
                 for (const key of Object.keys(data)) {
                     if (typeof data[key] == 'object' && json[key] != null) {
                         data[key] = JSON.stringify(data[key])
