@@ -1,0 +1,24 @@
+{
+    "mysql": {
+        "host": "compass-kids.com",
+        "port": 3306,
+        "user": "user",
+        "password": "password",
+        "database": "database"
+    },
+    "COS": {
+        "SecretId": "SecretId",
+        "SecretKey": "SecretKey",
+        "Bucket": "Bucket",
+        "Region": "Region"
+    },
+    "formPath": "dashboard/template/kids.xlsx",
+    "blockLessonId": [
+        0,
+        1
+    ],
+    "publicLessonId": [
+        2,
+        3
+    ]
+}

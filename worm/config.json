@@ -1,0 +1,32 @@
+{
+    "mysql": {
+        "host": "compass-kids.com",
+        "port": 3306,
+        "user": "user",
+        "password": "password",
+        "database": "database"
+    },
+    "COS": {
+        "SecretId": "SecretId",
+        "SecretKey": "SecretKey",
+        "Bucket": "Bucket",
+        "Region": "Region"
+    },
+    "source": {
+        "base": "https://compass-man.com",
+        "resourceBase": [
+            "https://resource1.compass-man.com",
+            "https://resource2.compass-man.com"
+        ],
+        "user": [
+            {
+                "userId": 0,
+                "sessonId": 0
+            },
+            {
+                "userId": 1,
+                "sessonId": 1
+            }
+        ]
+    }
+}

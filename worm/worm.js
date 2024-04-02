@@ -16,6 +16,7 @@ https.globalAgent = new https.Agent({
 const db = mysql.createPool({
     host: 'compass-kids.com',
     user: 'root',
+    port: 31011,
     password: 'REDACTED_DB_PASSWORD',
     database: 'compass_kids'
 })

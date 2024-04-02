@@ -1,0 +1,20 @@
+{
+    "mysql": {
+        "host": "compass-kids.com",
+        "port": 3306,
+        "user": "user",
+        "password": "password",
+        "database": "database"
+    },
+    "COS": {
+        "SecretId": "SecretId",
+        "SecretKey": "SecretKey"
+    },
+    "SSL": {
+        "keyPath": "keys/compass-kids.com.key",
+        "certPath": "keys/compass-kids.com_bundle.crt"
+    },
+    "JWT": {
+        "secretKey": "secretKey"
+    }
+}
