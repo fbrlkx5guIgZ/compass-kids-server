@@ -3,6 +3,9 @@ const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 const COS = require('cos-nodejs-sdk-v5');
 
+ffmpeg.setFfmpegPath(path.resolve('worm/ffmpeg/ffmpeg'));
+ffmpeg.setFfprobePath(path.resolve('worm/ffmpeg/ffprobe'));
+
 const cos = new COS({
   SecretId: 'REDACTED_TENCENT_SECRET_ID',
   SecretKey: 'REDACTED_TENCENT_SECRET_KEY',
