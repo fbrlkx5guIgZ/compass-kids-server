@@ -89,7 +89,8 @@ async function processVideo(fileName) {
 
   if (width > height) {
     console.log(`Uploading '${fileName}' directly to the storage bucket.`);
-    await uploadToCOS(fileName, filePath);
+    if (!fileName.match('.')) await uploadToCOS(fileName + '.mp4', filePath);
+    else await uploadToCOS(fileName, filePath);
   } else {
     console.log(`Processing and uploading '${fileName}'.`);
     const tempFilePath = filePath + '.temp.mp4';
@@ -105,7 +106,7 @@ async function processVideo(fileName) {
 async function processVideos() {
   const videoFiles = fs.readdirSync(videoFolder).filter((file) => {
     const extname = path.extname(file).toLowerCase();
-    return extname === '.mp4' || extname === '.mov'; // 根据需要修改支持的视频格式
+    return extname === '.mp4' || extname === '.mov' || extname == ''; // 根据需要修改支持的视频格式
   });
 
   for (const fileName of videoFiles) {

@@ -63,7 +63,7 @@ async function downloadResource(source, base, maxRetries = 3) {
         try {
             const response = await axios.get(absoluteURL, { responseType: 'arraybuffer' });
             const relativePath = absoluteURL.pathname
-            const outputPath = path.join(__dirname, relativePath);
+            const outputPath = path.join(relativePath);
 
             // Ensure the directory exists
             fs.mkdirSync(path.dirname(outputPath), { recursive: true });
