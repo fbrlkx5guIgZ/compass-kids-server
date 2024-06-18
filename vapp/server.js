@@ -355,15 +355,4 @@ app.use(function (err, req, res, next) {
     }
 })
 
-const httpsServer = https.createServer(options, app)
-httpsServer.listen(443)
-// httpsServer.listen(80)
-
-
-http.createServer((req, res) => {
-    res.writeHead(302, {
-        'Location': `https://compass-kids.com${req.url}`
-    });
-    // console.log(req.url)
-    res.end();
-}).listen(80);
+app.listen(80)
