@@ -71,7 +71,7 @@ app.use(expressjwt({
 
 app.get('/', (req, res) => {
     // res.sendFile(path.resolve('static', 'index.html'))
-    res.send('这是 Compass-Kids 公司的主页！')
+    res.send('<p>这是 Compass-Kids 公司的主页！<p><a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2022030065号-1</a>')
 })
 
 app.get(/^(\/)*tingyu/, (req, res) => {
