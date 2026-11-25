@@ -1,0 +1,46 @@
+services:
+  server-backup:
+    build:
+      context: /home/ubuntu/compass-kids
+      dockerfile: ops/server-backup/Dockerfile
+    image: compass-kids-server:backup
+    container_name: compass-kids-server-backup
+    restart: unless-stopped
+    init: true
+    env_file:
+      - /etc/compass-kids/server-backup.env
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 384m
+    pids_limit: 128
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          const http=require('http');
+          const req=http.get('http://127.0.0.1:8080/healthz',res=>process.exit(res.statusCode===200?0:1));
+          req.setTimeout(3000,()=>{req.destroy();process.exit(1)});
+          req.on('error',()=>process.exit(1));
+      interval: 10s
+      timeout: 4s
+      retries: 3
+      start_period: 15s
+    networks:
+      compass-kids:
+        ipv4_address: 172.22.0.4
+
+networks:
+  compass-kids:
+    external: true

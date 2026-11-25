@@ -1,0 +1,14 @@
+[Unit]
+Description=Compass Docker published-port firewall
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=-/usr/sbin/nft delete table inet compass_docker_guard
+ExecStart=/usr/sbin/nft -f /etc/nftables.d/compass-docker-firewall.nft
+ExecStop=/usr/sbin/nft delete table inet compass_docker_guard
+
+[Install]
+WantedBy=multi-user.target

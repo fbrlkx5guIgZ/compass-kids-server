@@ -1,0 +1,7 @@
+table inet compass_docker_guard {
+  chain forward {
+    type filter hook forward priority -10; policy accept;
+
+    iifname "eth0" ip daddr 172.22.0.3 tcp dport 3306 counter drop comment "Block public ck-db publishing"
+  }
+}
