@@ -10,11 +10,11 @@ const jwt = require('jsonwebtoken');
 
 
 const pool = mysql.createPool({
-    host: 'compass-kids.com',
-    "port": 31011,
-    user: 'root',
-    password: 'REDACTED_DB_PASSWORD',
-    database: 'compass_kids',
+    host: process.env.DB_HOST || '172.22.0.3',
+    port: Number(process.env.DB_PORT || 3306),
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME || 'compass_kids',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
@@ -26,7 +26,10 @@ const options = {
     key: fs.readFileSync(path.resolve('vapp/keys/compass-kids.com.key'), 'utf-8'),
     cert: fs.readFileSync(path.resolve('vapp/keys/compass-kids.com_bundle.crt'), 'utf-8')
 }
-const secretKey = 'REDACTED_JWT_SECRET'
+const secretKey = process.env.JWT_SECRET
+if (!secretKey) {
+    throw new Error('JWT_SECRET is required')
+}
 const LIMIT_DAY = 15
 
 const parseToJSON = (json_array) => {
@@ -52,6 +55,32 @@ const parseToJSON = (json_array) => {
 
 const app = express()
 
+app.disable('etag')
+
+const allowedOrigins = new Set([
+    'https://duqimeng.cn',
+    'https://compass-kids.com',
+    'https://www.compass-kids.com',
+    'https://servicewechat.com'
+])
+
+app.use((req, res, next) => {
+    const origin = req.get('origin')
+    if (allowedOrigins.has(origin)) {
+        res.set('Access-Control-Allow-Origin', origin)
+        res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        res.set('Access-Control-Allow-Headers', 'Authorization, Content-Type')
+        res.set('Access-Control-Max-Age', '600')
+        res.vary('Origin')
+    }
+    res.set('Cache-Control', 'no-store')
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204)
+    }
+    next()
+})
+
 
 app.use(express.urlencoded({ extended: false }))
 app.use((req, res, next) => {
@@ -66,12 +95,17 @@ app.use(expressjwt({
     }
 
 }).unless({
-    path: ['/', '/login', '/Vapp/User/regUserAction', '/Vapp/User/resetUserAction', '/Vapp/index/getIndexData']
+    path: ['/', '/healthz', '/login', '/Vapp/User/regUserAction', '/Vapp/User/resetUserAction', '/Vapp/index/getIndexData']
 }))
 
 app.get('/', (req, res) => {
     // res.sendFile(path.resolve('static', 'index.html'))
     res.send('<p>这是 Compass-Kids 公司的主页！<p><a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2022030065号-1</a>')
+})
+
+app.get('/healthz', async (req, res) => {
+    await pool.query('SELECT 1')
+    res.send({ status: 'ok' })
 })
 
 app.get(/^(\/)*tingyu/, (req, res) => {
@@ -123,6 +157,19 @@ app.get('/login', async (req, res) => {//可以靠两种验证登录，返回一
     }
 
 
+})
+
+app.get('/Vapp/User/getUserInfo', async (req, res) => {
+    const [users] = await pool.query(
+        'SELECT id, user, phone, email, name, admin FROM users WHERE id = ? AND is_deleted = 0 LIMIT 1',
+        [req.auth.id]
+    )
+
+    if (!users.length) {
+        return res.status(404).send('没有这样的用户哦！')
+    }
+
+    res.send(users[0])
 })
 
 app.get('/Vapp/User/regUserAction', async (req, res) => {//新用户注册
@@ -355,4 +402,6 @@ app.use(function (err, req, res, next) {
     }
 })
 
-app.listen(80)
+const port = Number(process.env.PORT || 80)
+const host = process.env.HOST || '0.0.0.0'
+app.listen(port, host)
