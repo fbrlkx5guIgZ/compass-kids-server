@@ -1,0 +1,44 @@
+#!/bin/bash
+set -euo pipefail
+
+container=ck-db-replica
+
+test "$(docker inspect "$container" --format '{{.State.Status}}')" = running
+test "$(docker inspect "$container" --format '{{.State.Health.Status}}')" = healthy
+
+set -a
+# shellcheck disable=SC1091
+source /etc/compass-kids/mysql-replica.env
+set +a
+
+read -r io_state io_error sql_state worker_errors read_only super_read_only <<EOF
+$(docker exec -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" "$container" mysql -uroot -NBe "
+SELECT
+  (SELECT SERVICE_STATE FROM performance_schema.replication_connection_status),
+  (SELECT LAST_ERROR_NUMBER FROM performance_schema.replication_connection_status),
+  (SELECT SERVICE_STATE FROM performance_schema.replication_applier_status),
+  (SELECT COUNT(*) FROM performance_schema.replication_applier_status_by_worker
+     WHERE LAST_ERROR_NUMBER <> 0),
+  @@global.read_only,
+  @@global.super_read_only;
+")
+EOF
+
+test "$io_state" = ON
+test "$io_error" = 0
+test "$sql_state" = ON
+test "$worker_errors" = 0
+test "$read_only" = 1
+test "$super_read_only" = 1
+
+for _ in {1..5}; do
+  caught_up=$(docker exec -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" "$container" \
+    mysql -uroot -NBe "
+      SELECT GTID_SUBSET(RECEIVED_TRANSACTION_SET, @@global.gtid_executed)
+      FROM performance_schema.replication_connection_status;
+    ")
+  test "$caught_up" = 1 && exit 0
+  sleep 2
+done
+
+exit 1

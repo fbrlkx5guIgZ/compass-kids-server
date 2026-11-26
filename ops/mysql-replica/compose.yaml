@@ -1,0 +1,38 @@
+services:
+  mysql-replica:
+    image: swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/mysql@sha256:24c32e2688db4ccd7f18660805a3531394559feb979eba3691c2529350fbf597
+    container_name: ck-db-replica
+    restart: unless-stopped
+    env_file:
+      - /etc/compass-kids/mysql-replica.env
+    volumes:
+      - compass_kids_mysql_replica:/var/lib/mysql
+      - /etc/compass-kids/mysql-replica.cnf:/etc/mysql/conf.d/replica.cnf:ro
+    mem_limit: 768m
+    pids_limit: 256
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - mysqladmin ping -h 127.0.0.1 -uroot -p"$${MYSQL_ROOT_PASSWORD}" --silent
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 40s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    networks:
+      compass-kids:
+        ipv4_address: 172.22.0.3
+
+volumes:
+  compass_kids_mysql_replica:
+    name: compass_kids_mysql_replica
+
+networks:
+  compass-kids:
+    external: true

@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Compass Kids MySQL backup
+
+[Timer]
+OnCalendar=*-*-* 03:17:00
+RandomizedDelaySec=15m
+Persistent=true
+Unit=compass-kids-db-backup.service
+
+[Install]
+WantedBy=timers.target

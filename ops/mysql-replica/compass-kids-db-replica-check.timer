@@ -1,0 +1,11 @@
+[Unit]
+Description=Check Compass Kids MySQL replica every minute
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=1m
+AccuracySec=10s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

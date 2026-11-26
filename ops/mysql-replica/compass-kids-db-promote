@@ -1,0 +1,298 @@
+#!/bin/bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage:
+  compass-kids-db-promote --planned --incident ID --dry-run
+  compass-kids-db-promote --planned --incident ID --confirm-promote
+  compass-kids-db-promote --emergency --incident ID \
+    --accept-potential-data-loss --confirm-promote
+
+Planned promotion requires a healthy source and a fully caught-up replica.
+Emergency promotion requires explicit acceptance that unreceived source
+transactions may be lost.
+EOF
+}
+
+mode=
+incident=
+dry_run=no
+confirm=no
+accept_loss=no
+
+while (($#)); do
+  case "$1" in
+    --planned) mode=planned ;;
+    --emergency) mode=emergency ;;
+    --incident)
+      shift
+      incident=${1:-}
+      ;;
+    --dry-run) dry_run=yes ;;
+    --confirm-promote) confirm=yes ;;
+    --accept-potential-data-loss) accept_loss=yes ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+  shift
+done
+
+if (( EUID != 0 )); then
+  echo "Run as root." >&2
+  exit 2
+fi
+
+if [[ ! "$incident" =~ ^[A-Za-z0-9._-]+$ ]]; then
+  echo "A safe --incident ID is required." >&2
+  exit 2
+fi
+
+if [[ "$mode" != planned && "$mode" != emergency ]]; then
+  echo "Choose exactly one of --planned or --emergency." >&2
+  exit 2
+fi
+
+if [[ "$mode" == emergency && "$accept_loss" != yes ]]; then
+  echo "Emergency mode requires --accept-potential-data-loss." >&2
+  exit 2
+fi
+
+if [[ "$dry_run" != yes && "$confirm" != yes ]]; then
+  echo "Mutation requires --confirm-promote." >&2
+  exit 2
+fi
+
+exec 9>/run/lock/compass-kids-db-failover.lock
+if ! flock -n 9; then
+  echo "Another database role operation is running." >&2
+  exit 1
+fi
+
+status_command=/usr/local/sbin/compass-kids-db-status
+replica_container=ck-db-replica
+replica_env=/etc/compass-kids/mysql-replica.env
+replica_config=/etc/compass-kids/mysql-replica.cnf
+replica_tracked_config=/home/ubuntu/compass-kids/ops/mysql-replica/replica.cnf
+haproxy_config=/etc/haproxy/haproxy.cfg
+haproxy_tracked_config=/home/ubuntu/compass-kids/ops/haproxy/compass-kids.cfg
+compose_dir=/home/ubuntu/docker/compass-kids-backup
+incident_dir=/var/lib/compass-kids-dr/$incident
+
+if [[ "$dry_run" == yes ]]; then
+  echo "DRY_RUN=yes"
+  "$status_command" || true
+  cat <<EOF
+PLAN=stop both applications
+PLAN=capture final source GTID
+PLAN=stop and mask host mysql.service
+PLAN=wait for replica to execute the required GTID set
+PLAN=stop replication and make ck-db-replica writable
+PLAN=persist replica role and HAProxy backend changes
+PLAN=reload HAProxy, restart applications, and verify database writes
+EOF
+  exit 0
+fi
+
+mkdir -p "$incident_dir"
+chmod 0700 "$incident_dir"
+log_file=$incident_dir/actions.log
+exec > >(tee -a "$log_file") 2>&1
+
+log() {
+  printf '%s %s\n' "$(date --iso-8601=seconds)" "$*"
+}
+
+fail() {
+  log "FAILED stage=$stage"
+  log "Applications may be stopped. Do not start the old primary until its role is understood."
+  exit 1
+}
+
+stage=preflight
+trap fail ERR
+
+log "START incident=$incident mode=$mode"
+if [[ "$mode" == planned ]]; then
+  "$status_command" > "$incident_dir/status.before"
+else
+  "$status_command" > "$incident_dir/status.before" || true
+fi
+cat "$incident_dir/status.before"
+
+if [[ "$mode" == planned ]]; then
+  grep -qx 'SAFE_TO_PROMOTE=yes' "$incident_dir/status.before"
+else
+  grep -qx 'REPLICA_STATUS=running' "$incident_dir/status.before"
+  grep -qx 'REPLICA_HEALTH=healthy' "$incident_dir/status.before"
+  grep -qx 'REPLICA_IO_ERROR=0' "$incident_dir/status.before"
+  grep -qx 'REPLICA_SQL_STATE=ON' "$incident_dir/status.before"
+  grep -qx 'REPLICA_WORKER_ERRORS=0' "$incident_dir/status.before"
+  grep -qx 'REPLICA_RECEIVED_APPLIED=1' "$incident_dir/status.before"
+fi
+
+cp -a "$haproxy_config" "$incident_dir/haproxy.before.cfg"
+cp -a "$replica_config" "$incident_dir/replica.before.cnf"
+
+stage=stop_applications
+log "Stopping application writers"
+systemctl stop compass-kids-server.service
+docker stop -t 15 compass-kids-server-backup >/dev/null
+
+required_gtid=
+if systemctl is-active --quiet mysql.service; then
+  required_gtid=$(mysql -uroot -NBe \
+    "SELECT REPLACE(@@global.gtid_executed, '\n', '')")
+  printf '%s\n' "$required_gtid" > "$incident_dir/source-final-gtid.txt"
+  log "Captured final source GTID"
+elif [[ "$mode" == planned ]]; then
+  echo "The source stopped before its final GTID could be captured." >&2
+  false
+fi
+
+stage=fence_source
+log "Fencing host MySQL"
+systemctl stop mysql.service
+systemctl mask mysql.service
+! systemctl is-active --quiet mysql.service
+if ss -ltn | awk '$4=="127.0.0.1:3306" {found=1} END {exit found ? 0 : 1}'; then
+  echo "Host MySQL still listens on 127.0.0.1:3306." >&2
+  false
+fi
+
+set -a
+# shellcheck disable=SC1090
+source "$replica_env"
+set +a
+
+replica_mysql() {
+  docker exec -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" "$replica_container" \
+    mysql -uroot "$@"
+}
+
+stage=catch_up
+log "Waiting for replica GTID application"
+caught_up=0
+for _ in {1..60}; do
+  if [[ -n "$required_gtid" ]]; then
+    caught_up=$(replica_mysql -NBe \
+      "SELECT GTID_SUBSET('$required_gtid', @@global.gtid_executed);")
+  else
+    caught_up=$(replica_mysql -NBe "
+      SELECT GTID_SUBSET(
+        (SELECT RECEIVED_TRANSACTION_SET
+           FROM performance_schema.replication_connection_status),
+        @@global.gtid_executed
+      );
+    ")
+  fi
+  [[ "$caught_up" == 1 ]] && break
+  sleep 1
+done
+[[ "$caught_up" == 1 ]]
+
+replica_mysql -e "STOP REPLICA;"
+replica_mysql -NBe "
+  SELECT COUNT(*) FROM performance_schema.replication_applier_status_by_worker
+  WHERE LAST_ERROR_NUMBER <> 0;
+" | grep -qx 0
+
+stage=promote_replica
+log "Making replica writable"
+replica_mysql -e "
+  SET GLOBAL super_read_only=OFF;
+  SET GLOBAL read_only=OFF;
+"
+
+sed -i \
+  -e 's/^read-only = ON$/read-only = OFF/' \
+  -e 's/^super-read-only = ON$/super-read-only = OFF/' \
+  "$replica_config"
+grep -qx 'read-only = OFF' "$replica_config"
+grep -qx 'super-read-only = OFF' "$replica_config"
+install -o ubuntu -g ubuntu -m 0644 "$replica_config" "$replica_tracked_config"
+
+stage=switch_haproxy
+log "Switching HAProxy database backend"
+awk '
+  $1 == "server" && $2 == "host_mysql" {
+    line = ""
+    for (i = 1; i <= NF; i++) if ($i != "disabled") line = line (line ? OFS : "") $i
+    print "    " line " disabled"
+    next
+  }
+  $1 == "server" && $2 == "docker_mysql" {
+    line = ""
+    for (i = 1; i <= NF; i++) if ($i != "disabled") line = line (line ? OFS : "") $i
+    print "    " line
+    next
+  }
+  { print }
+' "$haproxy_config" > "$incident_dir/haproxy.promoted.cfg"
+
+grep -Eq '^[[:space:]]*server host_mysql .* disabled$' "$incident_dir/haproxy.promoted.cfg"
+grep -Eq '^[[:space:]]*server docker_mysql .* check$' "$incident_dir/haproxy.promoted.cfg"
+haproxy -c -f "$incident_dir/haproxy.promoted.cfg"
+install -o root -g root -m 0644 "$incident_dir/haproxy.promoted.cfg" "$haproxy_config"
+install -o ubuntu -g ubuntu -m 0644 \
+  "$incident_dir/haproxy.promoted.cfg" "$haproxy_tracked_config"
+systemctl reload haproxy.service
+
+for _ in {1..30}; do
+  docker_state=$(echo "show stat" | socat stdio /run/haproxy/admin.sock |
+    awk -F, '$1=="compass_kids_mysql" && $2=="docker_mysql" {print $18}')
+  [[ "$docker_state" == UP ]] && break
+  sleep 1
+done
+[[ "$docker_state" == UP ]]
+
+stage=start_applications
+log "Starting applications"
+systemctl start compass-kids-server.service
+(cd "$compose_dir" && docker compose up -d --no-build server-backup)
+
+for _ in {1..30}; do
+  host_health=$(curl -sS -o /dev/null -w '%{http_code}' \
+    http://127.0.0.1:8080/healthz || true)
+  backup_health=$(docker inspect compass-kids-server-backup \
+    --format '{{if .State.Health}}{{.State.Health.Status}}{{end}}' 2>/dev/null || true)
+  [[ "$host_health" == 200 && "$backup_health" == healthy ]] && break
+  sleep 2
+done
+[[ "$host_health" == 200 ]]
+[[ "$backup_health" == healthy ]]
+
+stage=verify
+log "Verifying promoted write path"
+set -a
+# shellcheck disable=SC1091
+source /etc/compass-kids/server.env
+set +a
+MYSQL_PWD="$DB_PASSWORD" mysql \
+  -h "$DB_HOST" -P "$DB_PORT" -u "$DB_USER" "$DB_NAME" -NBe "
+    SELECT @@global.read_only, @@global.super_read_only;
+    START TRANSACTION;
+    DELETE FROM users WHERE 1=0;
+    SELECT ROW_COUNT();
+    ROLLBACK;
+  " > "$incident_dir/write-test.txt"
+head -n1 "$incident_dir/write-test.txt" | grep -qx $'0\t0'
+curl -fsS -o /dev/null http://127.0.0.1:8081/
+
+stage=complete
+trap - ERR
+log "COMPLETE promoted=ck-db-replica old_primary=masked"
+cat > "$incident_dir/result.txt" <<EOF
+RESULT=success
+ACTIVE_DATABASE=ck-db-replica
+OLD_PRIMARY=mysql.service
+OLD_PRIMARY_FENCED=masked
+INCIDENT=$incident
+EOF

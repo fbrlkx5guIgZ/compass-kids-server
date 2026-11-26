@@ -1,0 +1,110 @@
+#!/bin/bash
+set -euo pipefail
+
+if (( EUID != 0 )); then
+  echo "Run as root." >&2
+  exit 2
+fi
+
+container=ck-db-replica
+env_file=/etc/compass-kids/mysql-replica.env
+haproxy_socket=/run/haproxy/admin.sock
+
+source_active=$(systemctl is-active mysql.service 2>/dev/null || true)
+source_enabled=$(systemctl is-enabled mysql.service 2>/dev/null || true)
+replica_status=$(docker inspect "$container" --format '{{.State.Status}}' 2>/dev/null || true)
+replica_health=$(docker inspect "$container" --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}}' 2>/dev/null || true)
+
+source_gtid=
+source_version=
+if [[ "$source_active" == active ]]; then
+  read -r source_version source_gtid < <(
+    mysql -uroot -NBe "
+      SELECT VERSION(), REPLACE(@@global.gtid_executed, '\n', '');
+    "
+  )
+fi
+
+set -a
+# shellcheck disable=SC1090
+source "$env_file"
+set +a
+
+read -r replica_version read_only super_read_only io_state io_error sql_state worker_errors received_gtid executed_gtid < <(
+  docker exec -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" "$container" mysql -uroot -NBe "
+    SELECT
+      VERSION(),
+      @@global.read_only,
+      @@global.super_read_only,
+      (SELECT SERVICE_STATE FROM performance_schema.replication_connection_status),
+      (SELECT LAST_ERROR_NUMBER FROM performance_schema.replication_connection_status),
+      (SELECT SERVICE_STATE FROM performance_schema.replication_applier_status),
+      (SELECT COUNT(*) FROM performance_schema.replication_applier_status_by_worker
+         WHERE LAST_ERROR_NUMBER <> 0),
+      (SELECT REPLACE(RECEIVED_TRANSACTION_SET, '\n', '')
+         FROM performance_schema.replication_connection_status),
+      REPLACE(@@global.gtid_executed, '\n', '');
+  "
+)
+
+received_applied=$(docker exec -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" "$container" mysql -uroot -NBe "
+  SELECT GTID_SUBSET(
+    (SELECT RECEIVED_TRANSACTION_SET
+       FROM performance_schema.replication_connection_status),
+    @@global.gtid_executed
+  );
+")
+
+source_applied=unknown
+if [[ -n "$source_gtid" ]]; then
+  source_applied=$(docker exec -e MYSQL_PWD="$MYSQL_ROOT_PASSWORD" "$container" mysql -uroot -NBe "
+    SELECT GTID_SUBSET('$source_gtid', @@global.gtid_executed);
+  ")
+fi
+
+host_backend=$(echo "show stat" | socat stdio "$haproxy_socket" |
+  awk -F, '$1=="compass_kids_mysql" && $2=="host_mysql" {print $18}')
+replica_backend=$(echo "show stat" | socat stdio "$haproxy_socket" |
+  awk -F, '$1=="compass_kids_mysql" && $2=="docker_mysql" {print $18}')
+
+safe=no
+if [[ "$source_active" == active &&
+      "$replica_status" == running &&
+      "$replica_health" == healthy &&
+      "$io_state" == ON &&
+      "$io_error" == 0 &&
+      "$sql_state" == ON &&
+      "$worker_errors" == 0 &&
+      "$read_only" == 1 &&
+      "$super_read_only" == 1 &&
+      "$received_applied" == 1 &&
+      "$source_applied" == 1 &&
+      "$host_backend" == UP &&
+      "$replica_backend" == MAINT ]]; then
+  safe=yes
+fi
+
+cat <<EOF
+SOURCE_ACTIVE=$source_active
+SOURCE_ENABLED=$source_enabled
+SOURCE_VERSION=${source_version:-unavailable}
+SOURCE_GTID=${source_gtid:-unavailable}
+REPLICA_STATUS=$replica_status
+REPLICA_HEALTH=$replica_health
+REPLICA_VERSION=$replica_version
+REPLICA_READ_ONLY=$read_only
+REPLICA_SUPER_READ_ONLY=$super_read_only
+REPLICA_IO_STATE=$io_state
+REPLICA_IO_ERROR=$io_error
+REPLICA_SQL_STATE=$sql_state
+REPLICA_WORKER_ERRORS=$worker_errors
+REPLICA_RECEIVED_GTID=$received_gtid
+REPLICA_EXECUTED_GTID=$executed_gtid
+REPLICA_RECEIVED_APPLIED=$received_applied
+SOURCE_GTID_APPLIED=$source_applied
+HAPROXY_HOST_MYSQL=$host_backend
+HAPROXY_DOCKER_MYSQL=$replica_backend
+SAFE_TO_PROMOTE=$safe
+EOF
+
+[[ "$safe" == yes ]]

@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+
+cat >&2 <<'EOF'
+Automated failback is intentionally disabled.
+
+After ck-db-replica has been promoted, host MySQL is stale. Pointing HAProxy
+back to it can lose or fork production writes. Rejoin it by taking a fresh
+seed from the active database, rebuilding host MySQL as a read-only replica,
+waiting for GTID catch-up, and then performing a second controlled switchover.
+
+Follow:
+  /home/ubuntu/compass-kids/ops/mysql-replica/PROMOTION.md
+
+This guard exits without changing services, databases, or HAProxy.
+EOF
+
+exit 2

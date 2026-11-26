@@ -1,0 +1,32 @@
+#!/bin/bash
+set -euo pipefail
+
+umask 077
+
+backup_dir=/var/backups/compass-kids/mysql
+timestamp=$(date +%Y%m%d-%H%M%S)
+final_file="$backup_dir/compass-kids-$timestamp.sql.zst"
+temporary_file="$final_file.part"
+
+mkdir -p "$backup_dir"
+trap 'rm -f "$temporary_file"' EXIT
+
+/usr/bin/mysqldump \
+  --protocol=socket \
+  --user=root \
+  --databases compass_kids compass_kids_test \
+  --single-transaction \
+  --routines \
+  --events \
+  --triggers \
+  --hex-blob \
+  --set-gtid-purged=OFF \
+  | /usr/bin/zstd -T1 -10 -q -o "$temporary_file"
+
+/usr/bin/zstd -q -t "$temporary_file"
+mv "$temporary_file" "$final_file"
+
+# Keep 14 complete daily backups. Pre-migration snapshots use a different name
+# and are intentionally excluded from automatic deletion.
+find "$backup_dir" -maxdepth 1 -type f \
+  -name 'compass-kids-*.sql.zst' -mtime +13 -delete

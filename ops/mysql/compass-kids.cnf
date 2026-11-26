@@ -1,0 +1,19 @@
+[mysqld]
+# Host applications use loopback; the Docker backup application uses the
+# compass-kids bridge gateway. UFW restricts bridge access to 172.22.0.4.
+bind-address = 127.0.0.1,172.22.0.1
+mysqlx-bind-address = 127.0.0.1
+
+# Keep MySQL 8 conservative on this 3.3 GiB host.
+innodb_buffer_pool_size = 384M
+max_connections = 100
+
+# Replication and point-in-time recovery.
+server-id = 1
+log-bin = mysql-bin
+binlog-format = ROW
+gtid-mode = ON
+enforce-gtid-consistency = ON
+log-replica-updates = ON
+binlog-expire-logs-seconds = 604800
+sync-binlog = 1

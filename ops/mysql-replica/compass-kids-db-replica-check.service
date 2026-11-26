@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Compass Kids MySQL replica
+After=docker.service mysql.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/compass-kids-db-replica-check
+User=root
+NoNewPrivileges=true
