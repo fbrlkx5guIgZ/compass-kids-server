@@ -13,16 +13,17 @@ https.globalAgent = new https.Agent({
 })
 
 const db = mysql.createPool({
-    host: 'compass-kids.com',
-    user: 'root',
-    password: 'REDACTED_DB_PASSWORD',
-    database: 'compass_kids'
+    host: process.env.DB_HOST || '127.0.0.1',
+    port: Number(process.env.DB_PORT || 3306),
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME || 'compass_kids'
 })
 
 // SECRETID 和 SECRETKEY请登录 https://console.cloud.tencent.com/cam/capi 进行查看和管理
 var cos = new COS({
-    SecretId: 'REDACTED_TENCENT_SECRET_ID',
-    SecretKey: 'REDACTED_TENCENT_SECRET_KEY'
+    SecretId: process.env.TENCENT_COS_SECRET_ID,
+    SecretKey: process.env.TENCENT_COS_SECRET_KEY
 });
 
 const base = 'https://www.ebanxue.com/'

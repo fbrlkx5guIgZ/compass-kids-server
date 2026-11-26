@@ -3,18 +3,19 @@ import COS from 'cos-nodejs-sdk-v5';
 
 // MySQL数据库连接配置
 const dbConfig = {
-  host: 'compass-kids.com',
-  user: 'root',
-  password: 'REDACTED_DB_PASSWORD',
-  database: 'compass_kids'
+  host: process.env.DB_HOST || '127.0.0.1',
+  port: Number(process.env.DB_PORT || 3306),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME || 'compass_kids'
 };
 
 // 腾讯云对象存储配置
 const cosConfig = {
-  SecretId: 'REDACTED_TENCENT_SECRET_ID',
-  SecretKey: 'REDACTED_TENCENT_SECRET_KEY',
-  Bucket: 'lqxeln8v8bow-1314265802',
-  Region: 'ap-nanjing'
+  SecretId: process.env.TENCENT_COS_SECRET_ID,
+  SecretKey: process.env.TENCENT_COS_SECRET_KEY,
+  Bucket: process.env.TENCENT_COS_BUCKET,
+  Region: process.env.TENCENT_COS_REGION
 };
 
 // 创建MySQL连接池

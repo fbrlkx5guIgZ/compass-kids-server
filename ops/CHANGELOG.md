@@ -5,6 +5,41 @@ Newest entries go first. Product release notes remain in `/CHANGELOG.md`.
 
 Do not include secrets. Use paths and environment variable names instead.
 
+## 2026-11-26 21:15 CST - Codex - Remove embedded credentials from tracked scripts
+
+Status: completed
+
+Objective:
+Prevent database, Tencent COS, and TLS private-key material from being embedded
+in tracked application and maintenance scripts while preserving runtime
+configuration through environment variables.
+
+Changes:
+- Replaced embedded database and Tencent COS settings in dashboard, worm, and
+  maintenance scripts with `DB_*` and `TENCENT_COS_*` environment variables.
+- Removed unused TLS private-key loading from `vapp/server.js`; TLS termination
+  remains at Nginx Proxy Manager.
+- Added private-key and editor-swap exclusions to `.gitignore`.
+- Added `ops/offline-tools.env.example` with placeholder-only variable names.
+- No production service, runtime secret file, database, firewall, container,
+  or host configuration was changed by this repository update.
+
+Validation:
+- JavaScript syntax checks passed for every changed script.
+- Repository and staged-diff scans found no private-key headers or known old
+  credential values.
+- `git diff --check` passed, and public health remained HTTP 200.
+
+Rollback:
+- Revert this commit to restore the previous script sources. Runtime secret
+  files under `/etc/compass-kids` are unchanged and remain the configuration
+  source for production services.
+
+Remaining:
+- Rotate the previously exposed credentials separately during a controlled
+  maintenance procedure; this change removes disclosure but does not rotate
+  live credentials.
+
 ## 2026-11-26 20:32 CST - Codex - Add guarded database promotion tooling
 
 Status: completed

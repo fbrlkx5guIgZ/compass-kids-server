@@ -46,3 +46,7 @@ volume are retained separately as the migration rollback snapshot.
 The host service reads `/etc/compass-kids/server.env`; the backup reads
 `/etc/compass-kids/server-backup.env`. Both require database credentials and
 `JWT_SECRET`.
+
+Offline dashboard and maintenance scripts read database and Tencent COS
+settings from the environment. `offline-tools.env.example` lists the required
+variable names using placeholders only; keep real values outside Git.

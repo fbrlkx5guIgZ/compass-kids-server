@@ -1,8 +1,5 @@
 const express = require('express');
 const mysql = require('mysql2/promise');
-const https = require('https');
-const http = require('http');
-const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const { expressjwt } = require('express-jwt');
@@ -22,10 +19,6 @@ const pool = mysql.createPool({
     // acquireTimeout: 20000  // 设置获取连接的超时时间为20秒
 })
 
-const options = {
-    key: fs.readFileSync(path.resolve('vapp/keys/compass-kids.com.key'), 'utf-8'),
-    cert: fs.readFileSync(path.resolve('vapp/keys/compass-kids.com_bundle.crt'), 'utf-8')
-}
 const secretKey = process.env.JWT_SECRET
 if (!secretKey) {
     throw new Error('JWT_SECRET is required')

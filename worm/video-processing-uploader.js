@@ -7,12 +7,12 @@ ffmpeg.setFfmpegPath(path.resolve('worm/ffmpeg/ffmpeg'));
 ffmpeg.setFfprobePath(path.resolve('worm/ffmpeg/ffprobe'));
 
 const cos = new COS({
-  SecretId: 'REDACTED_TENCENT_SECRET_ID',
-  SecretKey: 'REDACTED_TENCENT_SECRET_KEY',
+  SecretId: process.env.TENCENT_COS_SECRET_ID,
+  SecretKey: process.env.TENCENT_COS_SECRET_KEY,
 });
 
-const bucketName = 'lqxeln8v8bow-1314265802';
-const region = 'ap-nanjing';
+const bucketName = process.env.TENCENT_COS_BUCKET;
+const region = process.env.TENCENT_COS_REGION;
 
 // const videoFolder = './sideload/__files';
 const videoFolder = './static/';
