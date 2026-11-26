@@ -5,6 +5,39 @@ Newest entries go first. Product release notes remain in `/CHANGELOG.md`.
 
 Do not include secrets. Use paths and environment variable names instead.
 
+## 2026-11-26 22:50 CST - Codex - Purge legacy TLS private keys from Git history
+
+Status: completed
+
+Objective:
+Remove legacy TLS private-key objects that remained reachable through old Git
+commits after the files had been deleted from the current tree.
+
+Changes:
+- Identified two historical objects for `keys/compass-kids.com.key` reachable
+  from both `master` and `codex/host-server-ha`.
+- Confirmed by public-key fingerprint comparison that all three active Nginx
+  Proxy Manager certificates use keys different from both historical keys.
+- Completed an isolated `git-filter-repo` rewrite for all branch history. No
+  production service, certificate file, container, or runtime configuration
+  is changed by this operation.
+
+Validation:
+- The rewritten repository contains no historical path matching the old key
+  and no private-key PEM header in any reachable commit.
+- `git fsck --full --strict` passed, and both rewritten branch tips preserved
+  their pre-rewrite file-tree hashes.
+- Public application health remained HTTP 200.
+
+Rollback:
+- Record the pre-rewrite branch object IDs before updating the remote. The
+  original objects may remain recoverable from existing clones, but must not
+  be restored to the shared remote because the keys are compromised.
+
+Remaining:
+- Other clones must re-fetch or re-clone after the remote force update to
+  discard obsolete history.
+
 ## 2026-11-26 21:15 CST - Codex - Remove embedded credentials from tracked scripts
 
 Status: completed
