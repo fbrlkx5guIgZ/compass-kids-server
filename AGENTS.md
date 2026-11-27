@@ -27,3 +27,27 @@ has actually been switched and verified.
 
 When an action is read-only, logging is optional unless it discovers a fact
 that materially changes the operating plan.
+
+## Commit types
+
+Use a Conventional Commit-style type at the start of every commit subject.
+The type identifies the kind of work and is independent of the Git author
+name or email:
+
+- `ops:` server, database, deployment, backup, firewall, or infrastructure
+  changes;
+- `feat:` new application functionality;
+- `fix:` application behavior or bug fixes;
+- `refactor:` code restructuring without intentional behavior changes.
+
+Examples:
+
+```text
+ops(mysql): add guarded database promotion
+feat(api): add lesson progress endpoint
+fix(api): handle missing resource files
+refactor(storage): extract object storage configuration
+```
+
+Use the narrowest applicable type. An `ops:` commit must still update
+`ops/CHANGELOG.md` when it changes production or infrastructure.
